@@ -14,7 +14,7 @@ Here is what I am hoping to get out of the class written in an unordered list:
 +to meet fellow coders that speaka [sic] the same language
 +to be challenged and solve problems.
 
-This is an attempt at a table showing a winning noughts and crosses game graphic. It does not however render like I expect it to.
+This is an attempt at a table showing a winning noughts and crosses game graphic only because you can in markdown in github.
 
 | Noughts | and | Crosses |
 |:---: |:---:|:---:|
