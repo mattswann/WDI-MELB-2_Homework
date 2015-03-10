@@ -16,11 +16,14 @@ Here is what I am hoping to get out of the class written in an unordered list:
 
 This is an attempt at a table showing a winning noughts and crosses game graphic. It does not however render like I expect it to.
 
-X| |O
- |X| 
-O| |X
+| Noughts | and | Crosses |
+|:---: |:---:|:---:|
+|X|-|O|
+|-|X|-|
+|O|-|X|
 
 O was *not* played by deep thought. It would have done somewhat better.
+
 ---
 > And I leave you with a quote: "There is no try. There is only do."
 
