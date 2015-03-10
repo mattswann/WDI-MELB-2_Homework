@@ -6,12 +6,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet odio tem
 
 Nam aliquam volutpat laoreet. Vivamus nec feugiat quam. Maecenas urna leo, dignissim sed mattis a, dictum sit amet dui. Suspendisse id placerat sem, ac rhoncus metus. Praesent vulputate nibh id eros porta porttitor. Donec magna urna, finibus non velit nec, tempor facilisis eros.
 
----
-
 ## Clients from hell
 >Can I have your highest package for your lowest package price?
 
----
 
 # Let's make this more interesting!
 ```
@@ -21,3 +18,13 @@ Nam aliquam volutpat laoreet. Vivamus nec feugiat quam. Maecenas urna leo, digni
 }
 
 ```
+## Definition list
+##### Using `DL` and `DT` *Not 'DT' from WDI GA*
+
+<dl>
+	<dt>How many programmers does it take to change a light bulb?</dt>
+		<dd>None, that's a hardware problem</dd>
+	<dt>When not to use Definition List?</dt>
+		<dd>By using it for the above terrible joke</dd>
+</dl>
+
