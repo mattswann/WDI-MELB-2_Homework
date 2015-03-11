@@ -1,5 +1,5 @@
 function doSomething() {
-	var userAge = document.getElementById("userAge").value;
+	var userAge = parseInt(document.getElementById("userAge").value);
 	var title = document.getElementById("title");
 	
 	if(userAge >= 18){
