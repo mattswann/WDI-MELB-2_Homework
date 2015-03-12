@@ -2,8 +2,9 @@
   TODO: This needs ACTUAL, PROPER commenting becuase as it stands, I have
   to think about how it works for like, ten minutes and it's 1:15am and I'm
   done for the night #inthecommitsforevz
-*/
 
+  https://gist.github.com/mattswann/fae35dac6721373680c2
+*/
 
 var metro = {
   alamein:     ["Flinders Street", "Richmond", "East Richmond", "Burnley"],
