@@ -2,11 +2,11 @@
 // I BUILT A FUN TRAIN LINE TO TRAVEL ON
 // EDIT: MAINLY TO GO SEE BATMAN
 
+// build train network object
 var alameinLine = ['Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie'];
 var glenWaverlyLine = ['Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', 'Kooyong', 'Tooronga'];
 var sandringhamLine = ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran', 'Windsor'];
 var batmanLine = ['Wayne Enterprises', 'Batcave', 'Richmond', 'Gotham CBD', 'Arkham Asylum'];
-
 var metro = {
   Alamein: alameinLine,
   'Glen Waverly': glenWaverlyLine,
@@ -14,60 +14,84 @@ var metro = {
   'Gotham City': batmanLine
 }
 
+// build objects to store travel locations
 var origin = {
   station: '',
   line: ''
 };
-
 var destination = {
   station: '',
   line: ''
 };
 
-function getOrigin() {
-  var originLine = prompt("Please choose your origin train line: Alamein, Glen Waverly, Sandringham or Gotham City.");
-  while (metro[originLine] === undefined) {
-    originLine = prompt("Your input was not recognised. Please choose your origin train line: Alamein, Glen Waverly, Sandringham or Gotham City.");
+// does what it says on the box
+function getUserLine(point, defaultLine) {
+  var line = prompt("Please choose your " + point + " train line: Alamein, Glen Waverly, Sandringham or Gotham City.");
+  // validate input with annoyingly specific requirements
+  var whileBreak = 0;
+  while (metro[line] === undefined) {
+    whileBreak ++;
+    if (whileBreak > 10) {
+      // catch infinite loop errors
+      alert("You've either failed to enter input correctly ten times or something has gone wrong!");
+      alert("Defaulting line to " + defaultLine + ".");
+      line = defaultLine;
+      break;
+    }
+    line = prompt("Your input was not recognised. Please choose your " + point + " train line: Alamein, Glen Waverly, Sandringham or Gotham City.");
   }
-  origin.line = originLine;
-
-  var originStation = prompt("Please enter your origin station from the list: " + metro[originLine].join(", ") + ".");
-  while (metro[originLine].indexOf(originStation) === -1) {
-    originStation = prompt("Your station was not in the list. Please enter a station on the list: " + metro[originLine].join(", ") + ".");
-  }
-  origin.station = originStation;
+  return line;
 }
 
-function getDestination() {
-  var destinationLine = prompt("Please choose your destination train line: Alamein, Glen Waverly, Sandringham or Gotham City.");
-  while (metro[destinationLine] === undefined) {
-    destinationLine = prompt("Your input was not recognised. Please choose your destination train line: Alamein, Glen Waverly, Sandringham or Gotham City.");
+function getUserStation(point, line, defaultStation) {
+  var station = prompt("Please enter your " + point + " station from the list: " + metro[line].join(", ") + ".");
+  // validate input with annoyingly specific requirements
+  var whileBreak = 0;
+  while (metro[line].indexOf(station) === -1) {
+    whileBreak++;
+    if (whileBreak > 10) {
+      // catch infinite loop errors
+      alert("You've either failed to enter input correctly ten times or something has gone wrong!");
+      alert("Defaulting station to " + defaultStation + ".");
+      station = defaultStation;
+      break;
+    }
+    station = prompt("Your station was not in the list. Please enter a station on the list: " + metro[line].join(", ") + ".");
   }
-  destination.line = destinationLine;
-
-  var destinationStation = prompt("Please enter your destination station from the list: " + metro[destinationLine].join(", ") + ".");
-  while (metro[destinationLine].indexOf(destinationStation) === -1) {
-    destinationStation = prompt("Your station was not in the list. Please enter a station on the list: " + metro[destinationLine].join(", ") + ".");
-  }
-  destination.station = destinationStation;
+  return station;
 }
 
+// get user location input
+origin.line = getUserLine("origin", "Alamein");
+origin.station = getUserStation("origin", origin.line, "Hawthorn");
+destination.line = getUserLine("destination", "Sandringham");
+destination.station = getUserStation("destination", destination.line, "Windsor");
+
+// hardcode stations for testing engine
+// origin.line = "Alamein";
+// origin.station = "Flinders Street";
+// destination.line = "Gotham City";
+// destination.station = "Arkham Asylum";
+
+// does what it says on the box
 function findStationIndex(station, line) {
   var stationIndex = metro[line].indexOf(station);
   return stationIndex;
 }
 
-function buildJourney(lineArray, startIndex, distance, direction) {
+// does what it says on the box
+function buildSegment(line, startIndex, distance, direction) {
   var buildArray = [];
   if (direction === 1) {
-    buildArray = metro[lineArray].slice(startIndex, (startIndex+distance+1));
+    buildArray = metro[line].slice(startIndex, (startIndex+distance+1));
   } else if (direction === -1) {
-    buildArray = metro[lineArray].slice((startIndex - distance), (startIndex+1));
+    buildArray = metro[line].slice((startIndex - distance), (startIndex+1));
     buildArray.reverse();
   }
   return buildArray;
 }
 
+// this is bad
 function calculateJourney() {
   var firstLineOriginIndex = findStationIndex(origin.station, origin.line);
   var firstLineIntersectIndex = findStationIndex("Richmond", origin.line);
@@ -84,7 +108,7 @@ function calculateJourney() {
   }
   firstLineDistance *= firstLineDirection;
 
-  var firstJourney = buildJourney(origin.line, firstLineOriginIndex, firstLineDistance, firstLineDirection);
+  var firstJourney = buildSegment(origin.line, firstLineOriginIndex, firstLineDistance, firstLineDirection);
 
   var lastLineDestinationIndex = findStationIndex(destination.station, destination.line);
   var lastLineIntersectIndex = findStationIndex("Richmond", destination.line);
@@ -99,29 +123,29 @@ function calculateJourney() {
   }
   lastLineDistance *= lastLineDirection;
 
-  var lastJourney = buildJourney(destination.line, lastLineIntersectIndex, lastLineDistance, lastLineDirection).slice(1);
+  //slice removes interchange duplication
+  var lastJourney = buildSegment(destination.line, lastLineIntersectIndex, lastLineDistance, lastLineDirection).slice(1);
 
   return firstJourney.concat(lastJourney);;
 }
 
+// also bad
 function calculateSingleLineJourney() {
   var originIndex = findStationIndex(origin.station, origin.line);
   var destinationIndex = findStationIndex(destination.station, destination.line);
   singleLineJourney = []
 
   if (originIndex > destinationIndex) {
-    singleLineJourney = buildJourney(origin.line, originIndex, originIndex - destinationIndex, -1);
+    singleLineJourney = buildSegment(origin.line, originIndex, originIndex - destinationIndex, -1);
   } else if (originIndex < destinationIndex) {
-    singleLineJourney = buildJourney(origin.line, originIndex, destinationIndex - originIndex, 1);
+    singleLineJourney = buildSegment(origin.line, originIndex, destinationIndex - originIndex, 1);
   } else {
     singleLineJourney = [origin.station];
   }
   return singleLineJourney;
 }
 
-getOrigin();
-getDestination();
-
+// follow on badness
 var journey = [];
 if (origin.line === destination.line) {
   journey = calculateSingleLineJourney();
@@ -129,10 +153,11 @@ if (origin.line === destination.line) {
   journey = calculateJourney();
 }
 
+// output
 if (journey.length === 1) {
-  console.log("You won't travel anywhere as you entered only one stop.");
-  console.log("The stop is: " + journey.join(", ") + ".");
+  document.write("You won't travel anywhere as you entered only one stop.<br/>");
+  document.write("The stop is: " + journey.join(", ") + ".<br/>");
 } else if (journey.length > 1) {
-  console.log("You will travel " + journey.length + " stops.");
-  console.log("The stops are: " + journey.join(", ") + ".");
+  document.write("You will travel " + journey.length + " stops.<br/>");
+  document.write("The stops are: " + journey.join(", ") + ".<br/>");
 }
