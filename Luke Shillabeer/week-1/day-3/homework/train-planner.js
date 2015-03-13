@@ -13,12 +13,39 @@ var metro = {
   lines:       ["alamein","glenWaverly","sandringham"],
 }
 
+function lineStationValid(line, station) {
+  if (metro[line]){
+    if (metro[line].indexOf(station) !== -1){
+      return true;
+    }
+  }
+  return false;
+}
+
+function getLineInput() {
+  while (true) {
+    var result = prompt("Please Enter Valid Line: ");
+    if (result in metro["lines"]){
+      break;
+    }
+  }
+  return result;
+}
+
+function isStationOnLine(station, iterStation) {
+  if (station === iterStation) {
+    return true;
+  }
+}
+
 function findLine(station) {
   for (var line in metro["lines"]) {
     var currentLine = metro[metro["lines"][line]];
 
     // check the current line for the station, if it exists set startLine
     // to currentLine - this loops more than it needs to, but watevz
+
+    // TODO: Don't use this function inside a for loop, edit to use findLine()
     currentLine.forEach(function(iterStation) {
       if (station === iterStation)
          result = metro["lines"][line];
@@ -65,4 +92,4 @@ function travel(start, stop) {
   }
 }
 
-travel("Prahan", "Prahan");
+travel("Windsor", "Flinders Street");
