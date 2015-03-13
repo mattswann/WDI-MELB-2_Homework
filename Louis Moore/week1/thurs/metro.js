@@ -4,31 +4,27 @@ var metro = {
 	 sandringham: ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran','Windsor'],
 }
 
-
+// var userLine = ;
+// var exchangeLine = ;
 var startPoint = metro.sandringham.indexOf('Windsor');
 var exchangePoint = metro.sandringham.indexOf('Richmond');
-var destinationPoint = metro.alamein.indexOf('Glenferrie');
+var endPoint = metro.alamein.indexOf('Glenferrie');
 
-
-//5
-//2
-//6
-
-
+// log the start station name
 console.log(metro.sandringham[startPoint]);
 
 //distance travelled from start to exchange
 if (startPoint !== exchangePoint) {
-	console.log(startPoint - exchangePoint);
+	console.log(Math.abs(startPoint - exchangePoint));
 	}
 
-
+// log the exchange station name
 console.log(metro.sandringham[exchangePoint]);
 
 //distance travelled from exchange to destination
-if (exchangePoint !== destinationPoint) {
-	console.log(destinationPoint - exchangePoint);
+if (exchangePoint !== endPoint) {
+	console.log(Math.abs(endPoint - exchangePoint));
 }
 
-console.log(metro.alamein[destinationPoint])
-
+// log the end station name
+console.log(metro.alamein[endPoint])
