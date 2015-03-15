@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>GA BANK - ATM</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/atm.css">
+  </head>
+  <body>
+    <div id="content">
+      
+    <header id="nav">
+        <div id="logo"><img src="img/ga.png" alt="Bank of GA"/></div>
+        <h1 id="title">Bank of GA</h1>
+    </header>
+
+
+    <footer>
+      <p>&copy; 2015 GA Bank.</p>
+      <ul>
+        <li>
+          <a href="#" alt="GA Bank Terms and Conditions">
+            Terms &amp; Conditions
+          </a>
+        </li>
+        <li>
+          <a href="#" alt="GA Bank Privacy and Policy">
+            Privacy &amp; Policy
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+      <!-- OLD -->
+      <div class="account" id="checkingAccount">
+        <h1>Checking</h1>
+        <div class="balance" id="balance1">$0</div>
+        <input id="checkingAmount" type="text" placeholder="enter an amount" />
+        <input id="checkingDeposit" type="button" value="Deposit" />
+        <input id="checkingWithdraw" type="button" value="Withdraw" />
+      </div>
+      <div class="account" id="savingsAccount">
+        <h1>Savings</h1>
+        <div class="balance" id="balance2">$0</div>
+        <input id="savingsAmount" type="text" placeholder="enter an amount" />
+        <input id="savingsDeposit" type="button" value="Deposit" />
+        <input id="savingsWithdraw" type="button" value="Withdraw" />
+      </div>
+      <div class="clear"></div>
+    </div>
+    <script src="js/atm.js"></script>
+  </body>
+</html>
