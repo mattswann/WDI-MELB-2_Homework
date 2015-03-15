@@ -10,7 +10,8 @@ var metro = {
   alamein:     ["Flinders Street", "Richmond", "East Richmond", "Burnley"],
   glenWaverly: ["Flagstaff", "Melbourne Central", "Parliament", "Richmond", "Kooyong", "Tooronga"],
   sandringham: ["Southern Cross", "Richmond", "South Yarra", "Prahan", "Windsor"],
-  lines:       ["alamein","glenWaverly","sandringham"],
+  frankston:   ["Richmond", "Glenhuntly", "Ormond", "McKinnon", "Bentleigh", "Patterson", "Moorabbin"],
+  lines:       ["alamein","glenWaverly","sandringham", "frankston"],
 }
 
 function lineStationValid(line, station) {
@@ -72,6 +73,23 @@ function lineStations(start, stop, line) {
   }
 }
 
+// taken from;
+// http://codegolf.stackexchange.com/a/17129
+function merge() {
+  var args = arguments;
+  var hash = {};
+  var arr = [];
+  for (var i = 0; i < args.length; i++) {
+    for (var j = 0; j < args[i].length; j++) {
+      if (hash[args[i][j]] !== true) {
+        arr[arr.length] = args[i][j];
+        hash[args[i][j]] = true;
+      }
+    }
+  }
+  return arr;
+}
+
 function travel(start, stop) {
   var startLine  = findLine(start);
   var startIndex = metro[startLine].indexOf(start);
@@ -87,9 +105,12 @@ function travel(start, stop) {
     var startInterceptIdx = metro[startLine].indexOf("Richmond");
     var stopInterceptIdx  = metro[stopLine].indexOf("Richmond");
 
-    console.log(lineStations(startIndex, startInterceptIdx, metro[startLine]));
-    console.log(lineStations(stopInterceptIdx, stopIndex, metro[stopLine]));
+
+    var x = lineStations(startIndex, startInterceptIdx, metro[startLine]);
+    var y = lineStations(stopInterceptIdx, stopIndex, metro[stopLine]);
+
+    return merge(x, y);
   }
 }
 
-travel("Windsor", "Flinders Street");
+console.log(travel("Moorabbin", "Flagstaff"));

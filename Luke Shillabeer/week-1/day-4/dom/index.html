@@ -6,40 +6,62 @@
     <link rel="stylesheet" href="css/atm.css">
   </head>
   <body>
+
+    <!-- first row of accounts -->
     <div id="content">
       <div id="nav">
         <div id="logo"><img src="img/ga.png" alt="Bank of GA"/></div>
         <div id="title">Bank of GA</div>
       </div>
+      <!-- checking account -->
       <div class="account" id="checkingAccount">
         <h1>Checking</h1>
         <div class="balance" id="checkingBalance"></div>
         <input id="checkingAmount" type="text" placeholder="enter an amount" />
         <input id="checkingDeposit" type="button" value="Deposit" />
         <input id="checkingWithdraw" type="button" value="Withdraw" />
+        <br>
+        <select id="checkingDropdown"></select>
+        <input id="checkingTransfer" type="button" value="Transfer" />
       </div>
+      <!-- savings account -->
       <div class="account" id="savingsAccount">
         <h1>Savings</h1>
         <div class="balance" id="savingsBalance"></div>
         <input id="savingsAmount" type="text" placeholder="enter an amount" />
         <input id="savingsDeposit" type="button" value="Deposit" />
         <input id="savingsWithdraw" type="button" value="Withdraw" />
+        <br>
+        <select id="savingsDropdown"></select>
+        <input id="savingsTransfer" type="button" value="Transfer" />
       </div>
+      <div class="clear"></div>
+    </div>
+
+    <!-- second row of accounts -->
+    <div id="content">
+      <!-- test account -->
       <div class="account" id="testAccount">
         <h1>Test</h1>
         <div class="balance" id="testBalance"></div>
         <input id="testAmount" type="text" placeholder="enter an amount" />
         <input id="testDeposit" type="button" value="Deposit" />
         <input id="testWithdraw" type="button" value="Withdraw" />
+        <br>
+        <select id="testDropdown"></select>
+        <input id="testTransfer" type="button" value="Transfer" />
       </div>
+      <!-- chet account -->
       <div class="account" id="chetAccount">
         <h1>chet</h1>
         <div class="balance" id="chetBalance"></div>
         <input id="chetAmount" type="text" placeholder="enter an amount" />
         <input id="chetDeposit" type="button" value="Deposit" />
         <input id="chetWithdraw" type="button" value="Withdraw" />
+        <br>
+        <select id="chetDropdown"></select>
+        <input id="chetTransfer" type="button" value="Transfer" />
       </div>
-      <div class="clear"></div>
     </div>
     <script src="js/atm.js"></script>
   </body>

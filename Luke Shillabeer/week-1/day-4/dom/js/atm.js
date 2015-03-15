@@ -16,9 +16,9 @@ function Account(owner, accountType, balance) {
     }
   }
 
-  this.owner        = owner || "default";
-  this.accountType  = accountType || "savings";
-  this.balance      = balance || 0;
+  this.owner       = owner || "default";
+  this.accountType = accountType || "savings";
+  this.balance     = balance || 0;
   this.allAccounts = [];
 
   this.deposit = function(value) {
@@ -29,25 +29,33 @@ function Account(owner, accountType, balance) {
 
   this.withdraw = function(value) {
     value = checkIfPos(parseInt(value, 10)) || 0;
-    if (this.balance - value > 0) {
-      this.balance -= value;
-    } else if (this.balance - value === 0) {
+    if (this.balance - value >= 0) {
       this.balance -= value;
     } else {
       for (var idx in this.allAccounts) {
-        var otherAcc = accounts[this.allAccounts[idx]];
+        var otherAcc    = accounts[this.allAccounts[idx]];
         var combinedBal = this.balance + otherAcc.balance;
         if (combinedBal - value >= 0) {
-          otherAcc.balance -= value - this.balance;
-          this.balance = 0;
-          break;
+          if (otherAcc.accountType != this.accountType) {
+            otherAcc.balance -= value - this.balance;
+            this.balance = 0;
+            break;
+          }
         }
       }
     }
-  this.refreshAllValues(this.allAccounts);
-  };
+    this.refreshAllValues(this.allAccounts);
+  }
 
-    this.refreshAllValues = function(allAccounts) {
+  this.transferTo = function(account, value) {
+    value = checkIfPos(parseInt(value, 10)) || 0;
+    if (this.balance >= value) {
+      this.balance -= value;
+      account.deposit(value);
+    }
+  }
+
+  this.refreshAllValues = function(allAccounts) {
     for (var idx in allAccounts) {
       var currAcc = accounts[allAccounts[idx]];
       updateByID(currAcc.accountType + "Balance", "$" + currAcc.balance);
@@ -71,6 +79,13 @@ function Account(owner, accountType, balance) {
     .addEventListener("click", function() {
       this.withdraw(getByID(this.accountType + "Amount"));
       updateByID(this.accountType + "Balance", "$" + this.balance);
+    }.bind(this));
+
+  document.getElementById(this.accountType + "Transfer")
+    .addEventListener("click", function() {
+      var transferAcc = accounts[getByID(this.accountType + "Dropdown")];
+      var transferVal = getByID(this.accountType + "Amount");
+      this.transferTo(transferAcc, transferVal);
     }.bind(this));
 }
 
@@ -104,6 +119,28 @@ function getByID(id) {
   }
 }
 
+function init() {
+  for (var key in accounts) {
+
+    // appropriately update the DOM with values from the accounts
+    updateByID(key + "Balance", "$" + accounts[key].balance);
+    accounts[key].refreshAllValues([key]);
+
+    for (var j in accounts) {
+
+      // update the objects with all accounts
+      accounts[key].allAccounts.push(j);
+
+      // create dropdown for account transfers
+      var accDropdown  = document.getElementById(key + 'Dropdown');
+      var newOption = document.createElement("option");
+      newOption.innerText = j;
+      newOption.setAttribute('value', j);
+      accDropdown.appendChild(newOption);
+    }
+  }
+}
+
 //--------------------------------------------
 // ... I dunno, "the code!"                  |
 //--------------------------------------------
@@ -117,17 +154,4 @@ var accounts = {
   chet:     new Account(accountOwner, "chet", 10000)
 };
 
-// update the objects with all accounts
-// TODO: This is kind of an ugly hack, necessitated by requiring each
-//       account to know what all OTHER accounts are.
-for (var key in accounts) {
-  for (var j in accounts) {
-    accounts[key].allAccounts.push(j);
-  }
-}
-
-// appropriately update the DOM with values from the accounts
-for (var key in accounts) {
-  updateByID(key + "Balance", "$" + accounts[key].balance);
-  accounts[key].refreshAllValues([key]);
-}
+init();
