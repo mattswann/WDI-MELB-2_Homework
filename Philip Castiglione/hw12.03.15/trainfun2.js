@@ -3,10 +3,10 @@
 // EDIT: MAINLY TO GO SEE BATMAN
 
 // build train network object
-var alameinLine = ['Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie'];
-var glenWaverlyLine = ['Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', 'Kooyong', 'Tooronga'];
-var sandringhamLine = ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran', 'Windsor'];
-var batmanLine = ['Wayne Enterprises', 'Batcave', 'Richmond', 'Gotham CBD', 'Arkham Asylum'];
+var alameinLine = ['Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Batcave', 'Glenferrie'];
+var glenWaverlyLine = ['Flagstaff', 'Batcave','Melbourne Central', 'Parliament', 'Richmond', 'Kooyong', 'Tooronga'];
+var sandringhamLine = ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran', 'Windsor', 'Batcave'];
+var batmanLine = ['Batcave', 'Wayne Enterprises', 'Gotham CBD', 'Arkham Asylum', 'Richmond'];
 var metro = {
   Alamein: alameinLine,
   'Glen Waverly': glenWaverlyLine,
@@ -70,7 +70,7 @@ function getUserStation(point, line, defaultStation) {
 
 // hardcode stations for testing engine
 origin.line = "Alamein";
-origin.station = "Flinders Street";
+origin.station = "Glenferrie";
 destination.line = "Gotham City";
 destination.station = "Arkham Asylum";
 
@@ -93,9 +93,9 @@ function buildSegment(line, startIndex, distance, direction) {
 }
 
 // this is fairly bad
-function calculateJourney() {
+function calculateJourney(interchange) {
   var firstLineOriginIndex = findStationIndex(origin.station, origin.line);
-  var firstLineIntersectIndex = findStationIndex("Richmond", origin.line);
+  var firstLineIntersectIndex = findStationIndex(interchange, origin.line);
 
   var firstLineDirection = 0;
   var firstLineDistance =  firstLineIntersectIndex - firstLineOriginIndex;
@@ -111,7 +111,7 @@ function calculateJourney() {
   var firstJourney = buildSegment(origin.line, firstLineOriginIndex, firstLineDistance, firstLineDirection);
 
   var lastLineDestinationIndex = findStationIndex(destination.station, destination.line);
-  var lastLineIntersectIndex = findStationIndex("Richmond", destination.line);
+  var lastLineIntersectIndex = findStationIndex(interchange, destination.line);
 
   var lastLineDirection = 0;
   var lastLineDistance = lastLineDestinationIndex - lastLineIntersectIndex;
@@ -146,10 +146,18 @@ function calculateSingleLineJourney() {
 
 // implement the badness
 var journey = [];
+var journeyRichmond = [];
+var journeyBatcave = [];
 if (origin.line === destination.line) {
   journey = calculateSingleLineJourney();
 } else {
-  journey = calculateJourney();
+  journeyRichmond = calculateJourney("Richmond");
+  journeyBatcave = calculateJourney("Batcave");
+  if (journeyRichmond.length < journeyBatcave.length) {
+    journey = journeyRichmond;
+  } else {
+    journey = journeyBatcave;
+  }
 }
 
 // output
