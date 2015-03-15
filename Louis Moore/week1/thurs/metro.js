@@ -4,27 +4,43 @@ var metro = {
 	 sandringham: ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran','Windsor'],
 }
 
-// var userLine = ;
-// var exchangeLine = ;
-var startPoint = metro.sandringham.indexOf('Windsor');
-var exchangePoint = metro.sandringham.indexOf('Richmond');
-var endPoint = metro.alamein.indexOf('Glenferrie');
+var startLine = capitalizeFirstLetter(prompt('Your starting line?'));
+var startPoint = capitalizeFirstLetter(prompt('You starting station?'));
+var endline = capitalizeFirstLetter(prompt('Your end point line?'));
+var endPoint = capitalizeFirstLetter(prompt('Your desintation station?'));
+var interchange = 'Richmond';
+var journey1 = startLine.indexOf(startPoint) - startLine.indexOf(interchange);
+var journey2 = endline.indexOf(interchange) - endline.indexOf(endPoint);
+var tripLength = Math.abs(journey1);
+var tripTotal = Math.abs(journey1) + Math.abs(journey2);
 
-// log the start station name
-console.log(metro.sandringham[startPoint]);
-
-//distance travelled from start to exchange
-if (startPoint !== exchangePoint) {
-	console.log(Math.abs(startPoint - exchangePoint));
-	}
-
-// log the exchange station name
-console.log(metro.sandringham[exchangePoint]);
-
-//distance travelled from exchange to destination
-if (exchangePoint !== endPoint) {
-	console.log(Math.abs(endPoint - exchangePoint));
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// log the end station name
-console.log(metro.alamein[endPoint])
+//associate startLine prompt with metro.linename
+if (startLine === 'Alamein') {
+	startLine = metro.alamein;
+} else if ((startLine === 'Glen waverly') || (startLine === 'Glen Waverly')) {
+	startLine = metro.glenWaverly; 
+} else if (startLine === 'Sandringham') {
+	startLine = metro.sandringham;
+}
+
+//associate endline prompt with metro.linename
+if (endline === 'Alamein') {
+	endline = metro.alamein;
+} else if ((endline === 'Glen waverly') || (endline === 'Glen Waverly')) {
+	endline = metro.glenWaverly; 
+} else if (endline === 'Sandringham') {
+	endline = metro.sandringham;
+}
+
+if (startLine !== endline) {
+		console.log('You trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripTotal + ' stations.' + ' You will need to change trains at ' + interchange);
+	} else if (startLine === endline) {
+		journey1 = startLine.indexOf(startPoint) - startLine.indexOf(endPoint);
+		console.log('You trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripLength + ' stations');
+	} else {
+			prompt("Please enter a valid starting station & destination")
+		}
