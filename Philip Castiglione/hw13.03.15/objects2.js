@@ -19,7 +19,7 @@ function addBook(title, author, alreadyRead) {
     title: title,
     author: author,
     alreadyRead: alreadyRead
-  }
+  };
   books.push(bookObj);
 }
 
@@ -32,7 +32,7 @@ for (i in books) {
     if (books[i].alreadyRead === true) {
       read = "You already read ";
     } else {
-      read = "You need to read "
+      read = "You need to read ";
     }
     console.log(read+books[i].title+" by "+books[i].author);
   }
@@ -45,7 +45,7 @@ function addMovie(title, duration, stars) {
     title: title,
     duration: duration,
     stars: stars
-  }
+  };
   movies.push(movieObj);
 }
 
