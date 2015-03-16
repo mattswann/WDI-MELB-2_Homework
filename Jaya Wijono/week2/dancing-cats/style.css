@@ -1,0 +1,15 @@
+.reverse{
+  -webkit-transform:scaleX(-1);
+  -moz-transform:scaleX(-1);
+  transform:scaleX(-1);
+}
+
+#firework{
+  display: none;
+  text-align: center;
+}
+
+#dancing_cats{
+  display: none;
+  text-align: center;
+}
