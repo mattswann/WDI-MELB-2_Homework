@@ -151,7 +151,8 @@ var accounts = {
   checking: new Account(accountOwner, "checking", 400),
   savings:  new Account(accountOwner, "savings", 0),
   test:     new Account(accountOwner, "test", 100),
-  chet:     new Account(accountOwner, "chet", 10000)
+  chet:     new Account(accountOwner, "chet", 10000),
+  second:   new Account(accountOwner, "second", 500000)
 };
 
 init();
