@@ -24,25 +24,56 @@ console.log('savingsAmount', savingsAmount);
 
 if (parseInt(savingsAmount) > 0) {
 	balance += parseInt(savingsAmount);
-	balance2.innerHTML = balance;
-	return savingsAmount;
+	balance2.innerHTML = checkBelowZero(balance);
 }
 }
 
-function removeSavings () {
+function addChecking() {
+var checkingAmount = document.getElementById('checkingAmount').value;
+console.log('checkingAmount', checkingAmount);
+
+if (parseInt(checkingAmount) > 0) {
+	checking += parseInt(checkingAmount);
+	balance1.innerHTML = checkBelowZero(checking);
+}
+}
+
+function removeSavings() {
 var savingsAmount = document.getElementById('savingsAmount').value;
 console.log('savingsAmount', savingsAmount);
 
 if (parseInt(savingsAmount) > 0) {
 	balance -= parseInt(savingsAmount);
-	balance2.innerHTML = balance;
-	return savingsAmount;
+	balance2.innerHTML = checkBelowZero(balance);
+}
+}
+
+function removeChecking() {
+var checkingAmount = document.getElementById('checkingAmount').value;
+console.log('checkingAmount', checkingAmount);
+
+if (parseInt(checkingAmount) > 0) {
+	checking -= parseInt(checkingAmount);
+	balance1.innerHTML = checkBelowZero(checking);
 }
 }
 
 
+function checkBelowZero(value) {
+	if (value < 0) {
+		value = 0
+	} return value;
+}
+
+// add savings
 var savingsDeposit = document.getElementById('savingsDeposit');
 savingsDeposit.addEventListener('click', addSavings);
-
+// add checking
+var checkingDeposit = document.getElementById('checkingDeposit');
+checkingDeposit.addEventListener('click', addChecking);
+// remove savings
 var savingsWithdraw = document.getElementById('savingsWithdraw');
-savingsWithdraw.addEventListener('click', removeSavings);
+savingsWithdraw.addEventListener('click', /*callback*/removeSavings);
+// remove checking
+var checkingWithdraw = document.getElementById('checkingWithdraw');
+checkingWithdraw.addEventListener('click', removeChecking);
