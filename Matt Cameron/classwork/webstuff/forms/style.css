@@ -1,0 +1,12 @@
+h1 {
+	text-align: center;
+}
+
+body {
+	background-color: rgb(192, 255, 214);
+}
+
+.container {
+	margin: auto;
+	max-width: 600px;
+}

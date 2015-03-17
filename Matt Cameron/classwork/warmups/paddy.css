@@ -1,0 +1,34 @@
+body {
+	background-image: url('http://juliewight.com/wp-content/uploads/2013/11/shamrock-images.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+h1 {
+	font-size: 60px;
+	text-align: center;
+}
+
+img {
+	float: right;
+	margin-right: 300px;
+}
+
+input {
+	padding: 10px;
+}
+
+button {
+	padding: 10px;
+	border-radius: 5px;
+}
+
+#answer {
+	font-size: 25px;
+	padding: 30px;
+}
+
+#container {
+	max-width: 550px;
+	margin:auto;
+}
