@@ -43,7 +43,7 @@ function validateTransactionInput(account, amount) {
   } else if (Number.isNaN(parseInt(amount, 10))) {
     console.log("Amount " + amount + " not accepted. typeof(amount) = " + typeof(amount));
     return false;
-  } else if (parseInt(amount, 10) === 0) {
+  } else if (parseInt(amount, 10) <= 0) {
     console.log("Amount " + amount + " not accepted.");
     return false;
   } else {
@@ -158,12 +158,12 @@ function initialiseAccounts() {
   linkAccounts("savings","checking");
   updateScreenBalance();
   updateConsole("Welcome to GA Bank!");
-
-  //deposit("savings", 50); //testing
-  //deposit("checking", 50); //testing
 }
 
 initialiseAccounts();
 
+// decimals
+// make it not GA
+// add transfer
 // make js put the html in
 // make js add x accounts based on args
