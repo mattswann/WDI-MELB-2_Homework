@@ -3,8 +3,8 @@
 
 // TODO have to handle indexes so that richmond and / or destination is not returned twice. A unique! function would nail it.
 var route = {
-    stationStart: 'Flagstaff',
-    stationEnd: 'Flinders Street',
+    stationStart: 'Southern Cross',
+    stationEnd: 'Melbourne Central',
     routeArray: []
 };
 
