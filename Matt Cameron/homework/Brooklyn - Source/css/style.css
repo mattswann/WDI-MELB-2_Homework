@@ -1,0 +1,47 @@
+body {
+	font-size: 12px;
+	line-height: 17px;
+	color: #656565;
+	font-family: "Times New Roman", serif;
+}
+
+h1 {
+	font-size: 24pt;
+	margin-top: 40px;
+}
+
+a {
+	color: rgb(77, 166, 253);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #20222a;
+}
+
+#container {
+	max-width: 67%;
+	margin: auto;
+}
+
+.date {
+	color: rgb(77, 166, 253);
+	margin-bottom: 0px;
+}
+
+p.teaser {
+	margin-top: 0px;
+}
+
+.box {
+	display: inline-block;
+}
+
+.box img {
+	border: 4px solid #CCCED0;
+}
+
+.responsive {
+	width: 100%;
+	height: 100%;
+}
