@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 900px;
+	background-color: #E3B505;
+	margin: 0 auto;
+	font-size: 0;
+}
+
+.container div {
+	display: inline-block;
+	height: 100px;
+	width: 50%;
+	font-size: 15px;
+}
+
+.container div:first-child {
+	background-color: #3C91E6;
+}
+
+.container div:last-child {
+	background-color: #F75C03;
+}
