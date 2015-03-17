@@ -1,0 +1,51 @@
+body {
+	background-color: plum;
+
+}
+
+.menu li {
+	display: inline;
+	list-style-type: none; 
+}
+
+
+.outer {
+	box-sizing: border-box;
+	width: 50%;
+	margin: auto;
+	background-color: #ccc;
+	padding: 15px;
+	border-radius: 40px 30px 20px 10px;
+}
+
+.outer h1 {
+	text-align: center;
+}
+
+.inner {
+	background-color: #aaa;
+	padding: 10px;
+	border-radius: 40px, 30px, 20, 10px;
+
+}
+
+
+.warning {
+	color: lime;
+}
+
+#desire {
+	font-size: 200%;
+}
+
+p.warning {
+
+}
+
+articles > p {
+		text-decoration: underline;
+	}
+
+a:hower {
+	color: yellow;
+}
