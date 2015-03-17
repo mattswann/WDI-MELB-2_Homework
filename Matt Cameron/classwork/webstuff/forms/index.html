@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Forms</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>HTML5 Form Inputs Example</h1>
+		<form action="/">
+			<p>
+				<label for="query">Things to search for</label>
+				<input type="search" name="query" id="query" placeholder="Why does my cat lick me?" size="30">
+			</p>
+
+			<p>
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name" placeholder="Tyler Durden">
+			</p>
+
+			<p>
+				<label for="myspace">Myspace Page:</label>
+				<input type="url" name="myspace" id="myspace" placeholder="http://www.myspace.com/tom" size="30">
+			</p>
+
+			<p>
+				<label for="age">Age:</label>
+				<input type="number" name="age" id="age" placeholder="30">
+			</p>
+
+			<p>
+				<label for="email">Email:</label>
+				<input type="email" name="email" id="email" placeholder="email@domain.com">
+			</p>
+
+			<p>
+				<label for="avatar">Avatar:</label>
+				<input type="file" name="avatar" id="avatar">
+			</p>
+
+			<p>
+				<label for="letter_home">Letter Home:</label>
+				<input type="textarea" id="letter_home" name="letter_home" placeholder="Dear Mum and Dad...">
+			</p>
+
+			<p>
+				<label for="dob">Date of Birth</label>
+				<input type="date" id="dob" name="dob">
+			</p>
+
+			<p>
+				Select your vices:
+				<label for="cigars">Cigars</label>
+				<input type="checkbox" id="cigars" name="vices" value="cigars">
+				<label for="wine">Wine</label>
+				<input type="checkbox" id="wine" name="vices" value="wine">
+				<label for="heroin">Heroin</label>
+				<input type="checkbox" id="heroin" name="vices" value="heroin">
+			</p>
+
+			<p>
+				<label for="body">Select your favourite body part:</label>
+				<select name="fav_body_part" id="fav_body_part">
+					<option value="head">Head</option>
+					<option value="shoulders">Shoulders</option>
+					<option value="boobs">Boobs</option>
+					<option value="abs">Abs</option>
+					<option value="balls">Balls</option>
+				</select>
+			</p>
+			<button>Submit</button>
+		</form>
+
+	</div>
+</body>
+</html>

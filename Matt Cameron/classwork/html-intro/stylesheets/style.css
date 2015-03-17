@@ -1,0 +1,9 @@
+body {
+	background-color: blue;
+	text-align: center;
+}
+
+article {
+	max-width: 700px;
+	margin: auto;
+}

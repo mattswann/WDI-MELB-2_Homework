@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+
+	<h1>Countdown Timer</h1>
+	<label for="count">Count down from:</label>
+	<input type="number" id="setCount" name="count">
+	<button id="button">Submit</button>
+	<div id="countDisplay" style="font-size: 200px; text-align: center; margin-top:200px;"></div>
+
+	<script>
+		function countDown() {
+			var count = setCount.value;
+			var timerId	= setInterval(function() {
+				if(count === 0) {
+					countDisplay.innerHTML = "BLASTOFF!";
+					clearInterval(timerId);
+				} else {
+					countDisplay.innerHTML = count;
+				}
+				count--;
+			}, 1000);
+		}
+		var countDisplay = document.getElementById("countDisplay");
+		var setCount = document.getElementById("setCount");
+		var button = document.getElementById("button");
+		button.addEventListener('click', function() {
+			countDown()
+		})
+
+
+	</script>
+</body>
+</html>
