@@ -37,7 +37,7 @@ function catWalk() {
 		setTimeout(function () {
 			img.src = "http://www.anniemation.com/clip_art/images/cat-walk.gif";
 			startCatWalk();
-		},5000)
+		},5000);
 	}
 }
 

@@ -33,21 +33,18 @@ var accounts = {
 
 var checking = accounts.checking;
 var savings = accounts.savings;
-var checkAcct = document.getElementById("checkingAccount");
-var savAcct = document.getElementById("savingsAccount");
-var checkBal = document.getElementById("checkingBalance");
-var savBal = document.getElementById("savingsBalance");
-var checkAmt = document.getElementById("checkingAmount");
-var savAmt = document.getElementById("savingsAmount");
-var checkDep = document.getElementById("checkingDeposit")
-var savDep = document.getElementById("savingsDeposit")
-var checkWith = document.getElementById("checkingWithdraw")
-var savWith = document.getElementById("savingsWithdraw")
-var userAmount;
 
-checkDep.addEventListener('click', function(){
+document.getElementById("checkingDeposit").addEventListener('click', function(){
+    var checkBal = document.getElementById("checkingBalance");
+    var checkAmt = document.getElementById("checkingAmount");
+    var savMsg = document.getElementById("savingsMsg");
+    var checkMsg = document.getElementById("checkingMsg");
+
+    savMsg.innerHTML = "";
+    checkMsg.innerHTML = "";
+
     // Retrieve the checking acct deposit amount and convert to a floating point number
-    userAmount = parseFloat(checkAmt.value);
+    var userAmount = parseFloat(checkAmt.value);
 
     if (amountValid(userAmount)) {
         // Convert negative amount to positive
@@ -61,15 +58,23 @@ checkDep.addEventListener('click', function(){
         checkAmt.value = "";
 
         // Ensure account background colour indicates positive amount
-        removeClass(checkAcct,"zero");
+        removeClass(checkBal,"zero");
     } else {
         alert("Amount entered must be a number! Please re-enter the amount.");
     }
 });
 
-savDep.addEventListener('click', function(){
+document.getElementById("savingsDeposit").addEventListener('click', function(){
+    var savBal = document.getElementById("savingsBalance");
+    var savAmt = document.getElementById("savingsAmount");
+    var savMsg = document.getElementById("savingsMsg");
+    var checkMsg = document.getElementById("checkingMsg");
+
+    savMsg.innerHTML = "";
+    checkMsg.innerHTML = "";
+
     // Retrieve the savings acct deposit amount and convert to a floating point number
-    userAmount = parseFloat(savAmt.value);
+    var userAmount = parseFloat(savAmt.value);
 
     if (amountValid(userAmount)) {
         // Convert negative amount to positive
@@ -83,15 +88,24 @@ savDep.addEventListener('click', function(){
         savAmt.value = "";
 
         // Ensure account background colour indicates positive amount
-        removeClass(savAcct,"zero");
+        removeClass(savBal,"zero");
     } else {
         alert("Amount entered must be a number! Please re-enter the amount.");
     }
 });
 
-checkWith.addEventListener('click', function(){
+document.getElementById("checkingWithdraw").addEventListener('click', function(){
+    var checkBal = document.getElementById("checkingBalance");
+    var savBal = document.getElementById("savingsBalance");
+    var checkAmt = document.getElementById("checkingAmount");
+    var savMsg = document.getElementById("savingsMsg");
+    var checkMsg = document.getElementById("checkingMsg");
+
+    savMsg.innerHTML = "";
+    checkMsg.innerHTML = "";
+
     // Retrieve the checking acct withdrawal amount and convert to a floating point number
-    userAmount = parseFloat(checkAmt.value);
+    var userAmount = parseFloat(checkAmt.value);
 
     if (amountValid(userAmount)) {
         // Convert negative amount to positive
@@ -105,7 +119,7 @@ checkWith.addEventListener('click', function(){
             checking.withdraw(checking.getBalance());
             savings.withdraw(userAmount);
         } else {
-            alert("You don't have enough combined funds in your accounts to complete that transaction.");
+            checkMsg.innerHTML = "Insufficient combined funds available";
         }
 
         // Update screen balances and checking account input text field
@@ -115,19 +129,28 @@ checkWith.addEventListener('click', function(){
 
         // Set account background colours to indicate zero-balance (if required)
         if (checking.getBalance() === 0) {
-            addClass(checkAcct,"zero");
+            addClass(checkBal,"zero");
         }
         if (savings.getBalance() === 0) {
-            addClass(savAcct,"zero");
+            addClass(savBal,"zero");
         }
     } else {
         alert("Amount entered must be a number! Please re-enter the amount.");
     }
 });
 
-savWith.addEventListener('click', function(){
+document.getElementById("savingsWithdraw").addEventListener('click', function(){
+    var checkBal = document.getElementById("checkingBalance");
+    var savBal = document.getElementById("savingsBalance");
+    var savAmt = document.getElementById("savingsAmount");
+    var savMsg = document.getElementById("savingsMsg");
+    var checkMsg = document.getElementById("checkingMsg");
+
+    savMsg.innerHTML = "";
+    checkMsg.innerHTML = "";
+
     // Retrieve the savings acct withdrawal amount and convert to a floating point number
-    userAmount = parseFloat(savAmt.value);
+    var userAmount = parseFloat(savAmt.value);
 
     if (amountValid(userAmount)) {
         // Convert negative amount to positive
@@ -141,7 +164,7 @@ savWith.addEventListener('click', function(){
             savings.withdraw(savings.getBalance());
             checking.withdraw(userAmount);
         } else {
-            alert("You don't have enough combined funds in your accounts to complete that transaction.");
+            savMsg.innerHTML = "Insufficient combined funds available";
         }
 
         // Update screen balances and savings account input text field
@@ -151,10 +174,10 @@ savWith.addEventListener('click', function(){
 
         // Set account background colours to indicate zero-balance (if required)
         if (savings.getBalance() === 0) {
-            addClass(savAcct,"zero");
+            addClass(savBal,"zero");
         }
         if (checking.getBalance() === 0) {
-            addClass(checkAcct,"zero");
+            addClass(checkBal,"zero");
         }
     } else {
         alert("Amount entered must be a number! Please re-enter the amount.");
