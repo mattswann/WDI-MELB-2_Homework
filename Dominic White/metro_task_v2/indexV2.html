@@ -31,19 +31,19 @@
 				</table>	
 			
 				<p>Please select the train line and station you would like to start at</p>
-				<select id="startLine" onchange="displayStartStations(metro);">
+				<select id="startLine" onchange="displayStations('startLine', 'startStation');">
 				</select>
 				<select id="startStation">
 				</select>
 
 				<p>Please select the train line and station you would like to finish at?</p>
-				<select id="stopLine" onchange="displayStopStations(metro);">
+				<select id="stopLine" onchange="displayStations('stopLine', 'stopStation');">
 				</select>
 				<select id="stopStation">
 				</select>
 
 				<div id="button">
-					<button id="btnGo" onclick= "displayResult()">Let's Go!</button>
+					<button id="btnGo">Let's Go!</button>
 				</div>
 			</div>	
 			<div id="output">
@@ -52,5 +52,5 @@
 		</div>
 	</body>
 	
-	<script src="metro.js"></script>
+	<script src="metroV2.js"></script>
 </html>
