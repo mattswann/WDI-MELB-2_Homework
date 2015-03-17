@@ -1,0 +1,54 @@
+#main {
+	width: 600px;
+	margin: 0 auto;
+}
+
+#container {
+	margin-left: 80px;
+	width: 900px;
+}
+
+.showInLine {
+	display: inline;
+}
+
+#Aa {
+	border: 1px gray;
+	position: fixed;
+
+}
+
+#Bb {
+
+	border-bottom: 3px;
+}
+
+#Cc {
+
+	border-bottom: 3px;
+
+}
+
+#dt {
+	color: red solid;
+}
+
+h3 {
+	color: gray;
+}
+
+h6 {
+	color: pink;
+}
+
+p {
+	font-size: 15px;
+	color: gray;
+}
+
+.Dd {
+	border: solid gray;
+	border-width: 5px;
+	width: 22%;
+}
+
