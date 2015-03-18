@@ -1,0 +1,12 @@
+#spoiler {
+	text-align: center;
+}
+
+#result {
+	text-align: center;
+	font-size: 50px;
+}
+
+#guessedLetters {
+	display: inline;
+}
