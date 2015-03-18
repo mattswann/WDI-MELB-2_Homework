@@ -1,0 +1,108 @@
+html{
+  background-color: #d6d6d6;
+}
+
+.header{
+  text-align: center;
+}
+
+.background-head{
+  height: 165px;
+  background-image: url('images/background.jpg');
+}
+.header img{
+  margin-top: 20px;
+}
+
+.content{
+  width: 90%;
+  margin: 80px auto;
+}
+
+.article, .sidebar{
+  display: inline-block;
+  background-color: white;
+  margin: 5% 0 5% 0;
+}
+
+.article{
+  width: 100%;
+}
+
+
+.article img, .article p, .article h2{
+  width: 96%;
+  margin: 2% 2% 2% 2%;
+  font-size: 1.2em;
+}
+
+.article aside{
+  width: 96%;
+  margin: 2% 2% 2% 2%;
+  border-top: 1px dotted black;
+  border-bottom: 1px solid black;
+  margin-bottom: 8%;
+  font-size: 0.8em;
+}
+
+a{
+  color: orange;
+}
+
+.sidebar{
+  width: 100%;
+}
+
+.sidebar p, .sidebar h3{
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 2% 0;
+  text-align: center;
+}
+
+.archive, .blogroll{
+ margin: 5% 5% 5% 5%;
+}
+
+.ads-image{
+  width: 60%;
+  margin: 5% 20% 5% 20%;
+}
+
+.footer{
+  text-align: center;
+}
+
+.clear{
+  clear: both;
+}
+
+@media all and (min-width: 45em){
+
+  .content{
+    width: 66%;
+    margin-bottom: 1.5em;
+  }
+
+  .article{
+    width: 70%;
+    float: left;
+  }
+
+  .sidebar{
+    width: 27%;
+    float: right;
+  }
+
+  .sidebar p, .sidebar h3{
+    text-align: left;
+    font-size: 0.8em;
+  }
+
+  .ads-image{
+    width: 90%;
+    margin: 5% 5% 5% 5%;
+  }
+
+
+}
