@@ -1,4 +1,6 @@
+
 var boats = [];
+var explodedBoats = [];
 var goTimer;
 var delayMs = 40;
 var addButton = document.getElementById("addButton");
@@ -9,13 +11,14 @@ var stopButton = document.getElementById("stopButton");
 stopButton.addEventListener('click', allBoatsStop);
 var speedButton = document.getElementById("speedButton");
 speedButton.addEventListener('click', toggleSpeed);
+var numBoats = 0;
 
 function newBoat() {
-  var numBoats = boats.length;
+  numBoats++;
   
   var imgInsert = document.createElement('img');
   imgInsert.src = "boat.jpg";
-  imgInsert.id = 'img'+(numBoats+1)
+  imgInsert.id = 'img'+(numBoats)
   document.body.insertBefore(imgInsert, document.getElementById("placeholder"));
 
   var boat = {
@@ -27,7 +30,7 @@ function newBoat() {
     img_height: 100,
     img_width: 100,
   }
-  boat.HTMLobject = document.getElementById('img'+(boats.length+1));
+  boat.HTMLobject = document.getElementById('img'+(numBoats));
   boat.HTMLobject.className = "show";
   boat.HTMLobject.style.left = boat.left_position + 'px';
   boat.HTMLobject.style.top = boat.top_position + 'px';
@@ -122,16 +125,43 @@ function boatExplode(boatOneIdx, boatTwoIdx) {
   boats[boatTwoIdx].HTMLobject.src = "explosion.gif";
   boats[boatTwoIdx].HTMLobject.style.height = "100px";
   boats[boatTwoIdx].HTMLobject.style.width = "100px";
-  // either splice out of boats array, or some other way stop them moving
-  setTimeout(hideBoats, 8000);
+
+  var higherIndex, lowerIndex;
+  if (boatOneIdx > boatTwoIdx) {
+    higherIndex = boatOneIdx;
+    lowerIndex = boatTwoIdx;
+  } else {
+    higherIndex = boatTwoIdx;
+    lowerIndex = boatOneIdx;
+  }
+
+  explodedBoats.push(boats.splice(higherIndex,1)[0]);
+  var temp1 = explodedBoats[explodedBoats.length-1]
+  explodedBoats.push(boats.splice(lowerIndex,1)[0]);
+  var temp2 = explodedBoats[explodedBoats.length-1]
+
+  setTimeout(hideBoats, 7300);
   function hideBoats() {
-    boats[boatOneIdx].HTMLobject.className = "hide";
-    boats[boatTwoIdx].HTMLobject.className = "hide";
+    temp1.HTMLobject.className = "hide";
+    temp2.HTMLobject.className = "hide";
   }
 }
 
-function detectCollision() {
-
+function detectCollision(boatIdx) {
+  var currentTop = boats[boatIdx].top_position;
+  var currentLeft = boats[boatIdx].left_position;
+  var compareTop, compareLeft;
+  for (i2=0;i2<boats.length;i2++){
+    compareTop = boats[i2].top_position;
+    compareLeft = boats[i2].left_position;
+    if (boatIdx !== i2 &&
+        currentTop >= compareTop &&
+        currentTop <= (compareTop + 100) &&
+        currentLeft >= compareLeft &&
+        currentLeft <= (compareLeft + 100)) {
+      boatExplode(boatIdx,i2);
+    }
+  }
 }
 
 function detectScreenEdge(boatIdx) {
@@ -169,6 +199,7 @@ function allBoatsGo() {
       moveBoat(i);
       changeDirection(i);
       detectScreenEdge(i);
+      detectCollision(i);
     }
   }
 
@@ -196,6 +227,6 @@ function toggleSpeed() {
   allBoatsGo();
 }
 
-// finish functions explode and collision
 // correct bouncing and explosions by getting square images with transparancy
 // add background when square images with transparency
+// improve smoothness of movement with ranges
