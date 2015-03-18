@@ -24,8 +24,11 @@ header {
 }
 
 #input {
-  float: right;
-  padding: 20px 30px 0 0;
+  width: 250px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 30px 20px 0;
 }
 
 #answer {
