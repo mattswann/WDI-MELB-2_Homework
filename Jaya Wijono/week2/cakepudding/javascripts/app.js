@@ -77,6 +77,7 @@ var game = {
     player.guessCount = 0;
     youLose.style.display = 'inline';
     revealAnswer.innerHTML = 'The answer is: "' + word.secretWord + '"';
+    guessesLeftHTML.innerHTML = generateCross(player.guessCount);
   },
  
   // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
