@@ -1,0 +1,52 @@
+/* ---------- HELPERS --------*/
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.hide {
+    text-indent:-9909px;
+}
+
+
+/* ---------- STRUCTURE --------*/
+
+
+
+
+.wrapper {
+    max-width:849px;
+    margin:0 auto;
+}
+
+.main {
+    /*width = 577px*/
+    /*gutter = 19px*/
+    width:67.962308598%;
+    float: left;
+    background: #ddd;
+}
+
+.sidebar {
+    /*width = 253px*/
+    width: 29.799764429%;
+    float: right;
+    background: #eee;
+    
+}
+
+
+
+
+
+
+/* ---------- TYPEOGRAPHY --------*/
+
+
+
+
+/* ---------- MISC. --------*/
+
