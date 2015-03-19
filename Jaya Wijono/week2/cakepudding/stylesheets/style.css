@@ -1,0 +1,65 @@
+html {
+  font-family: 'Indie Flower', cursive;
+  background-image: url('../images/paper.jpg');
+  font-size: 1.5em;
+}
+
+h2{
+  font-size: 1.1em;
+}
+
+.console_log{
+  margin: 0 auto;
+  text-align: center;
+}
+
+#dancing_banana{
+  width: 50%;
+  margin: 0 50% 0 15%;
+  display: none;
+}
+
+#you_win{
+  width: 50%;
+  margin: 30px 45% 0 30%;
+  display: none;
+}
+
+#reveal_answer, #you_lose{
+  margin: 30px auto;
+  display: none;
+}
+
+#reveal_answer{
+  display: block;
+  font-weight: bolder;
+  font-size: 1.7em;
+  text-decoration: underline;
+}
+
+#guessesLeft{
+  display: inline;
+  font-weight: bolder;
+  color: red;
+}
+
+#guessesLeft, #guessedLetters, #wordString{
+  letter-spacing: 0.8em;
+  font-size: 1.7em;
+  font-weight: bolder;
+}
+
+#guessedLetters{
+  display: inline-block;
+  color: blue;
+  width: 100%;
+}
+
+#wordString{
+  width: 100%;
+  text-align: center;
+}
+
+#giveUpButton, #resetButton{
+  width: 20%;
+}
