@@ -5,53 +5,57 @@ var word = {
   // Selects a random word from the word list sets the secret word
   setSecretWord: function(){
       word.secretWord = _.sample(word.wordList);
+      spoiler.innerHTML = word.secretWord;
+
+      // set blankWord and display it
+      _.each(word.secretWord, word.createBlankWord);
+      wordString.innerHTML = word.blankWord.join("");
   },
 
-  // Takes an array of letters as input and returns an array of two items:
-  // 1) A string with the parts of the secret word that have been guessed correctly and underscore for the parts that haven't
-  // 2) An array of all the guessed letters that were not in the secret word
-  checkLetters: function(letter){
-    guessedLetters.push(letter);
-    usedLetters.innerHTML = guessedLetters;
+  createBlankWord: function() {
+    word.blankWord.push(" _ ");
+  },
 
-  }
+  blankWord: [],
+  wrongLetters: [],
+  guessedLetters: [],
+
 };
-
-/*function  checkEachLetter(letter) {
-  if (_.contains(word.secretWord, letter)) {
-    console.log("Yes, " + letter + " is in the secret word.");
-
-  } else console.log("Not in the secret word.")
-}
-*/
-
-
-
-
-var guessedLetters = [];
 
 var player = {
   MAX_GUESSES: 8,
-  guessedLetters: [],
   guessesLeft: 8,
 
   // Takes a new letter as input and updates the game
   makeGuess: function(letter){
+    // if the player is out of guesses, don't let them play
     if(player.guessesLeft <= 0) { return; };
-    console.log(_.contains(word.secretWord, letter) ? "Yes" : "No");
-    player.guessesLeft--;
 
-    displayGuesses.innerHTML = player.guessesLeft;
-    word.checkLetters(letter);
-   player.checkWin();
-   player.checkLose();
+    // if the letter is right
+    if (_.contains(word.secretWord, letter)) {
+
+      // Loop through and display each occurrence of the letter
+      for (var i=0; i < word.secretWord.length; i++) {
+        var foundIdx = word.secretWord.indexOf(letter, i);
+        if (foundIdx !== -1) {
+          word.blankWord.splice(foundIdx, 1, letter);
+        }
+      }
+    } else { // if the letter is wrong
+      word.wrongLetters.push(letter);
+      player.guessesLeft--;
+    }
+
+    //keep track of the letters tried
+    word.guessedLetters.push(letter);
+    game.updateDisplay();
   },
 
   // Check if the player has won and end the game if so
   checkWin: function(wordString){
     //if guessed letters contains each letter in the secret word
     var uniqueSecret = _.uniq(word.secretWord);
-    var uniqueGuessedLetters = _.uniq(guessedLetters);
+    var uniqueGuessedLetters = _.uniq(word.guessedLetters);
 
     if (uniqueSecret.length === _.intersection(uniqueSecret, uniqueGuessedLetters).length) {
       result.innerHTML = "YOU WIN!";
@@ -74,11 +78,15 @@ var game = {
   giveUp: function(){},
 
   // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
-  updateDisplay: function(secretWordWithBlanks, guessedLetters, guessesLeft){}
+  updateDisplay: function() {
+    displayGuesses.innerHTML = player.guessesLeft;
+    wordString.innerHTML = word.blankWord.join("");
+    usedLetters.innerHTML = word.wrongLetters;
+    player.checkWin();
+    player.checkLose();
+  }
 };
 
-//set Secret word on load for now
-word.setSecretWord();
 
 // HTML stuff
 var input = document.getElementById("letterField");
@@ -96,7 +104,6 @@ var resetButton = document.getElementById("resetButton");
 resetButton.addEventListener('click', game.resetGame);
 
 var spoiler = document.getElementById("spoiler");
-spoiler.innerHTML = word.secretWord;
 
 var displayGuesses = document.getElementById("guessesLeft");
 displayGuesses.innerHTML = 8;
@@ -105,9 +112,16 @@ var result = document.getElementById("result");
 
 var usedLetters = document.getElementById("guessedLetters");
 
-window.onload = function(){
-  // Start a new game
-  // Add event listener to the letter input field to grab letters that are guessed
-  // Add event listener to the reset button to reset the game when clicked
-  // Add event listener to the give up button to give up when clicked
-};
+var wordString = document.getElementById("wordString");
+
+// set Secret word and set up basics on load
+word.setSecretWord();
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,6 @@
 #spoiler {
 	text-align: center;
+	color: white;
 }
 
 #result {
@@ -9,4 +10,9 @@
 
 #guessedLetters {
 	display: inline;
+}
+
+#wordString {
+	text-align: center;
+	font-size: 30px;
 }
