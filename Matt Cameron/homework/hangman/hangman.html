@@ -7,31 +7,45 @@
   <script type='text/javascript' src='underscore.js'></script>
 </head>
 <body>
-	<h1>Let's play a game</h1>
+ <h1>How Hipster are you?</h1>
+ <div id="nav">
+  <div id="guessBox">
+    Guess a Letter:
+    <input id="letterField" type="text" />
+  </div>
+  <div id="leftContent">Guesses Left
+    <p id="guessesLeft"></p>
+    <div id="gameControlArea">
+      <input id="giveUpButton" class="button" type="submit" value="Give up"/>
+      <input id="resetButton" class="button" type="submit" value="Reset Game"/>
+    </div>
+
+  </div>
+</div>
+<div id="main">
   <div id="gamePlayArea">
     <div id="hangmanArea">
-      Guesses Left: <span id="guessesLeft"></span>
     </div>
     <div id="letterArea">
-      <div id="lettersUsed">
-        Letters Guessed Already:
-        <div id="guessedLetters"></div>
-      </div>
-      <div id="guessBox">
-        Guess a Letter:
-        <input id="letterField" type="text" />
-        <button id="guessBtn">Guess</button>
-      </div>
+
+
     </div>
   </div>
+  <div class="beforeAfterSecret"></div>
   <div id="wordString"></div>
-  <div id="gameControlArea">
-    <input id="giveUpButton" class="button" type="submit" value="Give up"/>
-    <input id="resetButton" class="button" type="submit" value="Reset Game"/>
+  <div class="beforeAfterSecret"></div>
+
+
+  <div id="result"></div>
+  <div class="spoiler"></div>
+  <div class="spoiler"></div>
+</div>
+
+<div id="lettersUsed">
+    <h2>Uncool letters</h2>
+    <div id="guessedLetters"></div>
   </div>
 
-	<div id="result"></div>
-  <div id="spoiler"></div>
-  <script type='text/javascript' src='hangman.js'></script>
+<script type='text/javascript' src='hangman.js'></script>
 </body>
 </html>

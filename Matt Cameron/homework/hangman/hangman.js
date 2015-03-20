@@ -1,15 +1,32 @@
 var word = {
   secretWord: "",
-  wordList: ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
+  hipsterWordList: {
+    amazeballs: ['"OMG, that new haircut is"',""],
+    totes: ['"Dude, we should','get matching suspenders!"'],
+    awks: ['"Holy crap, it was totes','when I saw a hobo wearing the same coat as me last week."'],
+    devo: ['"I was ','after my gluten-free cat died."'],
+    bin: ['"I\'m so hungry, I need to put something in my ',""],
+    whatevs: ['"And I was like', 'man"'],
+    yolo: ['"I almost didn\'t go Gelato Messina last week, but then I was like, ',""],
+    cray: ['"That new barrista is absolutely "',""],
+    froff: ['"Dude we should grab a ','after your backwax"'],
+    threads: ['"Got me some killer new','at Savers yesterday"'],
+    messina: ['"The icecream at ','is soooo much better than 7 Apples"'],
+    dope: ['"Picked up a ','fedora for my grandpa\'s funeral next week"'],
+    fixie: ['"I\'ll just swing past on my','and we can get some delicious organic, gluten-free, kale."']
+},
 
-  // Selects a random word from the word list sets the secret word
   setSecretWord: function(){
-      word.secretWord = _.sample(word.wordList);
-      spoiler.innerHTML = word.secretWord;
+    // Selects a random word from the word list sets the secret word
+    word.secretWord = _.sample(_.keys(word.hipsterWordList));
 
-      // set blankWord and display it
-      _.each(word.secretWord, word.createBlankWord);
-      wordString.innerHTML = word.blankWord.join("");
+    // set blankWord and display it
+    _.each(word.secretWord, word.createBlankWord);
+    wordString.innerHTML = word.blankWord.join("");
+
+    // set before and after sentence
+    beforeAfterSecret[0].innerHTML = word.hipsterWordList[word.secretWord][0];
+    beforeAfterSecret[1].innerHTML = word.hipsterWordList[word.secretWord][1];
   },
 
   createBlankWord: function() {
@@ -58,14 +75,18 @@ var player = {
     var uniqueGuessedLetters = _.uniq(word.guessedLetters);
 
     if (uniqueSecret.length === _.intersection(uniqueSecret, uniqueGuessedLetters).length) {
-      result.innerHTML = "YOU WIN!";
+      spoiler[0].innerHTML = "You're a true hipster,";
+      spoiler[1].innerHTML = "but like whatever man.";
+      return true;
     }
   },
 
   // Check if the player has lost and end the game if so
   checkLose: function(wrongLetters){
     if (player.guessesLeft === 0) {
-      result.innerHTML = "YOU LOSE!";
+      spoiler[0].innerHTML = "Get the hell out of here,";
+      spoiler[1].innerHTML = "you're not a hipster at all!";
+      return true;
     }
   }
 };
@@ -81,19 +102,30 @@ var game = {
   updateDisplay: function() {
     displayGuesses.innerHTML = player.guessesLeft;
     wordString.innerHTML = word.blankWord.join("");
-    usedLetters.innerHTML = word.wrongLetters;
+    usedLetters.innerHTML = word.wrongLetters.join(" ");
+
+    if (player.checkLose()) {
+      wordString.innerHTML = word.secretWord;
+    }
     player.checkWin();
-    player.checkLose();
   }
 };
+
+function validateInput(letter) {
+  var objRegExp  = /^[a-z]+$/;
+  return objRegExp.test(letter);
+}
+
 
 
 // HTML stuff
 var input = document.getElementById("letterField");
+input.focus();
+input.addEventListener('keyup', function(event) {
 
-var guessButton = document.getElementById("guessBtn");
-guessButton.addEventListener('click', function() {
-  player.makeGuess(input.value);
+if (event.keyCode >= 65 && event.keyCode <= 90) {
+    player.makeGuess(input.value);
+ }
   input.value = "";
 });
 
@@ -103,7 +135,7 @@ giveUpButton.addEventListener('click', game.giveUp);
 var resetButton = document.getElementById("resetButton");
 resetButton.addEventListener('click', game.resetGame);
 
-var spoiler = document.getElementById("spoiler");
+var spoiler = document.getElementsByClassName("spoiler");
 
 var displayGuesses = document.getElementById("guessesLeft");
 displayGuesses.innerHTML = 8;
@@ -113,6 +145,9 @@ var result = document.getElementById("result");
 var usedLetters = document.getElementById("guessedLetters");
 
 var wordString = document.getElementById("wordString");
+
+var beforeAfterSecret = document.getElementsByClassName("beforeAfterSecret");
+
 
 // set Secret word and set up basics on load
 word.setSecretWord();
