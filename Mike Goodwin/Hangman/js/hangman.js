@@ -1,5 +1,6 @@
 var word = {
     secretWord: "",
+    secretWordHidden: "",
     wordList: ['ruby', 'javascript', 'array', 'github'],
     // wordList: ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
 
@@ -12,6 +13,7 @@ var word = {
     // Selects a random word from the word list sets the secret word
     setSecretWord: function(){
         this.secretWord = _.sample(this.wordList);
+        this.secretWordHidden = "_".repeat(this.secretWord.length);
     },
 
     // Takes an array of letters as input and returns an array of two items:
@@ -42,7 +44,7 @@ var word = {
 
 var player = {
     MAX_GUESSES: 8,
-    guessedLetters: [],
+    guessedLetters: [], // Clear out on reset!
 
     // Takes a new letter as input and updates the game
     makeGuess: function(letter){
@@ -73,15 +75,15 @@ var player = {
 var game = {
     // Resets the game
     resetGame: function(){
-        game.updateDisplay("",[],player.MAX_GUESSES);
+        word.setSecretWord();
+        player.guessedLetters = [];
+        game.updateDisplay(word.secretWordHidden,[],player.MAX_GUESSES);
     },
 
     // Reveals the answer to the secret word and ends the game
     giveUp: function(){
         document.getElementById("wordString").innerHTML = word.secretWord;
-        setTimeout(function(){
-            game.resetGame();
-        },2000);
+        _.delay(game.resetGame,2000);
     },
 
     // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
@@ -94,10 +96,7 @@ var game = {
 
 window.onload = function(){
     // Start a new game
-    word.setSecretWord();
     game.resetGame();
-    // Display spaces for the secret word
-    // ** code **
     
     var letterField = document.getElementById("letterField");
 
