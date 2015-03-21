@@ -1,0 +1,88 @@
+* {box-style: border-box;}
+
+body {
+	background-color: lightgrey;
+	margin: -7px;
+/*	margin: 0 auto;*/
+}
+
+.container {
+	background-color: lightgrey;
+	margin: 0 auto;
+	width: 65%;
+	padding-top: 3em;
+}
+
+
+.logo {
+	display: block;
+	margin: 0 auto;
+	padding-top: 1em;
+
+}
+
+header {
+	background: url("images/background.jpg");
+	background-repeat: repeat-x;
+}
+
+.nyc {
+	width: 100%;
+}
+
+.reginald {
+	border-top: 1px dotted black;
+	border-bottom: 1px solid black;
+	width: 100%;
+	margin-bottom: 4em;
+}
+/*
+.advert {
+	max-width: 100%;
+	display: inline;
+}*/
+
+.adds {
+	width: 100%;
+	padding: 0.5em 1.0em 0.5em 0;
+}
+
+
+.first_block {
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-top: 3em;
+	display: inline-block;
+	background-color: white;
+	width: 64%;
+	font-size: 12px;
+	font-family: sans-serif;
+	margin-bottom: 3em;
+}
+
+.second_block {
+	background-color: white;
+	display: inline-block;
+	float: right;
+	clear: right;
+	width: 24%;
+	padding: 1.5em 1.5em;
+	font-family: sans-serif;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+footer {
+	clear: both;
+	/*margin: 5% auto;*/
+	text-align: center;
+	background-color: lightgrey;
+	margin: 2em 0;
+}
+
+a {
+	color: red;
+}
