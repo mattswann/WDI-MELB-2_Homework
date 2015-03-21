@@ -3,26 +3,37 @@
 <head>
     <meta charset="utf-8">
     <title>Hangman</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Port+Lligat+Slab' rel='stylesheet' type='text/css'>
     <script type='text/javascript' src='js/underscore.js'></script>
     <script type='text/javascript' src='js/hangman.js'></script>
 </head>
 <body>
-    <div id="gamePlayArea">
-        <div id="hangmanArea">Guesses Left: <span id="guessesLeft"></span>
+    <header>
+        <h1>Hangman</h1>
+    </header>
+
+    <main>
+        <p id="wordString"></p>
+        <p id="userMsg"></p>
+        
+        <div id="guessLetter">
+            <p>Guess a letter: <input id="letterField" type="text" /></p>
         </div>
-        <div id="letterArea">
-            <div id="lettersUsed">
-                Letters Guessed Already: <span id="guessedLetters"></span>
-            </div>
-            <div id="guessBox">Guess a Letter: <input id="letterField" type="text" />
-            </div>
+
+        <div id="lettersGuessed">
+            <p>Letters guessed: <span id="guessedLetters"></span></p>
         </div>
-    </div>
-    <div id="wordString"></div>
-    <div id="gameControlArea">
-        <input id="giveUpButton" class="button" type="submit" value="Give up"/>
-        <input id="resetButton" class="button" type="submit" value="Reset Game"/>
-    </div>
+
+        <div id="remainingGuesses">
+            <p>Remaining guesses: <span id="guessesLeft"></span></p>
+        </div>
+        <div id="gameControlArea" class="cf">
+            <p id="giveUpButton" class="button">Give up</p>
+            <p id="resetButton" class="button">Reset game</p>
+        </div>
+    </main>
 </body>
 </html>

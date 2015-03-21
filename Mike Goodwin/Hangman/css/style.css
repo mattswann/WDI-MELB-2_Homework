@@ -1,4 +1,99 @@
+body {
+	font-family: sans-serif;
+	background-color: black;
+}
 
+h1 {
+	margin: 100px 0 200px 0;
+	text-align: center;
+	font-size: 8em;
+	font-family: 'Sigmar One', cursive;
+	color: white;
+}
+
+p {
+	font-family: 'Port Lligat Slab', serif;
+	color: white;
+}
+
+p, #wordString {
+	font-size: 4em;
+}
+
+#wordString {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#userMsg {
+	width: 80%;
+	height: 100px;
+	font-size: 3em;
+	margin: 0 auto;
+	margin-top: 75px;
+	text-align: center;
+}
+
+#guessLetter, #lettersGuessed, #remainingGuesses {
+	margin-left: 10%;
+}
+
+#guessLetter, #lettersGuessed, #remainingGuesses {
+	margin-bottom: 100px;
+}
+
+#guessLetter {
+	width: 85%;
+	margin-top: 75px;
+}
+
+#letterField {
+    font-size: 1em;
+    width: 12.5%;
+    text-align: center;
+    background-color: lightgray;
+	font-family: 'Port Lligat Slab', serif;
+}
+
+#lettersGuessed {
+	width: 85%;
+}
+
+#guessedLetters {
+	font-size: 1em;
+}
+
+#remainingGuesses {
+	width: 85%;
+}
+
+#guessesLeft {
+}
+
+#gameControlArea {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.button {
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding: 5%;
+	background-color: lightgray;
+	cursor: pointer;
+	color: black;
+	font-weight: bold;
+}
+
+#giveUpButton, #resetButton {
+	float: left;
+	width: 45%;
+	text-align: center;
+}
+
+#giveUpButton {
+	margin-right: 10%;
+}
 
 
 html {

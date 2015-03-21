@@ -44,7 +44,7 @@ var word = {
 
 var player = {
     MAX_GUESSES: 8,
-    guessedLetters: [], // Clear out on reset!
+    guessedLetters: [],
 
     // Takes a new letter as input and updates the game
     makeGuess: function(letter){
@@ -58,16 +58,16 @@ var player = {
     // Check if the player has won and end the game if so
     checkWin: function(wordString){
         if (wordString === word.secretWord) {
-            alert("Congratulations! You guessed correctly.");
-            game.resetGame();
+            document.getElementById("userMsg").innerHTML = "Congratulations! You guessed correctly.";
+            _.delay(game.resetGame,2000);
         }
     },
 
     // Check if the player has lost and end the game if so
     checkLose: function(wrongLetters){
         if (wrongLetters === this.MAX_GUESSES) {
-            alert("I'm sorry, but you didn't guess correctly. Better luck next time.");
-            game.resetGame();
+            document.getElementById("userMsg").innerHTML = "I'm sorry, but you didn't guess correctly. Better luck next time.";
+            game.giveUp();
         }
     }
 };
@@ -88,9 +88,13 @@ var game = {
 
     // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
     updateDisplay: function(secretWordWithBlanks, guessedLetters, guessesLeft){
-        document.getElementById("wordString").innerHTML = secretWordWithBlanks;
+        // debugger;
+        document.getElementById("wordString").innerHTML = secretWordWithBlanks.split("").join(" ");
         document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ");
         document.getElementById("guessesLeft").innerHTML = guessesLeft;
+        document.getElementById("letterField").value = "";
+        document.getElementById("userMsg").innerHTML = "";
+
     }
 };
 
@@ -108,9 +112,8 @@ window.onload = function(){
             if (word.validLetter(ltr)) {
                 player.makeGuess(ltr);
             } else {
-                alert("Please enter a valid letter (a-z, A-Z)");
+                document.getElementById("userMsg").innerHTML = "Please enter a valid letter (a-z, A-Z)";
             }
-            letterField.value = "";
         }
     });
 
