@@ -1,23 +1,30 @@
 body {
-	font-family: sans-serif;
 	background-color: black;
 }
 
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+
 h1 {
-	margin: 100px 0 200px 0;
+	margin: 40px 0 40px;
 	text-align: center;
-	font-size: 8em;
+	font-size: 3.5em;
 	font-family: 'Sigmar One', cursive;
 	color: white;
 }
 
 p {
-	font-family: 'Port Lligat Slab', serif;
 	color: white;
 }
 
+p, #letterField {
+	font-family: 'Port Lligat Slab', serif;
+}
+
 p, #wordString {
-	font-size: 4em;
+	font-size: 1.5em;
 }
 
 #wordString {
@@ -26,25 +33,21 @@ p, #wordString {
 }
 
 #userMsg {
-	width: 80%;
-	height: 100px;
-	font-size: 3em;
-	margin: 0 auto;
-	margin-top: 75px;
+	width: 90%;
+	font-size: 1.25em;
+	margin: 40px auto 0;
 	text-align: center;
+	height: 40px;
 }
 
 #guessLetter, #lettersGuessed, #remainingGuesses {
-	margin-left: 10%;
-}
-
-#guessLetter, #lettersGuessed, #remainingGuesses {
-	margin-bottom: 100px;
+	margin-left: 5%;
+	margin-bottom: 30px;
+	width: 85%;
 }
 
 #guessLetter {
-	width: 85%;
-	margin-top: 75px;
+	margin-top: 30px;
 }
 
 #letterField {
@@ -52,33 +55,21 @@ p, #wordString {
     width: 12.5%;
     text-align: center;
     background-color: lightgray;
-	font-family: 'Port Lligat Slab', serif;
-}
-
-#lettersGuessed {
-	width: 85%;
 }
 
 #guessedLetters {
-	font-size: 1em;
-}
-
-#remainingGuesses {
-	width: 85%;
-}
-
-#guessesLeft {
+	font-size: .75em;
 }
 
 #gameControlArea {
-	width: 90%;
+	width: 95%;
 	margin: 0 auto;
 }
 
 .button {
 	border: 1px solid gray;
 	border-radius: 10px;
-	padding: 5%;
+	padding: 15px 5%;
 	background-color: lightgray;
 	cursor: pointer;
 	color: black;
@@ -92,7 +83,7 @@ p, #wordString {
 }
 
 #giveUpButton {
-	margin-right: 10%;
+	margin-right: 5%;
 }
 
 

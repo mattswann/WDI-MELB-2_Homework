@@ -1,17 +1,16 @@
 var word = {
     secretWord: "",
     secretWordHidden: "",
-    wordList: ['ruby', 'javascript', 'array', 'github'],
-    // wordList: ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
+    wordList: ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
 
     validLetters: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
 
-    validLetter: function(ltr){
+    validLetter: function(ltr) {
         return _.contains(this.validLetters, ltr);
     },
 
     // Selects a random word from the word list sets the secret word
-    setSecretWord: function(){
+    setSecretWord: function() {
         this.secretWord = _.sample(this.wordList);
         this.secretWordHidden = "_".repeat(this.secretWord.length);
     },
@@ -19,7 +18,7 @@ var word = {
     // Takes an array of letters as input and returns an array of two items:
     // 1) A string with the parts of the secret word that have been guessed correctly and underscore for the parts that haven't
     // 2) An array of all the guessed letters that were not in the secret word
-    checkLetters: function(guessedLetters){
+    checkLetters: function(guessedLetters) {
         var output = [];
         var answer = "";
         var secretArray = this.secretWord.split("");
@@ -47,7 +46,7 @@ var player = {
     guessedLetters: [],
 
     // Takes a new letter as input and updates the game
-    makeGuess: function(letter){
+    makeGuess: function(letter) {
         this.guessedLetters.push(letter);
         var arr = word.checkLetters(this.guessedLetters);
         game.updateDisplay(arr[0],arr[1],(this.MAX_GUESSES - arr[1].length));
@@ -56,15 +55,15 @@ var player = {
     },
 
     // Check if the player has won and end the game if so
-    checkWin: function(wordString){
+    checkWin: function(wordString) {
         if (wordString === word.secretWord) {
             document.getElementById("userMsg").innerHTML = "Congratulations! You guessed correctly.";
-            _.delay(game.resetGame,2000);
+            _.delay(game.resetGame,3000);
         }
     },
 
     // Check if the player has lost and end the game if so
-    checkLose: function(wrongLetters){
+    checkLose: function(wrongLetters) {
         if (wrongLetters === this.MAX_GUESSES) {
             document.getElementById("userMsg").innerHTML = "I'm sorry, but you didn't guess correctly. Better luck next time.";
             game.giveUp();
@@ -74,16 +73,16 @@ var player = {
 
 var game = {
     // Resets the game
-    resetGame: function(){
+    resetGame: function() {
         word.setSecretWord();
         player.guessedLetters = [];
         game.updateDisplay(word.secretWordHidden,[],player.MAX_GUESSES);
     },
 
     // Reveals the answer to the secret word and ends the game
-    giveUp: function(){
+    giveUp: function() {
         document.getElementById("wordString").innerHTML = word.secretWord;
-        _.delay(game.resetGame,2000);
+        _.delay(game.resetGame,3000);
     },
 
     // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
@@ -98,7 +97,7 @@ var game = {
     }
 };
 
-window.onload = function(){
+window.onload = function() {
     // Start a new game
     game.resetGame();
     
