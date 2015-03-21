@@ -1,0 +1,163 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  background-color: #d5d5d5;
+  font-family: sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin: 0;
+}
+
+.header {
+  max-width: 100%;
+  margin: 0 0 2.5em 0;
+}
+
+.header_logo {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.background {
+  max-width: 25%;
+}
+
+.ecardly {
+  margin-top: -12em;
+  max-width: 15%;
+}
+
+.main_bit {
+  max-width: 67%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main_bit div {
+  background-color: white;
+}
+
+.col1 {
+  max-width: 68%;
+  padding: 1.75em;
+}
+
+article {
+  margin-bottom: 3.5em;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid black;
+}
+
+hr.dotted {
+  border: 0;
+  border-bottom: 1px dotted black;
+}
+
+.posted {
+  line-height: 10px;
+}
+
+.col2 {
+  max-width: 30%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  padding: 1em 2em;
+}
+
+.adblock {
+  margin: -2em 0 2em 0;
+  padding-top: 2em;
+}
+
+.ads {
+  margin: 0.8em 0;
+}
+
+.footer {
+  display: block;
+  margin: 3em auto;
+  text-align: center;
+}
+
+.social {
+  display: inline-block;
+  max-width: 3%;
+}
+
+.stand_out {
+  font-weight: bolder;
+  color: red;
+}
+
+@media all and (max-width: 60em) {
+  .main_bit {
+    max-width: 80%;
+  }
+  .ecardly {
+    margin-top: -8em;
+    max-width: 20%;
+  }
+}
+
+@media all and (max-width: 40em) {
+  body {
+    font-size: 14px;
+  }
+  .main_bit {
+    max-width: 100%;
+  }
+  .col1 {
+    max-width: 100%;
+    position: static;
+  }
+  .col2 {
+    margin-top: 2em;
+    padding-top: 4em;
+    max-width: 100%;
+    position: static;
+  }
+  .ecardly {
+    margin-top: -4em;
+    max-width: 23%;
+  }
+  .archive {
+    font-size: 18px;
+    line-height: 26px;
+    float: left;
+    max-width: 40%;
+    text-align: center;
+    padding-left: 6em;
+  }
+  .blogroll {
+    font-size: 18px;
+    line-height: 26px;
+    float: right;
+    max-width: 40%;
+    text-align: center;
+    padding-right: 6em;
+  }
+  .adblock {
+    clear: both;
+  }
+  .ads {
+    display: block;
+    margin: 1em auto;
+  }
+  .social {
+    max-width: 15%;
+  }
+}

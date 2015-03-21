@@ -1,0 +1,26 @@
+body {
+  
+}
+
+img {
+  position: absolute;
+  display: inline-block;
+  width: 34px;
+  height: 100px;
+}
+
+button {
+  width: 100px;
+}
+
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
+div#speedDiv {
+  display: inline-block;
+}
