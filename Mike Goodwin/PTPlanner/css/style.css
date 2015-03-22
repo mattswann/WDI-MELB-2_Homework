@@ -1,6 +1,20 @@
-.upper {
-	text-transform: uppercase;
+.input {
+	margin-bottom: 50px;
 }
+
+#submit {
+	cursor: pointer;
+	border: solid 1px black;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#stops li {
+	display: inline;
+}
+
 
 html {
   box-sizing: border-box;

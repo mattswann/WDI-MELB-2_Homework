@@ -2,37 +2,41 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>PT Planner</title>
+	<title>Journey Planner</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<h1 id="title">PT Planner</h1>
+	<h1 id="title">Melbourne Journey Planner</h1>
 
 	<div class="input">
+		<h2>Start</h2>
 		<p>
-			<label for="startLine">On which <strong>line</strong> do you wish to <span class="upper">start</span> your journey?</label>
+			<label for="startLine">Line: </label>
 			<select name="startLine" id="startLine">
 			</select>
 		</p>
 		<p>
-			<label for="startStop">At which <strong>stop</strong> do you wish to <span class="upper">start</span> your journey?</label>
+			<label for="startStop">Stop: </label>
 			<select name="startStop" id="startStop">
 			</select>
 		</p>
+		<h2>End</h2>
 		<p>
-			<label for="endLine">On which <strong>line</strong> do you wish to <span class="upper">end</span> your journey?</label>
+			<label for="endLine">Line: </label>
 			<select name="endLine" id="endLine">
 			</select>
 		</p>
 		<p>
-			<label for="endStop">At which <strong>stop</strong> do you wish to <span class="upper">end</span> your journey?</label>
+			<label for="endStop">Stop: </label>
 			<select name="endStop" id="endStop">
 			</select>
 		</p>
 	</div>
+	<div id="submit">Display my journey</div>
 	
 	<div class="journey">
-		
+		<p id="description"></p>
+		<ul id="stops"></ul>
 	</div>
 
 	<script src="js/planner.js"></script>
