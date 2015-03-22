@@ -1,0 +1,32 @@
+body {
+	background-image: url('escalator.jpg');
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+}
+
+h1 {
+	color: black;
+	font-family: 'helvetica';
+	margin-top: 75px;
+}
+
+main {
+	background-color: rgba(0,0,0,0.7);
+	padding: 30px;
+}
+
+main span {
+	font-size: 1.5em;
+	margin: 1em;
+}
+
+#container {
+	max-width: 70%;
+	margin: auto;
+}
+
+#results {
+	margin-top: 30px;
+}
+
