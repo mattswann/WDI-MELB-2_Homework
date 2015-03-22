@@ -1,7 +1,7 @@
 // Part 3
 
 function traverseList(list, name) {
-
+  console.log(list)
   if (typeof list === 'undefined') {
    return name + " || ";
   }

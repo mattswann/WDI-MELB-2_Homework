@@ -1,0 +1,214 @@
+/*
+  Color scheme: http://app.coolors.co/3f4b3b-44633f-5a9367-5cab7d-4adbc8
+*/
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 2.5em auto 0 auto;
+  border: 5px solid #000000;
+  background-color: #D7D7D7;
+  max-width: 800px;
+  color: white;
+}
+
+/*------------------------
+  Section Formatting
+------------------------*/
+
+header {
+  height: 4em;
+  line-height: 4em;
+  text-align: right;
+  background: #6088D0 url("../img/wood-seamless.jpg");
+}
+
+#header-to-game {
+  min-height: 1em;
+  height: 1em;
+  background: #6088D0 url("../img/test-border-2.png");
+}
+
+#gameplay-area {
+  margin: 0;
+  height: 32em;
+  padding: 1em;
+  background: #6088D0 url("../img/minecraft-bg1.png");
+}
+
+#game-control-area {
+  line-height: 5em;
+  text-align: center;
+}
+
+#word-output-area {
+  margin-top: 2em;
+  font-size: 5em;
+  text-align: center;
+}
+
+#character-area {
+  border-top: 2px solid #000000;
+  background: #3F4B3B url("../img/Minecraft-Grass.png");
+  background-repeat: repeat;
+}
+
+/*------------------------
+  DIV span sizings
+------------------------*/
+
+.span-1, .span-2, .span-3, .span-4, .span-5 {
+  display: inline-block;
+}
+
+.span-1 {
+  width: 20%;
+}
+
+.span-2 {
+  width: 40%;
+}
+
+.span-3 {
+  width: 60%;
+}
+
+.span-4 {
+  width: 80%;
+}
+
+.span-5 {
+  width: 100%;
+}
+
+/*------------------------
+  Single elements
+----------------------*/
+
+h1 {
+  display: inline-block;
+  margin: 0;
+  margin-right: 0.5em;
+  font-size: 4em;
+  text-align: right;
+}
+
+input:focus {
+  background-color: yellow;
+}
+
+.container {
+  margin: 0;
+}
+
+#guesses {
+  display: inline-block;
+  font-size: 1.3em;
+  line-height: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+#guessesLeft {
+  display: inline-block;
+  border-radius: 0.3em;
+  min-width: 1.3em;
+  max-width: 1.3em;
+  min-height: 1.3em;
+  max-height: 1.3em;
+  background: rgba(0,0,0, 0.7);
+  text-align: center;
+  line-height: 1.3em;
+  font-size: 1.3em;
+}
+
+#prev-guess-area {
+  display: inline-block;
+  font-size: 1.3em;
+  line-height: 1.3em;
+}
+
+#prevGuessLetter {
+  display: inline-block;
+  border-radius: 0.3em;
+  min-width: 1.3em;
+  max-width: 1.3em;
+  min-height: 1.3em;
+  max-height: 1.3em;
+  background: rgba(0,0,0, 0.7);
+  text-align: center;
+  line-height: 1.3em;
+  font-size: 1.3em;
+}
+
+#character-box-container {
+  margin: auto 0;
+  text-align: center;
+}
+
+#wordString {
+  border-radius: 1em;
+  background: rgba(0,0,0, 0.7);
+}
+
+.character-box {
+  min-height: 2em;
+  max-height: 2em;
+  min-width: 2em;
+  max-width: 2em;
+  background: white url("../img/cobblestone.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: 2px solid black;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 2em;
+  display: inline-block;
+  margin: 0.5em;
+  font-weight: bolder;
+}
+
+.lava-box {
+  background: white url("../img/lava.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.crystal-box {
+  background: white url("../img/crystal-ore.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media all and (max-width: 30em) {
+  body {
+    margin-top: 0;
+  }
+
+  #word-output-area {
+    padding-top: 0em;
+    font-size: 3em;
+  }
+
+  #gameplay-area {
+    margin: 0;
+    height: 12.7em;
+    padding: 1em;
+    background: #6088D0 url("../img/minecraft-bg1.png");
+  }
+
+  #word-output-area {
+    margin-top: 0em;
+  }
+}
