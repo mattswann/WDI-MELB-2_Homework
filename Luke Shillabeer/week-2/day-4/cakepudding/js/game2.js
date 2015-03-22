@@ -24,10 +24,25 @@ function domKeyBind(letter) {
   } else {
     DOMBind.keyBox(letter).addEventListener('click', function(e) {
       DOMBind.keyBox(letter).className += " lava-box";
-      game.guessLetter(letter);
-      var creeperPos = parseInt(getCssProperty('creeper-image', 'left'));
-      var newCreeperPos = (creeperPos - 100).toString() + "px";
-      DOMBind.creeperImage.style.left = newCreeperPos;
+      var moveResolved = game.guessLetter(letter);
+
+      // moveResolved will ONLY be true when guesses has reduced
+      if (moveResolved === true) {
+
+        // move creeper across the screen
+        var creeperPos = parseInt(getCssProperty('creeper-image', 'left'));
+        var newCreeperPos = (creeperPos - 100).toString() + "px";
+        DOMBind.creeperImage.style.left = newCreeperPos;
+
+        // make creeper explode when guesses are at zero
+        if (game.remainingGuesses() === 0) {
+          DOMBind.playerImage.style.display = "none";
+          DOMBind.creeperImage.src = "img/explosion.gif";
+          window.setTimeout(function() {
+            DOMBind.creeperImage.style.display = "none";
+          }, 800);
+        }
+      }
     });
   }
 }
@@ -42,6 +57,7 @@ var DOMBind = {
   curLetter:        document.getElementById('letter-box'),
   wordString:       document.getElementById('word-box'),
   creeperImage:     document.getElementById('creeper-image'),
+  playerImage:      document.getElementById('player-image'),
 
   keyBox: function(character) {
     return document.getElementById("key-box-" + character);
@@ -69,13 +85,22 @@ var game = {
   },
 
   guessLetter: function(letter) {
+    // return early if letter already guessed
+    if (_.contains(this.guessedLetters, letter)) {
+      console.log(this.guessedLetters, letter);
+      return;
+    }
+
     this.guessedLetters.push(letter);
+    DOMBind.curLetter.innerHTML = letter;
+
     if (!this.containsLetter(letter)) {
       this.currentGuesses += 1;
       DOMBind.guessLabel.innerHTML = this.remainingGuesses();
     } else {
       DOMBind.wordString.innerHTML = this.checkLetters(this.guessedLetters);
     }
+    return true;
   },
 
   remainingGuesses: function() {
