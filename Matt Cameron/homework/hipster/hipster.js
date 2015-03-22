@@ -8,7 +8,7 @@ var word = {
     bin: ['"I\'m so hungry, I need to put something in my ',""],
     whatevs: ['"And I was like', 'man"'],
     yolo: ['"I almost didn\'t go Gelato Messina last week, but then I was like, ',""],
-    cray: ['"That new barrista is absolutely "',""],
+    cray: ['"My ex-boyfriend was',"I don't know how I dated him for six weeks!"],
     froff: ['"Dude we should grab a ','after your backwax"'],
     threads: ['"Got me some killer new','at Savers yesterday"'],
     messina: ['"The icecream at ','is soooo much better than 7 Apples"'],
@@ -75,17 +75,15 @@ var player = {
     var uniqueGuessedLetters = _.uniq(word.guessedLetters);
 
     if (uniqueSecret.length === _.intersection(uniqueSecret, uniqueGuessedLetters).length) {
-      spoiler[0].innerHTML = "You're a true hipster,";
-      spoiler[1].innerHTML = "but like whatever man.";
+      bubble.innerHTML = "You're a true hipster, but like <i>whatever</i> man.";
       return true;
     }
   },
 
   // Check if the player has lost and end the game if so
-  checkLose: function(wrongLetters){
+  checkLose: function(){
     if (player.guessesLeft === 0) {
-      spoiler[0].innerHTML = "Get the hell out of here,";
-      spoiler[1].innerHTML = "you're not a hipster at all!";
+      game.giveUp();
       return true;
     }
   }
@@ -93,11 +91,24 @@ var player = {
 
 var game = {
   // Resets the game
-  resetGame: function(){},
+  resetGame: function(){
+    player.guessesLeft = 8;
+    word.blankWord = [];
+    word.guessedLetters = [];
+    word.wrongLetters = [];
+    word.setSecretWord();
+    game.updateDisplay();
+
+  },
 
   // Reveals the answer to the secret word and ends the game
-  giveUp: function(){},
-
+  giveUp: function(){
+    wordString.innerHTML = word.secretWord;
+      bubble.innerHTML = "Get the hell out of here, you're not a hipster at all!";
+      player.guessesLeft = 0;
+      game.updateDisplay();
+      game.resetGame();
+  },
   // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
   updateDisplay: function() {
     displayGuesses.innerHTML = player.guessesLeft;
@@ -105,28 +116,26 @@ var game = {
     usedLetters.innerHTML = word.wrongLetters.join(" ");
 
     if (player.checkLose()) {
-      wordString.innerHTML = word.secretWord;
+      this.giveUp
     }
     player.checkWin();
   }
 };
 
-function validateInput(letter) {
-  var objRegExp  = /^[a-z]+$/;
-  return objRegExp.test(letter);
+
+function lookupKeyCode(keyCode) {
+    return keyCodes[keyCode-65];
 }
 
-
+var keyCodes = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 // HTML stuff
-var input = document.getElementById("letterField");
-input.focus();
+var input = document.body;
 input.addEventListener('keyup', function(event) {
-
-if (event.keyCode >= 65 && event.keyCode <= 90) {
-    player.makeGuess(input.value);
- }
-  input.value = "";
+  if (event.keyCode >= 65 && event.keyCode <= 90) {
+    var actualLetter = lookupKeyCode(event.keyCode)
+    player.makeGuess(actualLetter);
+  }
 });
 
 var giveUpButton = document.getElementById("giveUpButton");
@@ -135,12 +144,10 @@ giveUpButton.addEventListener('click', game.giveUp);
 var resetButton = document.getElementById("resetButton");
 resetButton.addEventListener('click', game.resetGame);
 
-var spoiler = document.getElementsByClassName("spoiler");
+var bubble = document.getElementById("bubble");
 
 var displayGuesses = document.getElementById("guessesLeft");
 displayGuesses.innerHTML = 8;
-
-var result = document.getElementById("result");
 
 var usedLetters = document.getElementById("guessedLetters");
 
@@ -151,12 +158,5 @@ var beforeAfterSecret = document.getElementsByClassName("beforeAfterSecret");
 
 // set Secret word and set up basics on load
 word.setSecretWord();
-
-
-
-
-
-
-
 
 
