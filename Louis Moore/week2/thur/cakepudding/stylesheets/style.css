@@ -1,17 +1,18 @@
 body, html { height: 100%;} 
 
 body {
-  /*background-image: url('https://wallwidehd.com/wp-content/uploads/Blue-Coding-Programming-Wallpaper.jpg');*/
+  background-image: url('http://i.imgur.com/15Ql69q.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: linen;
 }
 
 input {
   border: 0px;
   padding: 10px;
   font-size: 15px;
+  color: black;
+  background-color: white;
 }
 
 .container {
@@ -20,13 +21,19 @@ input {
   color: white;
 }
 
-#wordString {
+#title {
+  margin: 0 auto;
+  font-family: 'Inconsolata';
+  color: white;
+  text-align: center; 
+}
+
+#wordString, #playerStatus {
   margin: 0px auto;
   text-align: center;
-  font-size: 40px;
-  background-color: rgba(22, 44, 71, 0.5);
-  width: 30%;
-
+  font-size: 3em;
+/*  background-color: rgba(22, 44, 71, 0.5);
+*/  width: 30%;
 }
 
 #hangmanArea {

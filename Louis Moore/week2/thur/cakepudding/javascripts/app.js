@@ -26,32 +26,44 @@ var word = {
 };
 
 var player = {
-    MAX_GUESSES: 8,
-    guessedLetters: [],
+    MAX_GUESSES: 8
 };
 
 var game = {
     resetGame: function() {
-        game.updateGuessesLeft(8);
         word.setSecretWord();
         word.setPuzzle();
         wordString.innerHTML = word.puzzle;
+        word.guessedLetters = [];
+
+        document.getElementById('playerStatus').innerHTML = '';
+        guessedLetters.innerHTML = '';
+        guessesLeft.innerHTML = 8;
+
     },
 
-    giveUp: function() {},
+    giveUp: function() {
+      return wordString.innerHTML = word.secretWord;
+    },
 
     updateGuessedLetters: function(guessedLetters) {
+
         return word.guessedLetters
     },
     updateGuessesLeft: function(guessesLeft) {
-        return player.MAX_GUESSES - word.guessedLetters.length + _.without(word.puzzle, "_").length; 
-        } 
+        var guessesLeft = player.MAX_GUESSES - word.guessedLetters.length + _.without(word.puzzle, "_").length;
+
+        return guessesLeft;
+    },
+    updateWinner: function() {
+    var is_same = word.puzzle.every(function(element, index) {
+    return element === word.secretWord[index]; 
+});
+          return is_same;
+
+    }
+
 };
-
-function printMessage() {
-    console.log("something");
-}
-
 
 window.onload = function() {
 
@@ -60,6 +72,8 @@ window.onload = function() {
 
     var guessedLetters = document.getElementById('guessedLetters');
     guessedLetters.innerHTML = word.guessedLetters;
+    var giveUpButton = document.getElementById('giveUpButton');
+    giveUpButton.addEventListener('click', game.giveUp);
 
     var wordString = document.getElementById('wordString');
     wordString.innerHTML = word.puzzle;
@@ -74,13 +88,19 @@ window.onload = function() {
     input.addEventListener('keyup', function(event) {
         if (event.keyCode === 13) {
             var inputValue = input.value
-                //make the guess
+            //make the guess
             word.checkLetters(inputValue);
             //clear the input box
             this.value = '';
             // update the screen
             guessedLetters.innerHTML = game.updateGuessedLetters();
             guessesLeft.innerHTML = game.updateGuessesLeft();
+            if (game.updateWinner() === true) {
+              document.getElementById('playerStatus').innerHTML = 'Nice work. Click on reset game.';
+            } else if (game.updateGuessesLeft() === 0) {
+              document.getElementById('playerStatus').innerHTML = 'Try again!';
+
+            }
         }
     })
 };
