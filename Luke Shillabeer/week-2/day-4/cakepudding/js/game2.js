@@ -106,16 +106,6 @@ var game = {
   }
 }
 
-var display = {
-  updateById: function(id, value) {
-    document.getElementById(id).innerHTML = value;
-  },
-
-  getByID: function(id) {
-    return document.getElementById(id);
-  }
-}
-
 game.init();
 
 //-----------------------------------------------------------------
