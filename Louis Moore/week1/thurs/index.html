@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="styles.css">
 </head>
 	<body>
+
+    <div id="container">
+
 		<h1 id="title">Metro</h1>
-		<p>
-			var metro = {<br>
-	 alamein: ['Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie'],<br>
-	 glenWaverly: ['Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', 'Kooyong', 'Tooronga'],<br>
-	 sandringham: ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran','Windsor'],
-}</p>
-	<script src ="metro.js"></script>	
+  <!-- 		<p>
+  		
+  	   Alamein: Flinders Street', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie'<br>
+  	 Glen Waverly: 'Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', 'Kooyong', 'Tooronga'<br>
+  	 Sandringham: 'Southern Cross', 'Richmond', 'South Yarra', 'Prahran','Windsor'
+      </p> -->
+<div class="containerJourneyStart">
+  <h2 class="journeyStart">Enter journey start</h2>
+
+  <input id="startStationSelect" type="text" placeholder="Starting station">
+
+<select id='startLineSelect'>
+  <option value="" disabled selected>Select line</option>
+  <option value="0">Alamein</option>
+  <option value="1">Glen Waverly</option>
+  <option value="2">Sandringham</option>
+</select>
+
+  </div>
+
+
+<div class="containerJourneyEnd">
+
+  <h2 class="journeyEnd">Enter journey end</h2>
+
+  <input id="endStationSelect" type="text" placeholder="Destination station">
+  
+<select id='endLineSelect'>
+  <option value="" disabled selected>Select line</option>
+  <option value="0">Alamein</option>
+  <option value="1">Glen Waverly</option>
+  <option value="2">Sandringham</option>
+</select>
+
+ </div>
+
+
+
+   <input id="submit" class="button" type="submit" value="Show journey" />
+
+    <div class="displayJourney">
+      <p class="displayPara">test</p>
+   </div>
+
+<!--Container end-->
+</div>
+  
+  <script src ="metro.js"></script> 
+
 	</body>
+
 </html

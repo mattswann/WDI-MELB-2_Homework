@@ -48,9 +48,9 @@ if (endLine === 'Alamein') {
 };
 
 
-function logJourney() {
+function displayJourney() {
 if (startLine != endLine) {
-		console.log('You trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripTotal + ' stations.' + ' You will need to change trains at ' + interchange);
+		 p.innerHTML = 'Your trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripTotal + ' stations.' + ' You will need to change trains at ' + interchange
 	} else if (startLine === endLine) {
 		console.log('You trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripLength + ' stations');
 	} else {
@@ -58,8 +58,12 @@ if (startLine != endLine) {
 		}
 };
 
-var startLineSelect = document.getElementById('startLineSelect')
-startLineSelect.addEventListener('change', startingLine)
+var startLineSelect = document.getElementById('startLineSelect');
+startLineSelect.addEventListener('change', startingLine);
 
 var endLineSelect = document.getElementById('endLineSelect');
-endLineSelect.addEventListener('change', endingLine)
+  endLineSelect.options[endLineSelect.selectedIndex].text;
+
+// endLineSelect.addEventListener('change', endingLine)
+
+var updateDisplay = document.getElementById("displayPara");
