@@ -17,13 +17,13 @@ function getCssProperty(elmId, property){
 
 function domKeyBind(letter) {
   if (game.containsLetter(letter)) {
-    DOMBind.keyBox(letter).addEventListener('click', function(e) {
-      DOMBind.keyBox(letter).className += " crystal-box";
+    sel.$keyBox(letter).on('click', function(e) {
+      $(this).addClass('crystal-box');
       game.guessLetter(letter);
     });
   } else {
-    DOMBind.keyBox(letter).addEventListener('click', function(e) {
-      DOMBind.keyBox(letter).className += " lava-box";
+    sel.$keyBox(letter).on('click', function(e) {
+      $(this).addClass('lava-box');
       var moveResolved = game.guessLetter(letter);
 
       // moveResolved will ONLY be true when guesses has reduced
@@ -32,14 +32,14 @@ function domKeyBind(letter) {
         // move creeper across the screen
         var creeperPos = parseInt(getCssProperty('creeper-image', 'left'));
         var newCreeperPos = (creeperPos - 100).toString() + "px";
-        DOMBind.creeperImage.style.left = newCreeperPos;
+        sel.$creeperImage.css('left', newCreeperPos);
 
         // make creeper explode when guesses are at zero
         if (game.remainingGuesses() === 0) {
-          DOMBind.playerImage.style.display = "none";
-          DOMBind.creeperImage.src = "img/explosion.gif";
+          sel.$playerImage.css('display', 'none');
+          sel.$creeperImage.attr('src', "img/explosion.gif");
           window.setTimeout(function() {
-            DOMBind.creeperImage.style.display = "none";
+            sel.$creeperImage.css('display', 'none');
           }, 800);
         }
       }
@@ -51,16 +51,17 @@ function domKeyBind(letter) {
 // Objects
 //-----------------------------------------------------------------
 
-// create dom-->variable bindings
-var DOMBind = {
-  guessLabel:       document.getElementById('guess-box'),
-  curLetter:        document.getElementById('letter-box'),
-  wordString:       document.getElementById('word-box'),
-  creeperImage:     document.getElementById('creeper-image'),
-  playerImage:      document.getElementById('player-image'),
+// jqueryselectors
+var sel = {
+  $guessLabel:   $('#guess-box'),
+  $curLetter:    $('#letter-box'),
+  $wordString:   $('#word-box'),
+  $creeperImage: $('#creeper-image'),
+  $playerImage:  $('#player-image'),
 
-  keyBox: function(character) {
-    return document.getElementById("key-box-" + character);
+  $keyBox: function(character) {
+    var selector = "#key-box-" + character;
+    return $(selector);
   }
 }
 
@@ -92,13 +93,13 @@ var game = {
     }
 
     this.guessedLetters.push(letter);
-    DOMBind.curLetter.innerHTML = letter;
+    sel.$curLetter.html(letter);
 
     if (!this.containsLetter(letter)) {
       this.currentGuesses += 1;
-      DOMBind.guessLabel.innerHTML = this.remainingGuesses();
+      sel.$guessLabel.html(this.remainingGuesses());
     } else {
-      DOMBind.wordString.innerHTML = this.checkLetters(this.guessedLetters);
+      sel.$wordString.html(this.checkLetters(this.guessedLetters));
     }
     return true;
   },
@@ -122,12 +123,21 @@ var game = {
     return result.join("");
   },
 
+  updateScreen: function(elements) {
+    // Updates all on-screen elements at regular interval
+    for (var key in elements) {
+      if (elements.hasOwnProperty(key)) {
+        console.log(key, elements[key]);
+      }
+    }
+  },
+
   init: function() {
     this.setSecretWord();
     ALPHABET.forEach(domKeyBind);
-    DOMBind.guessLabel.innerHTML = this.MAX_WRONG_GUESSES;
-    DOMBind.curLetter.innerHTML = "-";
-    DOMBind.wordString.innerHTML = this.checkLetters(this.guessedLetters);
+    sel.$guessLabel.html(this.MAX_WRONG_GUESSES);
+    sel.$curLetter.html("-");
+    sel.$wordString.html(this.checkLetters(this.guessedLetters));
   }
 }
 
@@ -138,11 +148,13 @@ game.init();
 //-----------------------------------------------------------------
 
 // clicking on the creeper turns it into a cool-dude!
-DOMBind.creeperImage.addEventListener('click', function(){
-  var oldImage = DOMBind.creeperImage.src;
-  var newImage = "img/creeper_boom.gif";
-  DOMBind.creeperImage.src = newImage;
+sel.$creeperImage.on('click', function(){
+  var oldImage = sel.$creeperImage.attr("src");
+  var newImage = "img/creeper_boom-test.gif";
+  sel.$creeperImage.attr("src", newImage);
   window.setTimeout(function() {
-    DOMBind.creeperImage.src = oldImage;
+    sel.$creeperImage.attr("src", oldImage)
   }, 2500);
 });
+
+game.updateScreen(sel);
