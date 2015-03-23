@@ -18,8 +18,8 @@ $(document).ready(function() {
 
 
 	// event delegation
-	$('ul').on('click', 'li', function() {
-		$(this).toggleClass('done');
+	$('#tasks').on('click', 'li', function() {
+		$(this).addClass('done');
 		$('#completed').append(this);
 	})
 
