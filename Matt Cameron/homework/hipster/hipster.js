@@ -22,11 +22,11 @@ var word = {
 
     // set blankWord and display it
     _.each(word.secretWord, word.createBlankWord);
-    wordString.innerHTML = word.blankWord.join("");
+    wordString.html(word.blankWord.join(""));
 
     // set before and after sentence
-    beforeAfterSecret[0].innerHTML = word.hipsterWordList[word.secretWord][0];
-    beforeAfterSecret[1].innerHTML = word.hipsterWordList[word.secretWord][1];
+    beforeAfterSecret.eq(0).html(word.hipsterWordList[word.secretWord][0]);
+    beforeAfterSecret.eq(1).html(word.hipsterWordList[word.secretWord][1]);
   },
 
   createBlankWord: function() {
@@ -75,7 +75,7 @@ var player = {
     var uniqueGuessedLetters = _.uniq(word.guessedLetters);
 
     if (uniqueSecret.length === _.intersection(uniqueSecret, uniqueGuessedLetters).length) {
-      bubble.innerHTML = "You're a true hipster, but like <i>whatever</i> man.";
+      bubble.html("You're a true hipster, but like <i>whatever</i> man.");
       return true;
     }
   },
@@ -97,23 +97,22 @@ var game = {
     word.guessedLetters = [];
     word.wrongLetters = [];
     word.setSecretWord();
+    bubble.html("How hipster are you?<i>(fill in the blanks)</i>");
     game.updateDisplay();
 
   },
 
   // Reveals the answer to the secret word and ends the game
   giveUp: function(){
-    wordString.innerHTML = word.secretWord;
-      bubble.innerHTML = "Get the hell out of here, you're not a hipster at all!";
-      player.guessesLeft = 0;
-      game.updateDisplay();
-      game.resetGame();
+    wordString.html(word.secretWord);
+    bubble.html("Get the hell out of here, you're not a hipster at all!");
+    player.guessesLeft = 0;
   },
   // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
   updateDisplay: function() {
-    displayGuesses.innerHTML = player.guessesLeft;
-    wordString.innerHTML = word.blankWord.join("");
-    usedLetters.innerHTML = word.wrongLetters.join(" ");
+    displayGuesses.html(player.guessesLeft);
+    wordString.html(word.blankWord.join(""));
+    usedLetters.html(word.wrongLetters.join(" "));
 
     if (player.checkLose()) {
       this.giveUp
@@ -130,30 +129,29 @@ function lookupKeyCode(keyCode) {
 var keyCodes = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 // HTML stuff
-var input = document.body;
-input.addEventListener('keyup', function(event) {
+$('body').on('keyup', function(event) {
   if (event.keyCode >= 65 && event.keyCode <= 90) {
     var actualLetter = lookupKeyCode(event.keyCode)
     player.makeGuess(actualLetter);
   }
 });
 
-var giveUpButton = document.getElementById("giveUpButton");
-giveUpButton.addEventListener('click', game.giveUp);
+var giveUpButton = $("#giveUpButton");
+giveUpButton.on('click', game.giveUp);
 
-var resetButton = document.getElementById("resetButton");
-resetButton.addEventListener('click', game.resetGame);
+var resetButton = $("#resetButton");
+resetButton.on('click', game.resetGame);
 
-var bubble = document.getElementById("bubble");
+var bubble = $("#bubble");
 
-var displayGuesses = document.getElementById("guessesLeft");
-displayGuesses.innerHTML = 8;
+var displayGuesses = $("#guessesLeft");
+displayGuesses.html(8);
 
-var usedLetters = document.getElementById("guessedLetters");
+var usedLetters = $("#guessedLetters");
 
-var wordString = document.getElementById("wordString");
+var wordString = $("#wordString");
 
-var beforeAfterSecret = document.getElementsByClassName("beforeAfterSecret");
+var beforeAfterSecret = $(".beforeAfterSecret");
 
 
 // set Secret word and set up basics on load
