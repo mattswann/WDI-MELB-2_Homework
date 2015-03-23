@@ -20,19 +20,19 @@ init();
 
 document.getElementById("startLine").addEventListener("change",function() {
 	removeChildElements(document.getElementById("startStop"));
-	userLineStart = getSelectedValue(document.getElementById("startLine"));
+	userLineStart = document.getElementById("startLine").value;
 	loadSelectionElement(document.getElementById("startStop"),metro[userLineStart]);
 });
 
 document.getElementById("endLine").addEventListener("change",function() {
 	removeChildElements(document.getElementById("endStop"));
-	userLineEnd = getSelectedValue(document.getElementById("endLine"));
+	userLineEnd = document.getElementById("endLine").value;
 	loadSelectionElement(document.getElementById("endStop"),metro[userLineEnd]);
 });
 
 document.getElementById("submit").addEventListener("click",function() {
-	userStopStart = getSelectedValue(document.getElementById("startStop"));
-	userStopEnd = getSelectedValue(document.getElementById("endStop"));
+	userStopStart = document.getElementById("startStop").value;
+	userStopEnd = document.getElementById("endStop").value;
 
 	var trip = buildJourney();
 	var totalStops = trip.length -  1;
@@ -59,16 +59,11 @@ function init() {
 	loadSelectionElement(document.getElementById("startLine"),lines);
 	loadSelectionElement(document.getElementById("endLine"),lines);
 
-	userLineStart = getSelectedValue(document.getElementById("startLine"));
-	userLineEnd = getSelectedValue(document.getElementById("endLine"));
+	userLineStart = document.getElementById("startLine").value;
+	userLineEnd = document.getElementById("endLine").value;
 
 	loadSelectionElement(document.getElementById("startStop"),metro[userLineStart]);
 	loadSelectionElement(document.getElementById("endStop"),metro[userLineEnd]);
-}
-
-function getSelectedValue (selectionElement) {
-// Returns the currently selected value of the selection element
-	return selectionElement.value;
 }
 
 function loadSelectionElement(selectionElement,array) {
@@ -131,8 +126,8 @@ function displayStops (journey) {
 
 function getStops (line,start,end) {
 // Return array of stops between two stops (inclusive) on the provided line
-	var ixStart = findIndex(line,start);
-	var ixEnd = findIndex(line,end);
+	var ixStart = line.indexOf(start);
+	var ixEnd = line.indexOf(end);
 
 	var leg = [];
 
@@ -148,9 +143,3 @@ function getStops (line,start,end) {
 
 	return leg;
 }
-
-function findIndex (line,stop) {
-// Determines the index value of a stop on a line
-	return line.indexOf(stop);
-}
-
