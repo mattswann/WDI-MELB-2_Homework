@@ -3,43 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Journey Planner</title>
+	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<h1 id="title">Melbourne Journey Planner</h1>
+	<div class="container">
+		<h1 id="title">Melbourne Journey Planner</h1>
 
-	<div class="input">
-		<h2>Start</h2>
-		<p>
-			<label for="startLine">Line: </label>
-			<select name="startLine" id="startLine">
-			</select>
-		</p>
-		<p>
-			<label for="startStop">Stop: </label>
-			<select name="startStop" id="startStop">
-			</select>
-		</p>
-		<h2>End</h2>
-		<p>
-			<label for="endLine">Line: </label>
-			<select name="endLine" id="endLine">
-			</select>
-		</p>
-		<p>
-			<label for="endStop">Stop: </label>
-			<select name="endStop" id="endStop">
-			</select>
-		</p>
-	</div>
-	<div id="submit">Display my journey</div>
-	
-	<div class="journey">
-		<p id="description"></p>
-		<ul id="stops"></ul>
-	</div>
+		<div class="input">
+			<fieldset>
+				<legend>Origin</legend>
+				<p>
+					<label for="startLine">Line: </label>
+					<select name="startLine" id="startLine">
+					</select>
+					<label for="startStop">Stop: </label>
+					<select name="startStop" id="startStop">
+					</select>
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Destination</legend>
+				<p>
+					<label for="endLine">Line: </label>
+					<select name="endLine" id="endLine">
+					</select>
+					<label for="endStop">Stop: </label>
+					<select name="endStop" id="endStop">
+					</select>
+				</p>
+			</fieldset>
+		</div>
 
+		<div id="submit"><p>Show journey</p></div>
+		
+		<div id="journey">
+			<p id="description"></p>
+			<ul id="stops"></ul>
+		</div>
+	</div>
 	<script src="js/planner.js"></script>
-	
 </body>
 </html>

@@ -37,10 +37,10 @@ document.getElementById("submit").addEventListener("click",function() {
 	var trip = buildJourney();
 	var totalStops = trip.length -  1;
 
-	var msg = "You're journey from " + userStopStart;
-	msg += ", on the " + userLineStart + " line, to ";
-	msg += userStopEnd + ", on the " + userLineEnd + " line, ";
-	msg += "will take you through " + totalStops + " stops.";
+	var msg = userStopStart + ", on the " + userLineStart;
+	msg += " line, to " + userStopEnd + ", on the ";
+	msg += userLineEnd + " line, will take you through ";
+	msg += totalStops + " stops:";
 
 	document.getElementById("description").innerHTML = msg;
 
@@ -115,13 +115,10 @@ function displayStops (journey) {
 	for (var i = 0; i < journey.length; i++) {
 		var listItem = document.createElement("li");
 		listItem.innerHTML = journey[i];
-		
-		if (i < journey.length - 1) {
-			listItem.innerHTML += " >> ";
-		}
-
 		document.getElementById("stops").appendChild(listItem);
 	}
+
+	document.getElementById("journey").style.padding = "10px";
 }
 
 function getStops (line,start,end) {
