@@ -1,0 +1,72 @@
+body {
+	font-family: arial,sans-serif;
+	color: #222;
+}
+
+section {
+	max-width: 70%;
+	margin: auto;
+	text-align: center;
+}
+
+button {
+	height: 29px;
+  line-height: 27px;
+  -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2px;
+  color: #444;
+  cursor: default;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 11px 8px;
+  min-width: 54px;
+  padding: 0 8px;
+  text-align: center;
+}
+
+input[type=text] {
+	height: 2em;
+}
+
+footer {
+	bottom: 0;
+	left: 0;
+  font-size: 10pt;
+  line-height: 40px;
+  position: absolute;
+  width: 100%;
+	background: #f2f2f2;
+  border-top: 1px solid #e4e4e4;
+}
+
+footer a {
+	color: #666;
+}
+
+#logo {
+	height: 250px;
+	background-image: url('http://www.google.com/logos/2000/easter_logo.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	margin: 50px 0 20px 0;
+}
+
+#footer-content {
+	  line-height: 40px;
+}
+
+#foot-left {
+	margin-left: 50px;
+}
+
+#foot-right {
+	float: right;
+	margin-right: 70px;
+}
+
+#footer-content a {
+	padding:10px;
+}
