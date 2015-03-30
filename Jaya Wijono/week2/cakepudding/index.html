@@ -6,12 +6,16 @@
   <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="stylesheets/style.css">
   <script type='text/javascript' src='javascripts/underscore.min.js'></script>
+  <script type='text/javascript' src='javascripts/jquery.min.js'></script>
   <script type='text/javascript' src='javascripts/app.js'></script>
 </head>
 <body>
-  <h1>Welcome to the Cake Pudding guessing game!</h1>
-  <h2>How to play? It's simple! You just need to guess the correct letter to complete a word!</h2>
-  <h2>You got 8 chances! and the theme is about web development! GOOD LUCK!</h2>
+  <div class="welcome">
+    <h1>Welcome to the Cake Pudding guessing game!</h1>
+    <h2>How to play? It's simple! You just need to guess the correct letter to complete a word!</h2>
+    <h2>You got 8 chances! and the theme is about web development! GOOD LUCK!</h2>
+  </div>
+  
   <div id="gamePlayArea">
     <div id="hangmanArea">
       <label for="guessesLeft">Guesses Left: </label>
@@ -31,8 +35,8 @@
   </div>
   <div id="wordString"></div>
   <div id="gameControlArea">
-    <input id="giveUpButton" class="button" type="submit" value="Give up"/>
-    <input id="resetButton" class="button" type="submit" value="Reset Game"/>
+    <button id="giveUpButton">Give up</button>
+    <button id="resetButton">Reset</button>
   </div>
   <div class="console_log">
     <img id="you_win" src="images/you_win.png">

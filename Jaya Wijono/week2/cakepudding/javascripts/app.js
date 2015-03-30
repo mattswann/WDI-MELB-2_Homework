@@ -1,20 +1,16 @@
-var input = '';
+// Setting global variables
+//-------------------------
 var MAX_GUESSES = 8;
-var guessedLettersHTML = '';
-var wordStringHTML = '';
-var dancingBanana = '';
-var youWin = '';
-var youLose = '';
-var revealAnswer = '';
-var guessesLeftHTML = '';
 
+// Objects
+//------------------------
 var word = {
   secretWord: "",
   wordList: ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
  
   // Selects a random word from the word list sets the secret word
   setSecretWord: function(){
-    word.secretWord = _.sample(word.wordList);
+    this.secretWord = _.sample(this.wordList);
   },
  
   // Takes an array of letters as input and returns an array of two items:
@@ -31,7 +27,7 @@ var player = {
  
   // Takes a new letter as input and updates the game
   makeGuess: function(){
-    letter = input.value
+    letter = $('#letterField').val();
     if(!(_.contains(player['guessedLetters'],letter)) && player['guessCount'] !== 0){
       player['guessedLetters'] = player['guessedLetters'].concat(letter);
       if(!(_.contains(word.secretWord.split(''),letter))){
@@ -46,8 +42,11 @@ var player = {
   // Check if the player has won and end the game if so
   checkWin: function(){
     if(word.checkLetters(player['guessedLetters'])[0].join('') === word.secretWord){
-      dancingBanana.style.display = 'inline';
-      youWin.style.display = 'inline';
+      $('#dancing_banana').css("display","inline");
+      // youWin.style.display = 'inline';
+      $('#you_win').css("display","inline");
+      // youWin.scrollIntoView();
+      $('#you_win')[0].scrollIntoView();
     }
   },
  
@@ -63,31 +62,36 @@ var game = {
   // Resets the game
   resetGame: function(){
     word.setSecretWord();
+    initialDisplayString = _.map(word.secretWord.split(''), function(item){return item = '_'});
     player['guessCount'] = MAX_GUESSES;
     player['guessedLetters'] = [];
-    youLose.style.display = 'none';
-    dancingBanana.style.display = 'none';
-    youWin.style.display = 'none';
-    revealAnswer.innerHTML = '';
-    game.updateDisplay('', [],MAX_GUESSES);
+    $('#you_lose').css("display","none");
+    $('#dancing_banana').css("display","none");
+    $('#you_win').css("display","none");
+    $('#reveal_answer').html('');
+    game.updateDisplay(initialDisplayString, [],MAX_GUESSES);
   },
  
   // Reveals the answer to the secret word and ends the game
   giveUp: function(){
     player.guessCount = 0;
-    youLose.style.display = 'inline';
-    revealAnswer.innerHTML = 'The answer is: "' + word.secretWord + '"';
-    guessesLeftHTML.innerHTML = generateCross(player.guessCount);
+    $('#you_lose').css("display","inline");
+    $('#reveal_answer').html('The answer is: "' + word.secretWord + '"');
+    $('#guessesLeft').html(generateCross(player.guessCount));
+    $('#you_lose')[0].scrollIntoView();
   },
  
   // Update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
   updateDisplay: function(secretWordWithBlanks, guessedLetters, guessesLeft){
-    input.value = '';
-    wordStringHTML.innerHTML = secretWordWithBlanks;
-    guessedLettersHTML.innerHTML = guessedLetters.join(',');
-    guessesLeftHTML.innerHTML = generateCross(player.guessCount);
+    $('#letterField').val('');
+    $('#wordString').html(secretWordWithBlanks);
+    $('#guessedLetters').html(guessedLetters.join(','));
+    $('#guessesLeft').html(generateCross(player.guessCount));
   }
 };
+
+// helper functions
+//------------------------
 
 function currentGuess(guessedLetters){
   secretWordArray = word.secretWord.split('');
@@ -114,28 +118,21 @@ function generateCross(number){
   return list;
 }
  
-window.onload = function(){
-  input = document.getElementById('letterField');
-  guessedLettersHTML = document.getElementById('guessedLetters');
-  wordStringHTML = document.getElementById('wordString');
-  var giveUpButton = document.getElementById('giveUpButton');
-  var resetButton = document.getElementById('resetButton');
-  dancingBanana = document.getElementById('dancing_banana');
-  youWin = document.getElementById('you_win');
-  youLose = document.getElementById('you_lose');
-  revealAnswer = document.getElementById('reveal_answer');
-  guessesLeftHTML = document.getElementById('guessesLeft');
+
+// After the page finished loading 
+//----------------------------------
+$(document).ready(function(){
 
   // Start a new game
-  word.setSecretWord();
+  game.resetGame();
 
   // Add event listener to the letter input field to grab letters that are guessed
-  input.addEventListener('keyup',player.makeGuess);
+  $('#letterField').on('keyup',player.makeGuess);
 
   // Add event listener to the reset button to reset the game when clicked
-  resetButton.addEventListener('click',game.resetGame)
+  $('#resetButton').on('click',game.resetGame)
 
   // Add event listener to the give up button to give up when clicked
-  giveUpButton.addEventListener('click',game.giveUp)
+  $('#giveUpButton').on('click',game.giveUp)
 
-};
+});
