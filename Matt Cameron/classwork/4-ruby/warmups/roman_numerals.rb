@@ -3,12 +3,12 @@ def number_to_roman(number)
 		roman = []
 		arr = number.to_s.split("")
 
-		roman.push( check_singles(arr[-1].to_i) ) unless arr.fetch(-1, "no") == "no"
-		roman.push( check_tens(arr[-2].to_i) ) unless arr.fetch(-2, "no") == "no"
-		roman.push( check_hundreds(arr[-3].to_i) ) unless arr.fetch(-3, "no") == "no"
-		roman.push( check_tens(arr[-4].to_i) ) unless arr.fetch(-4, "no") == "no"
+		singles = check_singles(arr[-1].to_i) unless arr.fetch(-1, "no") == "no"
+		tens = check_tens(arr[-2].to_i) unless arr.fetch(-2, "no") == "no"
+		hundreds = check_hundreds(arr[-3].to_i) unless arr.fetch(-3, "no") == "no"
+		thousands = check_tens(arr[-4].to_i) unless arr.fetch(-4, "no") == "no"
 
-		puts "#{roman[3]}#{roman[2]}#{roman[1]}#{roman[0]}"
+		puts "#{thousands}#{hundreds}#{tens}#{singles}"
 	else
 		puts "That is an invalid number. Try again:"
 	end
@@ -40,8 +40,8 @@ puts "Enter a number to convert it to Roman Numerals:"
 number = gets.chomp
 
 until number == "q"
-	puts "Enter a number to convert it to Roman Numerals:"
 	number_to_roman(number.to_i)
+	puts "Enter a number to convert it to Roman Numerals:"
 	number = gets.chomp
 end
 
