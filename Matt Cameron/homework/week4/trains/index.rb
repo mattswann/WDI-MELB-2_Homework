@@ -15,7 +15,7 @@ def calcStops(start, stop)
 		puts "#{(@hopOffIndex - @hopOnIndex).abs} stops"
 		getStops(@startStation, @endStation)
 	else
-		toRichmond = (@startLine.index("Richmond") - @hopOnIndex).abs;
+		toRichmond = (@startLine.index("Richmond") - @hopOnIndex).abs
 		fromRichmond = (@hopOffIndex - @endLine.index("Richmond")).abs
 		puts "#{toRichmond + fromRichmond} stops"
 		getStops(@startStation, @endStation)
