@@ -63,7 +63,7 @@ def checkLine(station)
 	  	if (@startStation == "Richmond")
 	  		return checkLine(@endStation)
 	  	else  # if ending at Richmond, set the line to the start station's line
-	  		return checkLine(@startStation);
+	  		return checkLine(@startStation)
 	  	end
 	 	elsif @metro[:alamein].include?(station)
 			return @metro[:alamein]
