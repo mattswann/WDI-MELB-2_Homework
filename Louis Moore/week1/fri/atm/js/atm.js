@@ -1,3 +1,6 @@
+
+// https://github.com/epoch/codyperry/blob/master/02-web/atm/atm.js
+// DT's example
 // var accounts = {
 //   checking: {
 //     balance: 0,
@@ -61,19 +64,23 @@ if (parseInt(checkingAmount) > 0) {
 
 function checkBelowZero(value) {
 	if (value < 0) {
-		value = 0
 	} return value;
 }
 
+//-------------------------------------------------------//
+//|		    		^^^^^^ JS logic ^^^^^^				|//
+//|		   			↓↓↓↓↓↓↓↓  HTML  ↓↓↓↓↓↓				|//
+//-------------------------------------------------------//
+
 // add savings
-var savingsDeposit = document.getElementById('savingsDeposit');
-savingsDeposit.addEventListener('click', addSavings);
+var savingsDepositBtn = document.getElementById('savingsDeposit');
+savingsDepositBtn.addEventListener('click', addSavings);
 // add checking
-var checkingDeposit = document.getElementById('checkingDeposit');
-checkingDeposit.addEventListener('click', addChecking);
+var checkingDepositBtn = document.getElementById('checkingDeposit');
+checkingDepositBtn.addEventListener('click', addChecking);
 // remove savings
 var savingsWithdraw = document.getElementById('savingsWithdraw');
 savingsWithdraw.addEventListener('click', /*callback*/removeSavings);
 // remove checking
-var checkingWithdraw = document.getElementById('checkingWithdraw');
-checkingWithdraw.addEventListener('click', removeChecking);
+var checkingWithdrawBtn = document.getElementById('checkingWithdraw');
+checkingWithdrawBtn.addEventListener('click', removeChecking);

@@ -4,21 +4,30 @@ var metro = {
 	 sandringham: ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran','Windsor'],
 }
 
-var startLine = capitalizeFirstLetter(prompt('Your starting line?'));
-var startPoint = capitalizeFirstLetter(prompt('You starting station?'));
-var endline = capitalizeFirstLetter(prompt('Your end point line?'));
-var endPoint = capitalizeFirstLetter(prompt('Your desintation station?'));
+// var startLine = upCase(prompt('Your starting line?'));
+// var startPoint = upCase(prompt('You starting station?'));
+// var endLine = upCase(prompt('Your end point line?'));
+// var endPoint = upCase(prompt('Your desintation station?'));
+// var interchange = 'Richmond';
+
+var startLine = ''
+var startPoint = ''
+var endLine = ''
+var endPoint = ''
 var interchange = 'Richmond';
+
 var journey1 = startLine.indexOf(startPoint) - startLine.indexOf(interchange);
-var journey2 = endline.indexOf(interchange) - endline.indexOf(endPoint);
+var journey2 = endLine.indexOf(interchange) - endLine.indexOf(endPoint);
 var tripLength = Math.abs(journey1);
 var tripTotal = Math.abs(journey1) + Math.abs(journey2);
 
-function capitalizeFirstLetter(string) {
+
+
+function upCase(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-//associate startLine prompt with metro.linename
+function startingLine() {
 if (startLine === 'Alamein') {
 	startLine = metro.alamein;
 } else if ((startLine === 'Glen waverly') || (startLine === 'Glen Waverly')) {
@@ -26,21 +35,35 @@ if (startLine === 'Alamein') {
 } else if (startLine === 'Sandringham') {
 	startLine = metro.sandringham;
 }
+};
 
-//associate endline prompt with metro.linename
-if (endline === 'Alamein') {
-	endline = metro.alamein;
-} else if ((endline === 'Glen waverly') || (endline === 'Glen Waverly')) {
-	endline = metro.glenWaverly; 
-} else if (endline === 'Sandringham') {
-	endline = metro.sandringham;
+function endingLine() {
+if (endLine === 'Alamein') {
+	endLine = metro.alamein;
+} else if ((endLine === 'Glen waverly') || (endLine === 'Glen Waverly')) {
+	endLine = metro.glenWaverly; 
+} else if (endLine === 'Sandringham') {
+	endLine = metro.sandringham;
 }
+};
 
-if (startLine !== endline) {
-		console.log('You trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripTotal + ' stations.' + ' You will need to change trains at ' + interchange);
-	} else if (startLine === endline) {
-		journey1 = startLine.indexOf(startPoint) - startLine.indexOf(endPoint);
+
+function displayJourney() {
+if (startLine != endLine) {
+		 p.innerHTML = 'Your trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripTotal + ' stations.' + ' You will need to change trains at ' + interchange
+	} else if (startLine === endLine) {
 		console.log('You trip from ' + startPoint + ' to ' + endPoint + ' will be ' + tripLength + ' stations');
 	} else {
 			prompt("Please enter a valid starting station & destination")
 		}
+};
+
+var startLineSelect = document.getElementById('startLineSelect');
+startLineSelect.addEventListener('change', startingLine);
+
+var endLineSelect = document.getElementById('endLineSelect');
+  endLineSelect.options[endLineSelect.selectedIndex].text;
+
+// endLineSelect.addEventListener('change', endingLine)
+
+var updateDisplay = document.getElementById("displayPara");
