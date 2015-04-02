@@ -1,0 +1,12 @@
+<h1>Check your stocks!</h1>
+<p>Enter a stock symbol</p>
+<span>(eg. 'GOOG' for Google)</span>
+
+<form action="/">
+	<input type="text" name="stock_symbol" value="<%= params[:stock_symbol] %>" autofocus>
+</form>
+
+<div id="result">
+	<div id="stock"><%= @name if params[:stock_symbol] != nil %></div>
+	<div id="price">$<%= @price %></div>
+</div>

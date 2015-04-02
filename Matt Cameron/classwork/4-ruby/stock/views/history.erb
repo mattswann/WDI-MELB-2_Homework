@@ -1,0 +1,13 @@
+<h2>Search History</h2>
+
+<div id="history" class="align-left">
+	<table>
+		<% @searches.each do |search| %>
+		<tr>
+			<td><%= search[2] %></td>
+			<td><span><%= search[0].upcase %></span></td>
+			<td><%= search[1] %></td>
+		<tr>
+		<% end %>
+	</table>
+</div>

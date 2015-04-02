@@ -1,0 +1,92 @@
+body {
+	margin: 0;
+	font-family: 'helvetica';
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: red;
+}
+
+input[type=text] {
+	max-width: 200px;
+	font-size:  4em;
+	margin-top: 10px;
+}
+
+span {
+	font-size: .8em;
+	font-style: italic;
+}
+
+nav {
+	width: 100%;
+	background-color: #fafafa;
+	height: 55px;
+}
+
+nav:after {
+	clear:both;
+}
+
+nav ul {
+	margin-top: 20px;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 0 20px;
+}
+
+table {
+	width: 50%;
+	margin: auto;
+}
+
+td {
+	width: 30%;
+}
+
+#container {
+	max-width: 60%;
+	margin:100px auto;
+	text-align: center;
+}
+
+#result {
+	font-size: 3em;
+}
+
+#stock {
+	margin: 50px auto;
+}
+
+#price {
+	margin-top: 50px;
+}
+
+#nav-left {
+	float: left;
+	margin-left: 100px;
+}
+
+#nav-right {
+	float:right;
+	margin-right: 100px;
+}
+
+#history {
+	line-height: 2em;
+}
+
+.align-left {
+	text-align: left;
+}
