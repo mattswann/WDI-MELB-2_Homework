@@ -5,6 +5,10 @@ class Robot
 
 	def initialize
 		@name = "#{(0...2).map { (65 + rand(26)).chr }.join}#{(0...3).map {rand(9)}.join}"
+
+				# DT's method
+			  # "#{('AA'..'ZZ').to_a.sample}#{('000'..'999').to_a.sample}"
+
 		@mac_address ||= "Robot#{(0...18).map {rand(9)}.join}#{(65 + rand(26)).chr}"
 		@instruction_count ||= 0
 		@created_time ||= Time.now
