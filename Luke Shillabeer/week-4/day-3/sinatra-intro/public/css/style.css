@@ -1,0 +1,64 @@
+/*\
+| | Color scheme: http://app.coolors.co/3f4b3b-44633f-5a9367-5cab7d-4adbc8
+| |
+\*/
+
+/*\
+| | apply a natural box layout model to all elements,
+| | but allowing components to change
+\*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 2.5em auto 0 auto;
+  border: 5px solid #000000;
+  background-color: #D7D7D7;
+  max-width: 800px;
+  color: white;
+}
+
+/*------------------------
+  DIV span sizings
+------------------------*/
+
+.span-1, .span-2, .span-3, .span-4, .span-5 {
+  display: inline-block;
+}
+
+.span-1 {
+  width: 20%;
+}
+
+.span-2 {
+  width: 40%;
+}
+
+.span-3 {
+  width: 60%;
+}
+
+.span-4 {
+  width: 80%;
+}
+
+.span-5 {
+  width: 100%;
+}
+
+/*------------------------
+  Individual Elements
+------------------------*/
+
+h1 {
+  color: #3F7CAC;
+}
+
+.inline li {
+  display: inline-block;
+}
