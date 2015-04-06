@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'Angry Bird';
+  src: local("Angry Bird"), url("fonts/angrybirds-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 8, sass/style.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 14, sass/style.scss */
+body {
+  font-family: 'Ubuntu', sans-serif;
+  line-height: 26px;
+  width: 100%;
+  min-height: 70%;
+  background: url("../images/background.png") no-repeat;
+  background-size: 100%;
+  background-position: center bottom;
+  position: relative;
+}
+
+/* line 26, sass/style.scss */
+.container {
+  width: 800px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* line 32, sass/style.scss */
+#gamePlayArea, #gameControlArea {
+  margin: 40px 0;
+}
+
+/* line 36, sass/style.scss */
+#letterArea #letterField {
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid #ddd;
+  width: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* line 46, sass/style.scss */
+.letter {
+  display: inline-block;
+  width: 45px;
+  height: 60px;
+  font-size: 30px;
+  line-height: 50px;
+  margin-right: 10px;
+  text-align: center;
+  color: #4FAFBA;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+/* line 58, sass/style.scss */
+.box {
+  border: 3px dashed #4FAFBA;
+}
+
+/* line 61, sass/style.scss */
+#wrongLetters {
+  position: relative;
+}
+/* line 63, sass/style.scss */
+#wrongLetters h1 {
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+/* line 68, sass/style.scss */
+.wrong {
+  border: 3px dashed #FE1B58;
+  background-color: white;
+}
+
+/* .wrong:before{
+  content:'X';
+  color:#FC4F66;
+  position:absolute;
+  top:0;
+  opacity:0.5;
+} */
+/* line 80, sass/style.scss */
+footer {
+  font-family: 'Angry Bird', san-serif;
+  height: 300px;
+  position: relative;
+}
+
+/* line 85, sass/style.scss */
+#red {
+  background: url("../images/red_thinking.png") no-repeat;
+  background-size: 20%;
+  background-position: right bottom;
+  height: 250px;
+}
+
+/* line 92, sass/style.scss */
+#message {
+  text-align: right;
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  right: 250px;
+}
