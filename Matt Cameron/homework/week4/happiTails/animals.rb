@@ -2,10 +2,10 @@ class Animal
 	attr_accessor :name, :age, :gender, :species, :toys
 
 	def initialize(name, age, gender, species)
-		@name = name
+		@name = name.capitalize
 		@age = age
-		@gender = gender
-		@species = species
+		@gender = gender.downcase
+		@species = species.downcase
 		@toys = []
 	end
 
