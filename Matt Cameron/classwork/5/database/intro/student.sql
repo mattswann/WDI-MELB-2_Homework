@@ -1,4 +1,15 @@
 
+#####   POSTGRES BASICS   ######
+
+-- Open postgres in Terminal
+psql
+
+-- Create a new database
+CREATE DATABASE ga;   -- where ga is the new database name
+
+-- Connect to the database
+\c ga;
+
 -- Create a new table
 CREATE TABLE students
 (
@@ -11,7 +22,6 @@ CREATE TABLE students
 
 -- writing to the database
 INSERT INTO students (firstname, lastname, dob, gpa) VALUES ('Daniel', 'Wiess', '6/10/1988', 3.2);
-
 
 -- displaying all rows of the database
 SELECT * FROM students;
@@ -36,3 +46,6 @@ select sum(gpa) from students;
 
 -- average of the gpa column
 select avg(gpa) from students;
+
+-- drop a table
+DROP TABLE students

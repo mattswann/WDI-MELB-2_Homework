@@ -1,0 +1,10 @@
+<h1>Good Food Hunting</h1>
+
+
+<% @rows.each do |row| %>
+<figure>
+	<img src="<%= row['image_url'] %>" alt="<%= row['name'] %>">
+	<figcaption><%= row['name'] %></figcaption>
+	<p class="edit"><a href="/dishes/<%= row['id']%>/edit">Edit</a> <a href="/dishes/<%= row['id']%>/delete">Delete</a></p>
+</figure>
+<% end %>
