@@ -1,0 +1,5 @@
+<ul>
+  <% @search_list.each do |search_param| %>
+  <li><a href="http://localhost:4567/?stock_symbol=<%= search_param %>"><%= search_param %></a></li>
+  <% end %>
+</ul>

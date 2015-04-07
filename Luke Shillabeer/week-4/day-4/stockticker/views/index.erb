@@ -1,0 +1,9 @@
+<div id="stock-container" class="span-5">
+<% @stock_list.each do |stock| %>
+  <ul class="stock-box">
+    <% stock.each do |item| %>
+    <li><%= item %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
