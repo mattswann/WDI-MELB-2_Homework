@@ -8,6 +8,18 @@ var ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 // Helper Functions
 //-----------------------------------------------------------------
 
+// This function is intended to smooth the motion of the creeper
+// TODO: complete it (it is not completed or even working)
+function creeperMotion($element) {
+  var guessesRemaining = game.remainingGuesses();
+  var creeperPos       = $element.position();
+  var totalTime        = 2000;
+  var frames           = 60;
+  window.setTimeout()
+
+  console.log(creeperPos.left / guessesRemaining);
+}
+
 // Found this at;
 // http://stackoverflow.com/a/13778494/2355035
 function getCssProperty(elmId, property){
@@ -53,16 +65,16 @@ function domKeyBind(letter) {
 
 // jqueryselectors
 var sel = {
-  $guessLabel:   $('#guess-box'),
-  $curLetter:    $('#letter-box'),
-  $wordString:   $('#word-box'),
-  $creeperImage: $('#creeper-image'),
-  $playerImage:  $('#player-image'),
+    $guessLabel:   $('#guess-box'),
+    $curLetter:    $('#letter-box'),
+    $wordString:   $('#word-box'),
+    $creeperImage: $('#creeper-image'),
+    $playerImage:  $('#player-image'),
 
-  $keyBox: function(character) {
-    var selector = "#key-box-" + character;
-    return $(selector);
-  }
+    $keyBox: function(character) {
+      var selector = "#key-box-" + character;
+      return $(selector);
+    }
 }
 
 var game = {
@@ -123,15 +135,6 @@ var game = {
     return result.join("");
   },
 
-  updateScreen: function(elements) {
-    // Updates all on-screen elements at regular interval
-    for (var key in elements) {
-      if (elements.hasOwnProperty(key)) {
-        console.log(key, elements[key]);
-      }
-    }
-  },
-
   init: function() {
     this.setSecretWord();
     ALPHABET.forEach(domKeyBind);
@@ -155,6 +158,5 @@ sel.$creeperImage.on('click', function(){
   window.setTimeout(function() {
     sel.$creeperImage.attr("src", oldImage)
   }, 2500);
+  creeperMotion(sel.$creeperImage);
 });
-
-game.updateScreen(sel);
