@@ -1,0 +1,19 @@
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+header {
+  border-bottom: 2px dashed black;
+}
+
+nav {
+  text-align: center;
+  border-bottom: 2px dashed black
+}
+
+nav > ul > li {
+  display: inline-block;
+  margin: 0 0.7em;
+}

@@ -1,0 +1,15 @@
+<ul>
+  <li class="food-item">
+  <%= @row['name'] %>
+  <img src="<%= @row['image_url'] %>" alt=""></li>
+</ul>
+
+<form action="/dishes/<%= @row['id'] %>" method="post">
+  <label for="">Name</label>
+  <input type="text" name="name" value="<%= @row['name']%>">
+
+  <label for="">Image URL</label>
+  <input type="text" name="image_url" value="<%= @row['image_url']%>">
+
+  <button>Edit</button>
+</form>

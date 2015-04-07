@@ -1,0 +1,11 @@
+<ul>
+  <% @rows.each do |row| %>
+  <a href="/dishes/<%= row['id'] %>">
+  <li class="food-item" style="background: url('<%= row['image_url'] %>'); background-size: 260px 200px;">
+    <ul class="food-item-links">
+      <li class="inline"><a href="/dishes/<%= row['id'] %>/edit">edit</a></li>
+      <li class="inline"><a href="/dishes/<%= row['id'] %>/remove">remove</a></li>
+    </ul>
+  </li></a>
+  <% end %>
+</ul>
