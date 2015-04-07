@@ -4,6 +4,12 @@ body {
 	font-family: 'helvetica'
 }
 
+h1 {
+	font-family: 'Arbutus', cursive;
+	text-align: center;
+	margin-bottom: 5%;
+}
+
 nav {
 	background-color: #BADA55;
 }
@@ -20,11 +26,11 @@ nav ul li {
 
 nav a {
 	text-decoration: none;
-	color: #fafafa;
+	color: #000;
 }
 
 nav a:hover {
-	color: #000;
+	color: #fafafa;
 }
 
 main {
@@ -32,6 +38,32 @@ main {
 	vertical-align: top;
 	margin-left: 8%;
 	max-width: 60%;
+}
+
+input {
+	width: 60%;
+	font-size: 3em;
+	border: 2px solid #BADA55;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+button {
+	width: 15%;
+	line-height: 2em;
+	font-size: 25px;
+	border-radius: 10px;
+	background-color: #BADA55;
+	vertical-align: bottom;
+}
+
+button:hover {
+	background-color: transparent;
+}
+
+section {
+	background-color: blue;
+	margin: 0;
 }
 
 #left {
@@ -92,4 +124,8 @@ main {
 
 .info span:first-of-type {
 	margin-left: 0px;
+}
+
+.middle {
+	text-align: center;
 }
