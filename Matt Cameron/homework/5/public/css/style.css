@@ -28,6 +28,10 @@ nav ul li {
 	font-family: 'Candal', sans-serif;
 }
 
+ul li {
+	line-height: 2em;
+}
+
 nav a {
 	text-decoration: none;
 	color: #000;
