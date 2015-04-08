@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
+
 <body>
   
   <p>
@@ -11,20 +6,21 @@
   </p>
 
   <p>
-    <strong>Title:</strong> <%= @title %>
+    <strong>Title:</strong> <%= @result['title'] %>
   </p>
 
   <p>
-    <strong>Genre:</strong> <%= @genre %>
+    <strong>Runtime:</strong> <%= @result['year'] %>
   </p>
 
   <p>
-    <strong>Runtime:</strong> <%= @runtime %>
+    <strong>Genre:</strong> <%= @result['genre'] %>
   </p>
 
-  <img src="<%= @poster %>" alt="">
+  <p>
+    <strong>Runtime:</strong> <%= @result['runtime'] %>
+  </p>
+
+  <img src="<%= @result['poster'] %>" alt="">
 
 </body>
-</html>
-
-
