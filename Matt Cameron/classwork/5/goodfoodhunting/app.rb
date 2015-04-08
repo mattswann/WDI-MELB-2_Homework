@@ -35,15 +35,15 @@ get '/dishes/:id/edit' do
 	erb :edit
 end
 
-# Updated an existing dish
-post '/dishes/:id' do
+# Update an existing dish
+put '/dishes/:id' do
 	sql = "UPDATE dishes SET name='#{params[:name]}', image_url='#{params[:image_url]}' WHERE id = #{params[:id]} ;"
 	@rows = run_sql(sql)
 	redirect to '/'
 end
 
 # Delete an existing dish
-get '/dishes/:id/delete' do
+delete '/dishes/:id/delete' do
 	sql = "DELETE FROM dishes WHERE id = #{params[:id]} ;"
 	run_sql(sql)
 	redirect to '/'

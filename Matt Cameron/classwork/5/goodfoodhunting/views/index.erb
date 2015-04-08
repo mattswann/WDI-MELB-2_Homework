@@ -5,6 +5,16 @@
 <figure>
 	<img src="<%= row['image_url'] %>" alt="<%= row['name'] %>">
 	<figcaption><%= row['name'] %></figcaption>
-	<p class="edit"><a href="/dishes/<%= row['id']%>/edit">Edit</a> <a href="/dishes/<%= row['id']%>/delete">Delete</a></p>
+	<div class="edit">
+
+		<form action="/dishes/<%= row['id']%>/edit" method="put">
+			<button>Edit</button>
+		</form>
+
+		<form action="/dishes/<%= row['id']%>/delete" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<button>Delete</button>
+		</form>
+	</div>
 </figure>
 <% end %>
