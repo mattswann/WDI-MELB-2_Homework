@@ -5,8 +5,7 @@ require 'sinatra/reloader'
 require 'httparty'
 require 'pry'
 require 'pg'
-require 'uri'
-
+require 'URI'
 
 get '/' do
 	@search_for = params[:title]
@@ -18,55 +17,42 @@ get '/about' do
 end
 
 get '/movie' do
-	# normalise the input
-	params['title'] = params['title'].capitalize
 
-	# Get the entered movie from OMDB
-	url = "http://www.omdbapi.com/?t=#{params['title']}&plot=full"
-	@movie = HTTParty.get(URI.escape(url))
+	#check if the movie is already in our database
+	check_existing = run_sql("SELECT * FROM movies WHERE title = '#{params['title']}'")
 
-	# if movie exists in OMDB
-	if @movie['Title'] == params['title']
+	#if the movie is already in our database, set @movie from our database
+ 	if check_existing.count > 0
+ 		 @rows = run_sql("SELECT * FROM movies WHERE title = '#{ params[:title] }' ")
+ 		 @movie = @rows[0]
+ 		 erb :title
 
-		exists_already = run_sql("SELECT * FROM movies WHERE title = '#{params['title']}'")
+ 	else   # Not in our database, so check if the movie exists in OMDB
+ 		url = "http://www.omdbapi.com/?t=#{params['title']}&plot=full"
+		@movie = HTTParty.get(URI.escape(url))
 
-		# if the movie is not already in our database, add it
-		if exists_already.count == 0
-			raw_result = HTTParty.get(URI.escape(url))
+		# if movie does match exactly
+ 	  if @movie['Title'] == params['title']
+
+ 	  	#downcase the response from OMDB to match the database (so we can use the same variables in templates)
+ 	  	raw_result = HTTParty.get(URI.escape(url))
 			@movie = {}
-			raw_result.each do |key, value|
-				@result[key.downcase] = value
-			end
+			raw_result.each { |key, value| @movie[key.downcase] = value }
 
-			sql = "INSERT INTO movies (title, poster, rated, runtime, year, languages, imdbrating, director, plot, actors) VALUES (
-			'#{ escape_apostrophes @movie['Title'] }',
-			 '#{ @movie['Poster'] }',
-			 '#{ @movie['Rated'] }',
-			 '#{ @movie['Runtime'] }',
-			 '#{ @movie['Year'] }',
-			 '#{ @movie['Language'] }',
-			 '#{ @movie['imdbRating'] }',
-			 '#{ escape_apostrophes @movie['Director'] }',
-			 '#{ escape_apostrophes @movie['Plot'] }',
-			 '#{ escape_apostrophes @movie['Actors']}'
-			 )"
+			# write the movie to our database
+			sql = "INSERT INTO movies (title, poster, rated, runtime, year, languages, imdbrating, director, plot, actors) VALUES ('#{ escape_apostrophes(@movie['title']) }', '#{ @movie['poster'] }', '#{ @movie['rated'] }', '#{ @movie['runtime'] }', '#{ @movie['year'] }', '#{ @movie['language'] }', '#{ @movie['imdbrating'] }', '#{ escape_apostrophes(@movie['director']) }', '#{ escape_apostrophes(@movie['plot']) }', '#{ escape_apostrophes(@movie['actors'])}')"
 			run_sql(sql)
 
-			#if the movie is already in our database, set @movie from our database
-	 	else
-	 		sql = "SELECT * FROM movies WHERE title = '#{ params['title'] }' "
-	 		 @rows = run_sql(sql)
-	 		 @movie = @rows[0]
-	 	end
-	 	erb :title
+			#show the movie page
+			erb :title
 
-	 	# if the movie doesn't exist on OMDB, do a fuzzy search and display the results
-	else
-		@results = HTTParty.get("http://www.omdbapi.com/?s=#{params['title'] }&plot=full")['Search']
-		erb :results
-	end
+		#if movie does not match exactly, show the fuzzy search results
+		else
+			@results = HTTParty.get("http://www.omdbapi.com/?s=#{params['title'] }&plot=full")['Search']
+			erb :results
+		end
+ 	end
 end
-
 
 def run_sql(sql)
 	db = PG.connect(:dbname => 'mmdb')
