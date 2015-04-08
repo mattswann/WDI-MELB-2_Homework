@@ -10,19 +10,16 @@ class School
 	end
 
 	def add(name, grade)
-		if db[grade]
-			db[grade] << name
-		else
-			db[grade] = [name]
-		end
+			@db[grade] ||= []
+			@db[grade] << name
 	end
 
 	def grade(grade)
-		db[grade]
+		@db[grade]
 	end
 
 	def sort
-		sorted_db = db.each {|key, value| grade(key).sort!}
+		sorted_db = @db.each {|key, value| grade(key).sort!}
 		Hash[sorted_db.sort]
 	end
 

@@ -5,9 +5,13 @@ body {
 }
 
 h1 {
-	font-family: 'Arbutus', cursive;
+	font-family: 'Candal', sans-serif;
 	text-align: center;
 	margin-bottom: 5%;
+}
+
+h2, h4 {
+	font-family: 'Candal', sans-serif;
 }
 
 nav {
@@ -21,7 +25,7 @@ nav ul {
 nav ul li {
 	display: inline-block;
 	padding: 15px;
-	font-family: 'Arbutus', cursive;
+	font-family: 'Candal', sans-serif;
 }
 
 nav a {
@@ -55,6 +59,7 @@ button {
 	border-radius: 10px;
 	background-color: #55A2DA;
 	vertical-align: bottom;
+	font-family: 'Candal', sans-serif;
 }
 
 button:hover {
@@ -94,7 +99,7 @@ section img {
 #logo {
 	display: inline;
 	margin-left: 15%;
-	font-family: 'Arbutus', cursive;
+	font-family: 'Candal', sans-serif;
 	font-size: 1.3em;
 }
 
