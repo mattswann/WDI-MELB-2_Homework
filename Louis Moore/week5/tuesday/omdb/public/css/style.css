@@ -1,0 +1,18 @@
+h1 {
+  text-align: center;
+}
+
+.search {
+  margin: 0 auto;
+  width: 800px;
+  background-color: linen;
+}
+
+.search form {
+  text-align: center;
+}
+
+input {
+  width: 200px;
+}
+
