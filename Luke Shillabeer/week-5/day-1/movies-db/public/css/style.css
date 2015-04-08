@@ -1,3 +1,43 @@
+/*------------------------
+  DIV span sizings
+------------------------*/
+
+.span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8 {
+  display: inline-block;
+}
+
+.span-1 {
+  width: 12.5%
+}
+
+.span-2 {
+  width: 25%;
+}
+
+.span-3 {
+  width: 37.5%;
+}
+
+.span-4 {
+  width: 50%;
+}
+
+.span-5 {
+  width: 62.5%;
+}
+
+.span-6 {
+  width: 75%;
+}
+
+.span-7 {
+  width: 87.5%;
+}
+
+.span-8 {
+  width: 100%;
+}
+
 
 h1 {
   font-size: 3em;
@@ -16,4 +56,32 @@ nav {
 nav > ul > li {
   display: inline-block;
   margin: 0 0.7em;
+}
+
+#poster-list {
+  display: block; 
+  text-align: center;
+}
+
+#poster-list li {
+  display: inline;
+}
+
+.poster-box {
+  display: inline-block;
+  line-height: 250px;
+  height: 250px;
+  width: 150px;
+  background-size: 150px 250px;
+  border-radius: 14px;
+  box-shadow: 10px 10px 5px #888888;
+  margin: 0px 10px;
+  -webkit-transition: all 0.2s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+     -moz-transition: all 0.2s ease-out;  /* Firefox 4-15 */
+       -o-transition: all 0.2s ease-out;  /* Opera 10.50–12.00 */
+          transition: all 0.2s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+.poster-box:active {
+  box-shadow: none;
 }

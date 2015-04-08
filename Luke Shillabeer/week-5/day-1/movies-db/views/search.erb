@@ -2,3 +2,9 @@
   <input id="search" type="text" placeholder="Type here" name="title">
   <input id="submit" type="submit" value="Search">  
 </form>
+
+<ul id="poster-list">
+  <% @recent_five.each do |movie| %>
+  <li><div class=" poster-box" style="background-image: url('<%= movie["poster_url"] %>');"></div></li>
+  <% end %>
+</ul>
