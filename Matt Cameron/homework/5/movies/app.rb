@@ -6,6 +6,8 @@ require 'httparty'
 require 'pry'
 require 'pg'
 require 'URI'
+require_relative 'config'
+require_relative 'movie'
 
 get '/' do
 	@search_for = params[:title]
@@ -19,12 +21,11 @@ end
 get '/movie' do
 
 	#check if the movie is already in our database
-	check_existing = run_sql("SELECT * FROM movies WHERE title = '#{params['title']}'")
+	movies = Movie.where title: params[:title]
 
 	#if the movie is already in our database, set @movie from our database
- 	if check_existing.count > 0
- 		 @rows = run_sql("SELECT * FROM movies WHERE title = '#{ params[:title] }' ")
- 		 @movie = @rows[0]
+ 	if movies.count > 0
+ 		 @movie = movies.first
  		 erb :title
 
  	else   # Not in our database, so check if the movie exists in OMDB
@@ -40,8 +41,19 @@ get '/movie' do
 			raw_result.each { |key, value| @movie[key.downcase] = value }
 
 			# write the movie to our database
-			sql = "INSERT INTO movies (title, poster, rated, runtime, year, languages, imdbrating, director, plot, actors) VALUES ('#{ escape_apostrophes(@movie['title']) }', '#{ @movie['poster'] }', '#{ @movie['rated'] }', '#{ @movie['runtime'] }', '#{ @movie['year'] }', '#{ @movie['language'] }', '#{ @movie['imdbrating'] }', '#{ escape_apostrophes(@movie['director']) }', '#{ escape_apostrophes(@movie['plot']) }', '#{ escape_apostrophes(@movie['actors'])}')"
-			run_sql(sql)
+
+			new_dish = Movie.new
+			new_dish.title = @movie['title']
+			new_dish.poster = @movie['poster']
+			new_dish.rated = @movie['rated']
+			new_dish.runtime = @movie['runtime']
+			new_dish.year = @movie['year']
+			new_dish.languages = @movie['languages']
+			new_dish.imdbrating = @movie['imdbrating']
+			new_dish.director = @movie['director']
+			new_dish.plot = @movie['plot']
+			new_dish.actors = @movie['actors']
+			new_dish.save
 
 			#show the movie page
 			erb :title
@@ -52,15 +64,4 @@ get '/movie' do
 			erb :results
 		end
  	end
-end
-
-def run_sql(sql)
-	db = PG.connect(:dbname => 'mmdb')
-  @rows = db.exec(sql)
-  db.close
-  return @rows
-end
-
-def escape_apostrophes(string)
-	string.gsub("'", "''")
 end
