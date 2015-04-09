@@ -1,17 +1,17 @@
 <h1>Good Food Hunting</h1>
 
 
-<% @rows.each do |row| %>
+<% @dishes.each do |dish| %>
 <figure>
-	<img src="<%= row['image_url'] %>" alt="<%= row['name'] %>">
-	<figcaption><%= row['name'] %></figcaption>
+	<img src="<%= dish.image_url %>" alt="<%= dish.name %>">
+	<figcaption><%= dish.name %></figcaption>
 	<div class="edit">
 
-		<form action="/dishes/<%= row['id']%>/edit" method="put">
+		<form action="/dishes/<%= dish.id %>/edit" method="put">
 			<button>Edit</button>
 		</form>
 
-		<form action="/dishes/<%= row['id']%>/delete" method="post">
+		<form action="/dishes/<%= dish.id %>/delete" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<button>Delete</button>
 		</form>
