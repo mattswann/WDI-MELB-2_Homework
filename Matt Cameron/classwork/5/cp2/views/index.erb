@@ -1,0 +1,22 @@
+<script>
+	$.getJSON('/api/students').done(function(students) {
+
+			$.each(students, function(index, student) {
+				$li = $('<li>').html(student.name)
+		    $('#jsul').append($li)
+			})
+
+		});
+</script>
+
+<h2>From Ruby</h2>
+<ul>
+	<% @students.each do |student| %>
+		<li><%= student.name %></li>
+	<% end %>
+</ul>
+
+<h2>From JavaScript</h2>
+<ul id="jsul">
+
+</ul>
