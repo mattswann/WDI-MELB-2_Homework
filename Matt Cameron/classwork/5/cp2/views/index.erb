@@ -1,12 +1,22 @@
 <script>
 	$.getJSON('/api/students').done(function(students) {
 
+		var options = {
+			url: '/api/students',
+			dataType: 'json'
+		};
+
+
+		$.ajax(options).done(function () {
 			$.each(students, function(index, student) {
 				$li = $('<li>').html(student.name)
 		    $('#jsul').append($li)
 			})
-
 		});
+
+
+
+		 });
 </script>
 
 <h2>From Ruby</h2>

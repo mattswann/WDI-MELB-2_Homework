@@ -4,7 +4,10 @@ require 'pg'
 require 'pry'
 require_relative 'config'
 require_relative 'dish'
+require_relative 'user'
+require 'bcrypt'
 
+enable :sessions
 
 get '/' do
   @dishes = Dish.all
@@ -24,6 +27,7 @@ end
 
 # Show new dishes page
 get '/dishes/new' do
+	redirect to '/session/new' unless current_user
 	erb :new
 end
 
@@ -47,4 +51,35 @@ delete '/dishes/:id/delete' do
 	@dish = Dish.find(params[:id])
 	@dish.delete
 	redirect to '/'
+end
+
+get '/session/new' do
+	erb :login
+end
+
+
+
+post '/session' do
+	@user = User.where(email: params[:email]).first
+	if @user && @user.authenticate(params[:password])
+		session[:user_id] = @user.id
+		redirect to '/'
+	else
+		erb :login
+	end
+end
+
+delete '/session' do
+	session[:user_id] = nil
+	redirect to '/'
+end
+
+helpers do
+	def logged_in?
+		!!current_user
+	end
+
+	def current_user
+			User.find_by(id: session[:user_id])
+	end
 end

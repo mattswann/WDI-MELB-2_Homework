@@ -14,6 +14,15 @@
 		<li><a href="/">Home</a></li>
 		<li><a href="/dishes">Dishes</a></li>
 		<li><a href="/dishes/new">Create</a></li>
+
+	<% if logged_in? %>
+	<form action="/session" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<button>Logout</button>
+	</form>
+	<% else %>
+		<li><a href="/session/new">Log In </a></li>
+	<% end %>
 	</ul>
 </nav>
 <div id="container">
