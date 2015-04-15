@@ -1,0 +1,3 @@
+class Relationships
+
+end

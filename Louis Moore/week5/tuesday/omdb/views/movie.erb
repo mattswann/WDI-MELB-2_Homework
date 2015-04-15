@@ -1,0 +1,26 @@
+
+<body>
+  
+  <p>
+    <%= @omdb %>
+  </p>
+
+  <p>
+    <strong>Title:</strong> <%= @result['title'] %>
+  </p>
+
+  <p>
+    <strong>Runtime:</strong> <%= @result['year'] %>
+  </p>
+
+  <p>
+    <strong>Genre:</strong> <%= @result['genre'] %>
+  </p>
+
+  <p>
+    <strong>Runtime:</strong> <%= @result['runtime'] %>
+  </p>
+
+  <img src="<%= @result['poster'] %>" alt="">
+
+</body>
