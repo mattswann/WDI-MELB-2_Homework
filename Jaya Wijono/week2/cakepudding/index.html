@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cake Pudding</title>
+  <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script type='text/javascript' src='javascripts/underscore.min.js'></script>
+  <script type='text/javascript' src='javascripts/jquery.min.js'></script>
+  <script type='text/javascript' src='javascripts/app.js'></script>
+</head>
+<body>
+  <div class="welcome">
+    <h1>Welcome to the Cake Pudding guessing game!</h1>
+    <h2>How to play? It's simple! You just need to guess the correct letter to complete a word!</h2>
+    <h2>You got 8 chances! and the theme is about web development! GOOD LUCK!</h2>
+  </div>
+  
+  <div id="gamePlayArea">
+    <div id="hangmanArea">
+      <label for="guessesLeft">Guesses Left: </label>
+      <p id="guessesLeft">++++++++</p>
+      
+    </div>
+    <div id="letterArea">
+      <div id="lettersUsed">
+        <label for="lettersGuessed">Letters Guessed Already: </label>
+        <div id="guessedLetters">  </div>
+      </div>
+      <div id="guessBox">
+        Guess a Letter:
+        <input id="letterField" type="text" />
+      </div>
+    </div>
+  </div>
+  <div id="wordString"></div>
+  <div id="gameControlArea">
+    <button id="giveUpButton">Give up</button>
+    <button id="resetButton">Reset</button>
+  </div>
+  <div class="console_log">
+    <img id="you_win" src="images/you_win.png">
+    <img id="dancing_banana" src="images/dancing_banana.gif">
+    <p id="reveal_answer"></p>
+    <img id="you_lose" src="images/game_over.jpg">
+  </div>
+</body>
+</html>

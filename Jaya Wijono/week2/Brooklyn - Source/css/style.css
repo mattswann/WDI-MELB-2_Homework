@@ -1,0 +1,74 @@
+/* 
+
+## Style Hints: 
+
+Body Font Size = 12px
+	 Line Height = 17px
+	 Font Family = "Times New Roman", serif
+	 Font Color = #656565
+
+Link Hover Color = #20222a
+
+*/
+
+#container{
+  width: 960px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: auto;
+}
+
+.logo{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.home.image{
+  margin-bottom: 5px;
+}
+
+.press.image{
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 1px;
+  border: 3px solid grey;
+}
+
+article, footer{
+  color: grey;
+}
+
+#date, a{
+  color: royalblue;
+  font-weight: lighter;
+}
+
+article{
+  font-family: 'Oxygen', sans-serif;
+}
+
+p{
+  font-size: 15px;
+}
+
+footer{
+  padding-bottom: 20px;
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  #container, .home.image{
+    width: 800px;
+  }
+  .press{
+  text-align: center;
+}
+}
+
+@media (max-width: 500px) {
+  #container, .home.image{
+    width: 500px;
+  }
+}

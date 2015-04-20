@@ -1,0 +1,7 @@
+doggy dog,3,male,dog,[],adopted,
+sweety cat,3,female,cat,[],not adopted,
+colourful bird,5,male,bird,[],not adopted,
+green frog,3,female,frog,[],not adopted,
+finding Nemo,6,male,fish,[],not adopted,
+sharky shark,10,female,fish,[],adopted,
+angry cat,2,female,cat,[],adopted,

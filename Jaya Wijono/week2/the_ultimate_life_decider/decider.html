@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ultimate life decider</title>
+  <link rel="stylesheet" type="text/css" href='style.css'>
+</head>
+<body>
+
+  <div class="image1">
+    <img  class="coin_image" src="initial_coin_flip.png" alt="coin-flip">
+  </div>
+    
+  <div class="image2">
+    <img id="second_opinion" src="second_opinion.png">
+    <img src="dancing.gif">
+  </div>
+
+  
+  <div class="article">
+    <label for="flip-coin">How many coins do you want to flip?</label><br/>
+    <input id='numCoins' type="text" placeholder="# of coins"><br/>
+    <label for="flip-coin">How many tails or heads do you need to decide?</label><br/>
+    <input id='numWins' type="text" placeholder="# of heads / tails"><br/>
+    <button id="flip-button">flip the coin</button>
+  </div>
+
+  <div class="console">
+    <strong>Results:</strong>
+    <hr/>
+    <p>
+      1) <span id="console1"></span><br/>
+      2) <span id="console2"></span><br/>
+      3) <span id="console3"></span><br/>
+      4) <span id="console4"></span><br/>
+      5) <span id="console5"></span><br/>
+    </p>
+  </div>
+
+  <script src="decider.js"></script>
+  <script src="buckStopsHere.js"></script>
+</body>
+</html>
