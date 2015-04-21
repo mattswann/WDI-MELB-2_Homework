@@ -1,5 +1,5 @@
 /*\
-| | Color scheme: http://app.coolors.co/3f4b3b-44633f-5a9367-5cab7d-4adbc8
+| | Color scheme: http://app.coolors.co/e4efda-d5ffd9-c8eba4-fff89c-fde9a7
 | |
 \*/
 
@@ -17,7 +17,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
-  background-color: #5A9367;
+  background-color: #E4EFDA;
   color: black;
 }
 
@@ -58,12 +58,14 @@ body {
 ------------------------*/
 
 header {
+  padding-top: 8px;
+  background-color: #FDE9A7;
   border-bottom: 2px dashed black;
 }
 
 nav {
+  margin: 18px auto 9px auto;
   text-align: center;
-  border-bottom: 2px dashed black
 }
 
 nav > ul > li {
@@ -72,13 +74,17 @@ nav > ul > li {
 }
 
 h1 {
-  font-size: 3em;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4em;
+  line-height: 0.9em;
   text-align: center;
-  color: #4ADBC8;
+  text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
 }
 
-#stock-container {
-  text-align: center;
+#content-container {
+  width: 80%;
+  margin: 0 auto; 
+  position: relative;
 }
 
 .food-item {
@@ -86,9 +92,9 @@ h1 {
   height: 200px;
   float: left;
   display: inline;
+  position: relative;
   margin: 10px;
   border-radius: 14px;
-  position: relative;
   background-size: 80px 60px;
 }
 

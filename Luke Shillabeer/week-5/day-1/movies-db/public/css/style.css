@@ -38,6 +38,9 @@
   width: 100%;
 }
 
+/*------------------------
+  Single Elements
+------------------------*/
 
 h1 {
   font-size: 3em;
@@ -45,6 +48,7 @@ h1 {
 }
 
 header {
+  position: relative;
   border-bottom: 2px dashed black;
 }
 
@@ -73,9 +77,10 @@ nav > ul > li {
   height: 250px;
   width: 150px;
   background-size: 150px 250px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
   border-radius: 14px;
   box-shadow: 10px 10px 5px #888888;
-  margin: 0px 10px;
+  margin: 10px 10px;
   -webkit-transition: all 0.2s ease-out;  /* Chrome 1-25, Safari 3.2+ */
      -moz-transition: all 0.2s ease-out;  /* Firefox 4-15 */
        -o-transition: all 0.2s ease-out;  /* Opera 10.50–12.00 */
