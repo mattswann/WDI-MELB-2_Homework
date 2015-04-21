@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WOOT</title>
+</head>
+<body>
+  <ul>
+    <% @dishes.each do |dish| %>
+    <li> <a href="/dishes/<%= dish.id %>"> <%= dish.id %> - <%= dish.title %> - <%= dish.image_url %></a></li>
+    <% end %>
+  </ul>
+</body>
+</html>

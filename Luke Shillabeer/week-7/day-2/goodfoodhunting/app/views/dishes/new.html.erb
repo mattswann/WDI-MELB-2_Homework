@@ -1,0 +1,9 @@
+<h2>new dish</h2>
+
+<%= form_tag("/dishes", method: "post") do %>
+  <label for="">Name</label>
+  <input type="text" name="title">
+  <label for="">Image URL</label>
+  <input type="text" name="image_url">
+  <button>Create</button>
+<% end %>
