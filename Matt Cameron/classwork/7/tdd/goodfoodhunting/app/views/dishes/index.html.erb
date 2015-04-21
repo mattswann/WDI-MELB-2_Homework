@@ -1,0 +1,7 @@
+
+	<% @dishes.each do |dish| %>
+		<div>
+			<img src="<%= dish.image_url %>">
+			<p><a href="/dishes/<%= dish.id %>"><%= dish.title %></a></p>
+		</div>
+	<% end %>
