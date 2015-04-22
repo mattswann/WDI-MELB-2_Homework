@@ -1,13 +1,11 @@
 class DishesController < ApplicationController
 
 	def new
+		@dish = Dish.new
 	end
 
 	def create
-		dish = Dish.new
-		dish.title = params[:title]
-		dish.image_url = params[:image_url]
-		dish.save
+		dish = Dish.new(dish_params)
 
 		if dish.save
 			redirect_to '/'
@@ -30,15 +28,20 @@ class DishesController < ApplicationController
 
 	def update
 		dish = Dish.find(params[:id])
-		dish.title = params[:title]
-		dish.image_url = params[:image_url]
-		dish.save
-		redirect_to '/dishes'
+		if dish.update(dish_params)
+			redirect_to '/dishes'
+		else
+			render :edit
+		end
 	end
 
 	def destroy
 		Dish.find(params[:id]).delete
 		redirect_to '/dishes'
+	end
+
+	def dish_params
+		params.require(:dish).permit(:title, :image_url)
 	end
 
 end

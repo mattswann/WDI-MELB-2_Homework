@@ -11,26 +11,11 @@ Rails.application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  get '/'  => 'pages#index'
+  get '/'  => 'dishes#index', :as => :root
   get '/about' => 'pages#about'
+  get '/login' => 'pages#login'
 
-  get '/dishes' => 'dishes#index'
+  resources :dishes, :users, :tags
 
-  get '/dishes/:id' => 'dishes#show'
-
-  # get show form
-  get '/dishes/new' => 'dishes#new'
-
-  #post form - create
-  post '/dishes' => 'dishes#create'
-
-  # delete dishes
-  delete '/dishes/:id' => 'dishes#destroy'
-
-  # show edit form
-  get '/dishes/:id/edit' => 'dishes#edit'
-
-  # edit dishes
-  put '/dishes/:id' => 'dishes#update'
 
 end
