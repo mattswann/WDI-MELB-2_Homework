@@ -38,10 +38,14 @@ class Block
 
 	def check_each_block(letter)
 		@blocks.each do |block|
-
 			if block.include?(letter)
-				next if @used_blocks.include?(block)
+
+				# add to used blocks
 				@used_blocks << block
+
+				# remove from blocks list
+				@blocks.delete_at(@blocks.index(block))
+
 				return true
 			end
 		end
