@@ -1,5 +1,5 @@
 <div>
-	<%= image_tag @dish.image_url %>
+	<%= image_tag @dish.photo %>
 	<h2><%= @dish.title %></h2>
 	<%= button_to 'edit', edit_dish_path, :method => :get %>
 	<%= button_to 'delete', @dish, :method => :delete %>
