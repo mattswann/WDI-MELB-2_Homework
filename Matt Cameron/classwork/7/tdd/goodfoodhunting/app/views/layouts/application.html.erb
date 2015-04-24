@@ -17,7 +17,14 @@
 			<li><%= link_to 'Tags', tags_path %></li>
 			<li><%= link_to 'Create New Tag', new_tag_path %></li>
 		</ul>
-		<%= link_to "Log In", login_path %>
+
+		<div style="position: absolute; top: 4%; right: 5%;">
+			<% if logged_in? %>
+				<%= link_to "Log Out", logout_path, :method => :delete%>
+				<% else %>
+				<%= link_to "Log In", login_path %>
+			<% end %>
+		</div>
 	</nav>
 	<div id="container">
 		<%= yield %>

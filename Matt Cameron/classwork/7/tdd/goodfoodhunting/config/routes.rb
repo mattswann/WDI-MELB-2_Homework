@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   get '/'  => 'dishes#index', :as => :root
   get '/about' => 'pages#about'
-  get '/login' => 'pages#login'
+  get '/login' => 'sessions#new'
+  delete '/logout' => 'sessions#destroy'
+  post '/login' => 'sessions#create'
 
   resources :dishes, :users, :tags
 
