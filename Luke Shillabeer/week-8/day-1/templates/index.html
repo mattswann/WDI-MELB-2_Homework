@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>templates</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div id="container">
+  </div>
+
+  <script id="profile-id-template" type="template">
+    <div class="content">
+      <div class="profile-item">
+        <img src="<%= img_url %>">
+        <h2><%= username %></h2>
+        <p><%= blurb %></p>
+      </div>
+    </div>
+  </script>
+
+  <script src="jquery.js"></script>
+  <script src="underscore.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
