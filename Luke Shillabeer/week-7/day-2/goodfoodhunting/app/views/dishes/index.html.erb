@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WOOT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Dishes</h2>
+
+  <%= link_to "New Dish...", new_dish_path %>
+
+  <ul>
+    <% @dishes.each do |dish| %>
+    <li> 
+      <%= dish.id %> - <%= link_to dish.title, dish %>
+
+      <%= form_tag(edit_dish_path(dish), method: "get") do %>
+        <button>Edit</button>
+      <% end %>
+
+      <%= form_for dish, :method => :delete do |f| %>
+        <button>Delete</button>
+      <% end %>
+    <% end %>
+    </li>
+    
+  </ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<h2>Tags</h2>
+
+<%= link_to "New Tag...", new_tag_path %>
+<ul>
+<% @tags.each do |tag| %>
+<li>
+  <%= link_to tag.name, tag %>
+  <%= link_to "edit", edit_tag_path(tag) %>
+  <%= form_for tag, :method => :delete do |f| %>
+    <button>Delete</button>
+  <% end %>
+</li>
+<% end %>
+</ul>

@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
-  
-  # dish create
-  get  '/dishes/new' => 'dishes#new'
-  post '/dishes'     => 'dishes#create'
+resources :dishes
+resources :tags
+resources :users, only: [:index, :show, :create]
 
-  # dish update
-  get  '/dishes/:id' => 'dishes#edit'
-  put  '/dishes/:id' => 'dishes#update'
+# login routes
+get     '/login'  => 'session#new'
+post    '/login'  => 'session#create'
+get     '/logout' => 'session#destroy'
 
-  #dish delete
-  delete '/dishes' => 'dishes#delete'
+#sign-up routes
+get     '/signup' => 'users#new', :as => 'sign_up'
 
-  get '/about' => 'pages#about'
-  get '/'      => 'pages#index'
+# default route
+get     '/'       => 'pages#index', :as => 'root'
 
 end

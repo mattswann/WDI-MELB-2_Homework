@@ -1,31 +1,44 @@
 class DishesController < ApplicationController
 
-  def new
+  def index
+    @dishes = Dish.all.order(:id)
   end
 
-  def create
+  def new
     @dish = Dish.new
-    @dish.title = params[:title]
-    @dish.image_url = params[:image_url]
-    @dish.save
-    if @dish.save
-      redirect_to '/'
-    else 
-      render :new
-    end
   end
 
   def edit
     @dish = Dish.find_by(:id => params[:id])
   end
 
+  def create
+    @dish = Dish.new(dish_params)
+    @dish.save
+    if @dish.save
+      redirect_to dishes_path
+    else 
+      render :new
+    end
+  end
+
+  def show
+    @dish = Dish.find_by(:id => params[:id])
+  end
+
   def update
-    id = params[:id]
-    title = params[:title]
-    image_url = params[:image_url]
     update_row = Dish.find(params[:id])
-    update_row.update({title: title, image_url: image_url})
-    redirect_to("/")
+    update_row.update(dish_params)
+    redirect_to dishes_path
   end 
 
+  def destroy
+    @dish = Dish.find(params[:id])
+    @dish.destroy
+    redirect_to dishes_path
+  end
+
+  def dish_params
+    params.require(:dish).permit(:title, :image_url, :photo, :remote_photo_url, :tag_ids => [])
+  end
 end
