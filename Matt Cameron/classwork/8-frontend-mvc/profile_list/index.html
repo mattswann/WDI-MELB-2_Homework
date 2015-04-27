@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Profile List</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="menu">
+	<h1>This is the menu</h1>
+</div>
+
+	<div id="container">
+
+		<script id="profile-item-tpl" type="text/x-underscore-template">
+			<div class="profile-item">
+				<div class="content">
+					<img src="{{ image_url }}" alt="Miranda Kerr">
+					<h2>{{ username }}</h2>
+					<h3>{{ age }} years old</h3>
+					<p>{{ blurp }}</p>
+				</div>
+			</div>
+		</script>
+
+	</div>
+</body>
+	<script src="jquery.js"></script>
+	<script src="underscore.js"></script>
+	<script src="backbone.js"></script>
+	<script src="app.js"></script>
+</html>
