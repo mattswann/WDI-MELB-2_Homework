@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Good Food Hunting</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<nav>
+		<div id="create-new-dish">Create new Dish</div>
+	</nav>
+
+	<div id="container">
+	</div>
+
+	<script src="jquery.js"></script>
+	<script src="underscore.js"></script>
+	<script src="backbone.js"></script>
+
+	<script id="dish-template" type="text/x-underscore-template">
+	<div class="image">
+		<img src="{{ image_url }}" alt="{{ name }}">
+	</div>
+	<div class="content">
+		<h3 class="name">{{ name }}</h3>
+		<div class="price">${{ price }}</div>
+		<p class="store">{{ store }}</p>
+	</div>
+</script>
+
+	<script id="likes-template" type="text/x-underscore-template">
+		<div class="likes"><span>&hearts;</span> {{ likes }}</div>
+	</script>
+
+	<script id="new-dish-template" type="text/x-underscore-template">
+		<div id="modal">
+			<div id="modal-container">
+				<h2>Create new dish</h2>
+				<form action="#">
+					<label for="name">Dish Name</label>
+					<input type="text" id="dish_name" placeholder="Chocolate Cake">
+
+					<label for="price">Price ($)</label>
+					<input type="number" id="dish_number" placeholder="24.99">
+
+					<label for="store">Store Purchased From</label>
+					<input type="text" id="dish_store" placeholder="Store ABC">
+
+					<label for="image_url">Image Url</label>
+					<input type="text" id="dish_image_url" placeholder="http://www.image.com/img.jpg">
+
+					<button>Add New Dish</button>
+				</form>
+			</div>
+		</div>
+	</script>
+
+	<script src="app.js"></script>
+</body>
+</html>
+
+
+
