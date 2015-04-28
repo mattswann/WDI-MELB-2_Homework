@@ -54,18 +54,53 @@ _.each(dishes, function(dish) {
 	$('#container').append(view.el)
 })
 
+// ----------- DISH MODAL ------------------
+
+var DishModal = Backbone.View.extend({
+	render: function() {
+		var htmlMaker = _.template( $('#new-dish-template').html() );
+		this.$el.html(htmlMaker() );
+	},
+	events: {
+		'click #modal': 'closeModal',
+		'click #modal-container': 'dontCloseModal',
+		'click #new-dish-btn': 'createDish'
+	},
+	closeModal: function() {
+		$('#modal').remove();
+	},
+	dontCloseModal: function(event) {
+		event.stopPropagation();
+	},
+	createDish: function() {
+		var newDishDetails = {
+			name: $('#dish_name').val(),
+			price: $('#dish_price').val(),
+			store: $('#dish_store').val(),
+			image_url: $('#dish_image_url').val(),
+			likes: 0
+		}
+		if (newDishDetails.name != "") {
+			var new_dish = new DishView({model: newDishDetails });
+			new_dish.render();
+			$('#modal').remove();
+			$('#container').append(new_dish.el)
+		}
+	}
+});
+
 
 // ----------- CREATE NEW DISH -------------
 
 var CreateNewDish = Backbone.View.extend({
 	el: '#create-new-dish',
 	events: {
-		'click': 'createDish'
+		'click': 'formModal',
 	},
-	createDish: function() {
-		var new_dish = new DishView({model: defaultDish});
-	new_dish.render();
-	$('#container').append(new_dish.el)
+	formModal: function() {
+		var modal = new DishModal()
+		modal.render();
+		$('body').prepend(modal.el);
 	}
 });
 

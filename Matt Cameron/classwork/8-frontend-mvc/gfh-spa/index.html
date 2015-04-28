@@ -8,7 +8,7 @@
 <body>
 
 	<nav>
-		<div id="create-new-dish">Create new Dish</div>
+		<button id="create-new-dish">Create new Dish</button>
 	</nav>
 
 	<div id="container">
@@ -37,21 +37,18 @@
 		<div id="modal">
 			<div id="modal-container">
 				<h2>Create new dish</h2>
-				<form action="#">
 					<label for="name">Dish Name</label>
 					<input type="text" id="dish_name" placeholder="Chocolate Cake">
 
 					<label for="price">Price ($)</label>
-					<input type="number" id="dish_number" placeholder="24.99">
+					<input type="number" id="dish_price" placeholder="24.99">
 
 					<label for="store">Store Purchased From</label>
 					<input type="text" id="dish_store" placeholder="Store ABC">
 
 					<label for="image_url">Image Url</label>
 					<input type="text" id="dish_image_url" placeholder="http://www.image.com/img.jpg">
-
-					<button>Add New Dish</button>
-				</form>
+					<button id="new-dish-btn">Add New Dish</button>
 			</div>
 		</div>
 	</script>

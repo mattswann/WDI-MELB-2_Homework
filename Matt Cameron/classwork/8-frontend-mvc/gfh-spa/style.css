@@ -46,6 +46,7 @@ text-align: right;
 .name {
 	font-family: monospace;
 	font-size: 125%;
+	color: #8BAAE2;
 }
 
 .price {
@@ -121,19 +122,27 @@ input[type="text"], input[type="number"] {
 }
 
 button {
-	display: block;
-	margin: 30px auto 0 auto;
 	padding: 15px 30px;
-	background-color: #8BAAE2;
+	background-color: #FF6969;
 	border-radius: 8px;
-	border-color: #7F91EF;
+	border-color: #FAADBB;
 	color: #fff;
 	font-size: 1.1em;
 }
 
 button:hover {
+	background-color: #EA5151;
+}
+
+#new-dish-btn {
+	display: block;
+	margin: 30px auto 0 auto;
+	background-color: #8BAAE2;
+	border-color: #7F91EF;
+}
+
+#new-dish-btn:hover {
 	background-color: #4577D2;
-	cursor: pointer;
 }
 
 label {
