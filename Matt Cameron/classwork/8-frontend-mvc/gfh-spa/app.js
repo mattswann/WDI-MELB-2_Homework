@@ -4,28 +4,6 @@ _.templateSettings = {
 
 
 // --------- DISHES --------------
-var dishes = [{
-	name: 'Chocolate Cake',
-	price: 24.99,
-	store: "Brodam's Cakes",
-	image_url: 'http://www.taste.com.au/images/recipes/sfi/2011/08/27867_l.jpg',
-	likes: 0
-	},
-	{	name: 'Cookies',
-		price: 6.50,
-		store: "Safeway",
-		image_url: 'http://www.chicagonow.com/fitness-at-home/files/2011/08/chocolate_cookies.jpg',
-	likes: 8
-	}];
-
-var defaultDish = {
-	name: 'New Dish',
-	price: 99.99,
-	store: 'Store ABC',
-	image_url: 'http://placehold.it/300x250',
-	likes: 0
-}
-
 
 var DishView = Backbone.View.extend({
 	className: 'dish',
@@ -47,12 +25,26 @@ var DishView = Backbone.View.extend({
 	}
 });
 
-// display each dish
-_.each(dishes, function(dish) {
-	var view = new DishView({model: dish});
-	view.render();
-	$('#container').append(view.el)
-})
+
+
+// ----------- CREATE NEW DISH -------------
+
+var CreateNewDish = Backbone.View.extend({
+	el: '#create-new-dish',
+	events: {
+		'click': 'formModal',
+	},
+	formModal: function() {
+		var modal = new DishModal()
+		modal.render();
+		$('body').prepend(modal.el);
+	}
+});
+
+// show 'create new dish' button on load
+var new_dish = new CreateNewDish()
+
+
 
 // ----------- DISH MODAL ------------------
 
@@ -80,31 +72,20 @@ var DishModal = Backbone.View.extend({
 			image_url: $('#dish_image_url').val(),
 			likes: 0
 		}
+		// extremely basic form validation
 		if (newDishDetails.name != "") {
 			var new_dish = new DishView({model: newDishDetails });
 			new_dish.render();
 			$('#modal').remove();
 			$('#container').append(new_dish.el)
+
+			//add the new dish to LocalStorage
+			dishes = JSON.parse(localStorage.getItem('dishes'));
+			dishes.push (newDishDetails);
+			localStorage.setItem('dishes', JSON.stringify(dishes));
 		}
 	}
 });
-
-
-// ----------- CREATE NEW DISH -------------
-
-var CreateNewDish = Backbone.View.extend({
-	el: '#create-new-dish',
-	events: {
-		'click': 'formModal',
-	},
-	formModal: function() {
-		var modal = new DishModal()
-		modal.render();
-		$('body').prepend(modal.el);
-	}
-});
-
-var new_dish = new CreateNewDish()
 
 
 
@@ -120,8 +101,40 @@ var LikesView = Backbone.View.extend({
 	itemClicked: function() {
 		this.model.likes += 1;
 		this.render();
+		this.updateLocalStorage(this.model.name, this.model.likes);
+	},
+	updateLocalStorage: function(name, likes) {
+		// get all dishes from localStorage
+		dishes = JSON.parse(localStorage.getItem('dishes'));
+
+		// update this dish's likes
+		for (var i in dishes) {
+     if (dishes[i].name == name) {
+        dishes[i].likes = likes;
+     }
+
+     //save back to localStorage
+     localStorage.setItem('dishes', JSON.stringify(dishes));
+   }
 	}
 });
+
+
+
+// ---------- DISPLAY DISHES ON LOAD -------
+
+// get dishes from localStorage
+if (localStorage.getItem('dishes')) {
+	dishes = JSON.parse(localStorage.getItem('dishes'));
+
+	_.each(dishes, function(dish) {
+	var view = new DishView({model: dish});
+	view.render();
+	$('#container').append(view.el)
+})
+} else {  // set dishes to blank if it doesn't exist
+	localStorage.setItem('dishes', JSON.stringify([]))
+};
 
 
 
