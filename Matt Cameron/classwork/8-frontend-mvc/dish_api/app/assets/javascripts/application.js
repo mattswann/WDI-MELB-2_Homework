@@ -1,6 +1,26 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require underscore
+//= require backbone
+//= require_tree .
+
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
+
 
 // --------- DISHES --------------
 
@@ -114,21 +134,19 @@ var LikesView = Backbone.View.extend({
 
 // ---------- DISPLAY DISHES ON LOAD -------
 
-	dishes = [{
-			name: 'pie',
-			price: 23.99,
-			store: 'Safeway',
-			image_url: 'http://www.mediapeta.com/peta/Images/Main/Sections/blog/heckleberry_pie.jpg',
-			likes: 3
-	}];
-
+	// dishes = [{
+	// 		name: 'pie',
+	// 		price: 23.99,
+	// 		store: 'Safeway',
+	// 		image_url: 'http://www.mediapeta.com/peta/Images/Main/Sections/blog/heckleberry_pie.jpg',
+	// 		likes: 3
+	// }];
 
 	$.ajax({
-		url: 'http://localhost:3000/dishes',
+		url: '/dishes',
 		datatype: 'json',
 		method: 'get'
 	}).done(function(data) {
-
 		_.each(data, function(dish) {
 			var new_dishModel = new Dish(dish);
 			var new_dishItem = new DishView({model: new_dishModel})
