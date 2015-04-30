@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	background-color: #fafafa;
+}
+
+#header-container {
+/*	width: 80vw;
+	height: 80vh;
+	line-height: 80vh;
+	border-radius: 20px;
+	margin: 10vh auto;
+	border: 2px solid #7DE0E4;
+	background-color: #B9FAE4;*/
+	display: flex;
+	width: 100%;
+}
+
+#main_header {
+	text-align: center;
+	font-size: 3em;
+}
