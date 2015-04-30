@@ -7,7 +7,14 @@ body {
 	background-color: #fafafa;
 }
 
-#header-container {
+#menu {
+	height: 10vh;
+	line-height: 10vh;
+	background-color: tomato;
+	text-align: center;
+}
+
+#container {
 /*	width: 80vw;
 	height: 80vh;
 	line-height: 80vh;
@@ -17,9 +24,15 @@ body {
 	background-color: #B9FAE4;*/
 	display: flex;
 	width: 100%;
+	height: 90vh;
+	align-items: center;
 }
 
 #main_header {
 	text-align: center;
+	width:100%;
 	font-size: 3em;
+	background-color: plum;
+	margin: 0 10%;
+	padding: 10% 0;
 }
