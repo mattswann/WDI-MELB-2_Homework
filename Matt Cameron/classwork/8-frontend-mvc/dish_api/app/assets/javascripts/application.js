@@ -52,26 +52,6 @@ var DishView = Backbone.View.extend({
 });
 
 
-
-// ----------- CREATE NEW DISH -------------
-
-var CreateNewDish = Backbone.View.extend({
-	el: '#create-new-dish',
-	events: {
-		'click': 'formModal',
-	},
-	formModal: function() {
-		var modal = new DishModal()
-		modal.render();
-		$('body').prepend(modal.el);
-	}
-});
-
-// show 'create new dish' button on load
-var new_dish = new CreateNewDish()
-
-
-
 // ----------- DISH MODAL ------------------
 
 var DishModal = Backbone.View.extend({
@@ -134,14 +114,6 @@ var LikesView = Backbone.View.extend({
 
 // ---------- DISPLAY DISHES ON LOAD -------
 
-	// dishes = [{
-	// 		name: 'pie',
-	// 		price: 23.99,
-	// 		store: 'Safeway',
-	// 		image_url: 'http://www.mediapeta.com/peta/Images/Main/Sections/blog/heckleberry_pie.jpg',
-	// 		likes: 3
-	// }];
-
 	$.ajax({
 		url: '/dishes',
 		datatype: 'json',
@@ -156,3 +128,10 @@ var LikesView = Backbone.View.extend({
 	})
 
 
+// display popup when button is clicked
+
+$('#create-new-dish').on('click', function() {
+	var modal = new DishModal()
+		modal.render();
+		$('body').prepend(modal.el);
+});
