@@ -1,13 +1,13 @@
 var profileItemView = Backbone.View.extend({
   events: {
-    "click" : "profile_clicked",
-    "mouseout" : "profile_mouseout"
+    "click img" : "profile_clicked",
   },
   template: _.template($("#profile-id-template").html()),
   render: function(profile) {
     this.$el.html(this.template(this.model));
   },
   profile_clicked: function(){
+    console.log(this);
     this.$el.fadeOut();
     this.$el.fadeIn();
   }

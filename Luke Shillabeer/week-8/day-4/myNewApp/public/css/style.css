@@ -1,0 +1,43 @@
+/*\
+| | Color scheme: http://app.coolors.co/3f4b3b-44633f-5a9367-5cab7d-4adbc8
+| |
+\*/
+
+/*\
+| | apply a natural box layout model to all elements,
+| | but allowing components to change
+\*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: tomato;
+}
+
+#container {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  border: 2px solid black;
+  transform: translate(10%, 10%);
+}
+
+#pure-center {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#pure-center > h2 {
+  font-size: 4em;
+  font-family: 'Indie Flower', cursive;
+}

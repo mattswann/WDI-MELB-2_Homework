@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CakePudz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="side-ctrl">
+    <button id="new-dish">NEW DISH!</button>
+  </div>
+
+  <div id="content">
+    <img src="img/loader.gif">
+  </div>
+
+  <script id="dish-item-template" type="template">
+      <div class="dish-item-image">
+        <img src="<%= img_url %>">
+      </div>
+      <div class="dish-item-text">
+        <h2><%= name %></h2>
+        <p><%= blurb %></p>
+        <span class="stars"></span>
+      </div>
+  </script>
+
+  
+  <script src="jquery.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script src="dish_helpers.js"></script>
+  <script src="dish.js"></script>
+  <script src="dishes.js"></script>
+  <script src="dish_views.js"></script>
+  <script src="cakepudz.js"></script>
+</body>
+</html>
