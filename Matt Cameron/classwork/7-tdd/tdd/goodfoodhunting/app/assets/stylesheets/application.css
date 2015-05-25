@@ -31,3 +31,14 @@ nav ul li {
 	max-width: 90%;
 	margin: 30px auto;
 }
+
+.dish	{
+	display: inline-block;
+	max-width: 300px;
+	margin-left: 30px;
+	text-align: center;
+}
+
+.dish img{
+	max-width: 100%;
+}

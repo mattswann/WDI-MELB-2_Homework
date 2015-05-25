@@ -1,6 +1,6 @@
 
 <% @dishes.each do |dish| %>
-	<div>
+	<div class="dish">
 		<img src="<%= dish.photo %>">
 		<p><a href="/dishes/<%= dish.id %>"><%= dish.title %></a></p>
 	</div>
