@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+.overlay {
+	display: inline-block;
+	width: 33.3333px;
+	height: 33.3333px;
+	background-color: red;
+}

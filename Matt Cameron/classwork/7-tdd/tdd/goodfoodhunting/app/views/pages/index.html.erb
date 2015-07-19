@@ -1,0 +1,7 @@
+
+	<% @dishes.each do |dish| %>
+		<div>
+			<%= image_tag @dish.image_url %>
+			<%= link_to dish.title, dish_path(dish) %>
+		</div>
+	<% end %>

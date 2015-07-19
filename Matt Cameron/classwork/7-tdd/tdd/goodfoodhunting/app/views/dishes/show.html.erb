@@ -1,0 +1,13 @@
+<div>
+	<%= image_tag @dish.photo %>
+	<h2><%= @dish.title %></h2>
+	<%= button_to 'edit', edit_dish_path, :method => :get %>
+	<%= button_to 'delete', @dish, :method => :delete %>
+</div>
+
+<div>
+	<% @dish.tags.each do |tag| %>
+		<span><%= tag.name %> </span>
+	<% end %>
+</div>
+

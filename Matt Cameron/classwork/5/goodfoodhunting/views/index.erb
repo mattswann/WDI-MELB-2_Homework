@@ -1,0 +1,20 @@
+<h1>Good Food Hunting</h1>
+
+
+<% @dishes.each do |dish| %>
+<figure>
+	<img src="<%= dish.image_url %>" alt="<%= dish.name %>">
+	<figcaption><%= dish.name %></figcaption>
+	<div class="edit">
+
+		<form action="/dishes/<%= dish.id %>/edit" method="put">
+			<button>Edit</button>
+		</form>
+
+		<form action="/dishes/<%= dish.id %>/delete" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<button>Delete</button>
+		</form>
+	</div>
+</figure>
+<% end %>

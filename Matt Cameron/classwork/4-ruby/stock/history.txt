@@ -1,0 +1,6 @@
+aapl, 124.61, Apple Inc.
+goog, 545.0, Google Inc.
+goog, 545.0, Google Inc.
+yhoo, 44.22, Yahoo! Inc.
+aapl, 124.61, Apple Inc.
+Goog, 545.0, Google Inc.

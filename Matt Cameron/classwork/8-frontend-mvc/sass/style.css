@@ -1,0 +1,35 @@
+/* MUST COMPILE BACK TO CSS BEFORE THE BROWSER WILL UNDERSTAND IT
+	stylesheet link in html is pointed at the compiled version. e.g. style.css
+
+	cmd to compile back to css is (in terminal):
+
+	sass <scss filename> <output filename>
+	e.g. sass style.scss style.css
+
+
+	can use watcher to automatically update as you work on the css
+
+	cmd (in terminal):
+	sass --watch style.scss:style.css
+
+	*/
+/* Define variables to use*/
+/* Defin mixins to reduce code */
+body {
+  background-color: tomato; }
+
+.todo-item h2 {
+  background-color: #1aff1a;
+  /* Can use built in SASS functions*/
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+.todo-item p {
+  background-color: pink;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+
+/*# sourceMappingURL=style.css.map */

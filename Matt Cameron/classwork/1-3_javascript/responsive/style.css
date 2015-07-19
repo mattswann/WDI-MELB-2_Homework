@@ -1,0 +1,48 @@
+body {
+	font-family: 'Josefin Slab', serif;
+	max-width: 900px;
+	margin: auto;
+}
+
+img {
+	float: left;
+	max-width: 100%;
+}
+
+.span-one, .span-two, .span-three {
+	min-height: 100px;
+	float:left;
+	margin-right: 1.1111%;
+	margin-top: 1.1111%;
+	font-size: 14px;
+	width: 98.88888%;
+}
+
+.span-one {
+	background-color: cyan;
+}
+
+.span-two {
+	background-color: red;
+}
+
+.span-three {
+	background-color: orange;
+}
+
+
+
+
+/* Media Queries */
+
+@media all and (min-width: 40em) {
+	.span-one {
+	width: 32.22222%;
+	}
+	.span-two {
+	width: 65.55555%;
+	}
+	.span-three {
+		width: 98.88888%;
+	}
+}

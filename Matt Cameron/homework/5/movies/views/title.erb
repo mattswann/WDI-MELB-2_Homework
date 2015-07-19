@@ -1,0 +1,30 @@
+<div id="left">
+	<img src="<%= @movie['poster'] %>" alt="<%= @movie['title'] %> Poster">
+</div>
+<main>
+	<div id="rating">
+		<p><%= @movie['imdbrating'] %></p>
+		<span>IMDB Rating</span>
+	</div>
+
+	<div id="title">
+		<h2><%= @movie['title'] %></h2>
+	</div>
+
+	<div class="info">
+		<p>
+			<span>Rated '<%= @movie['rated'] %>'</span> | <span><%= @movie['runtime'] %></span> | <span><%= @movie['year'] %></span> | <span><%= @movie['language'] %></span>
+		</p>
+		<p>Directed by: <%= @movie['director'] %></p>
+	</div>
+
+	<div id="plot">
+		<%= @movie['plot'] %>
+	</div>
+
+	<div id="actors">
+		<p><strong>Actors:</strong> <%= @movie['actors'] %></p>
+	</div>
+
+
+</main>

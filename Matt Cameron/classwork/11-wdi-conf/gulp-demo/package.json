@@ -1,0 +1,22 @@
+{
+  "name": "gulp-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MC",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^10.2.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.3.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-sass": "^2.0.1"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "underscore": "^1.8.3"
+  }
+}

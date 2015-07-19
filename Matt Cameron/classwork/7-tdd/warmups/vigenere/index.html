@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vigenere Cipher</title>
+</head>
+<body>
+	<h1 style="text-align:center;">Vigenere Cipher</h1>
+
+	<div id="encoding" style="max-width: 500px; display: inline-block;">
+	<h2>Encrypt</h2>
+	<label for="key">Keyword</label>
+	<input id="key" type="text">
+
+	<p>
+		<label for="message">Message</label>
+		<textarea name="message" id="message" cols="30" rows="3"></textarea>
+	</p>
+		<button>Encrypt</button>
+		<h3>Encrypted message:</h3>
+	<p id="output"></p>
+
+</div>
+<div style=" margin-left: 500px; display: inline-block">
+	<h2>Decrypt</h2>
+	<label for="key">Keyword</label>
+	<input id="d_key" type="text">
+
+	<p>
+		<label for="message">Encrypted Message</label>
+		<textarea name="d_message" id="d_message" cols="30" rows="3"></textarea>
+	</p>
+		<button>Decrypt</button>
+		<h3>Decrypted message:</h3>
+	<p id="d_output"></p>
+</div>
+
+	<script src="underscore.js"></script>
+	<script src="vigenere.js"></script>
+</body>
+</html>

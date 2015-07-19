@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Melbourne Train Planner</title>
+	<link rel="stylesheet" href="trains.css">
+</head>
+<body>
+	<h1>Melbourne Trains System</h1>
+	<div id="container">
+		<main>
+			<span>Start Station:</span>
+			<form action="">
+				<select id="startStation">
+					<option value="Flinders Street">Flinders Street</option>
+					<option value="Richmond">Richmond</option>
+					<option value="East Richmond">East Richmond</option>
+					<option value="Burnley">Burnley</option>
+					<option value="Hawthorn">Hawthorn</option>
+					<option value="Glenferrie">Glenferrie</option>
+					<option value="Flagstaff">Flagstaff</option>
+					<option value="Melbourne Central">Melbourne Central</option>
+					<option value="Parliament">Parliament</option>
+					<option value="Kooyong">Kooyong</option>
+					<option value="Tooronga">Tooronga</option>
+					<option value="Southern Cross">Southern Cross</option>
+					<option value="South Yarra">South Yarra</option>
+					<option value="Prahran">Prahran</option>
+					<option value="Windsor">Windsor</option>
+				</select>
+
+				<span>End Station:</span>
+				<select id="endStation">
+					<option value="Flinders Street">Flinders Street</option>
+					<option value="Richmond">Richmond</option>
+					<option value="East Richmond">East Richmond</option>
+					<option value="Burnley">Burnley</option>
+					<option value="Hawthorn">Hawthorn</option>
+					<option value="Glenferrie">Glenferrie</option>
+					<option value="Flagstaff">Flagstaff</option>
+					<option value="Melbourne Central">Melbourne Central</option>
+					<option value="Parliament">Parliament</option>
+					<option value="Kooyong">Kooyong</option>
+					<option value="Tooronga">Tooronga</option>
+					<option value="Southern Cross">Southern Cross</option>
+					<option value="South Yarra">South Yarra</option>
+					<option value="Prahran">Prahran</option>
+					<option value="Windsor">Windsor</option>
+				</select>
+				<button id="submit">Enter</button>
+			</form>
+
+			<div id="results">
+				<p id="stopsDisplay"></p>
+				<p id="routeDisplay"></p>
+			</div>
+		</main>
+	</div>
+	<script src="jquery.js"></script>
+	<script src="underscore.js"></script>
+	<script src="trains2.js"></script>
+</body>
+</html>

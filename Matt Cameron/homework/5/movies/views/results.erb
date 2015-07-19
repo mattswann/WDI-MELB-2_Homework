@@ -1,0 +1,12 @@
+<h2>Results</h2>
+
+<ul>
+	<% @results.each do |result| %>
+		<li><a href="/movie?title=<%= result['Title'] %>"><%= result['Title'] %></a></li>
+	<% end %>
+</ul>
+
+<form action="/movie">
+	<input type="text" name="title">
+	<button>Search</button>
+</form>

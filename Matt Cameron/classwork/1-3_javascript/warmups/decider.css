@@ -1,0 +1,30 @@
+
+body {
+	text-align: center;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+#container {
+	max-width: 60%;
+	margin:auto;
+}
+
+.column {
+	display: inline-block;
+	width:40%;
+}
+
+.column span {
+	font-size: 30px;
+}
+
+.total {
+	font-size: 30px;
+}
+
+#displayResult {
+	font-size: 60px;
+}
