@@ -1,0 +1,112 @@
+body {
+	background-color: lightgray;
+}
+
+.container {
+	font-family: sans-serif;
+}
+
+header {
+	background-image: url(../images/background.jpg);
+	background-repeat: repeat-x;
+}
+
+header img {
+	margin: 0 auto;
+	display: block;
+	padding-top: 20px;
+	margin-bottom: 40px;
+}
+
+.main {
+	width: 70%;
+	margin: 0 auto;
+}
+
+p {
+	font-size: 12px;
+}
+
+.links p {
+	line-height: 8px;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: red;
+	font-weight: bold;
+}
+
+article img {
+	width: 100%;
+}
+
+footer {
+	margin-top: 30px;
+}
+
+ul li {
+	display: inline;
+}
+
+.byline {
+	border-bottom: solid 1px black;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-top: dotted 1px black;
+}
+
+.articles {
+	background-color: white;
+	display: inline-block;
+	width: 65%;
+	margin-right: 3%;
+	padding: 3%;
+	float: left;
+}
+
+.links {
+	display: inline-block;
+	width: 32%;
+	background-color: white;
+	vertical-align: top;
+	padding: 3%;
+}
+
+.article1 {
+	margin-bottom: 50px;
+}
+
+.ads img {
+	width: 100%;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.social {
+	text-align: center;
+	list-style: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*----------------------------------*/
+/* Clearfix for floats              */
+/*----------------------------------*/
+.cf:before,
+.cf:after {
+   content:"";
+   display:table;
+}
+.cf:after {
+   clear:both;
+}
+.cf {
+   zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}

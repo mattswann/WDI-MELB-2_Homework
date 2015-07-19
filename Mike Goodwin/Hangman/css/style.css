@@ -1,0 +1,110 @@
+body {
+	background-color: black;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+h1 {
+	margin: 40px 0 40px;
+	text-align: center;
+	font-size: 3.5em;
+	font-family: 'Sigmar One', cursive;
+	color: white;
+}
+
+p {
+	color: white;
+}
+
+p, #letterField {
+	font-family: 'Port Lligat Slab', serif;
+}
+
+p, #wordString {
+	font-size: 1.5em;
+}
+
+#wordString {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#userMsg {
+	width: 90%;
+	font-size: 1.25em;
+	margin: 40px auto 0;
+	text-align: center;
+	height: 40px;
+}
+
+#guessLetter, #lettersGuessed, #remainingGuesses {
+	margin-left: 5%;
+	margin-bottom: 30px;
+	width: 85%;
+}
+
+#guessLetter {
+	margin-top: 30px;
+}
+
+#letterField {
+    font-size: 1em;
+    width: 12.5%;
+    text-align: center;
+    background-color: lightgray;
+}
+
+#guessedLetters {
+	font-size: .75em;
+}
+
+#gameControlArea {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.button {
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding: 15px 5%;
+	background-color: lightgray;
+	cursor: pointer;
+	color: black;
+	font-weight: bold;
+}
+
+#giveUpButton, #resetButton {
+	float: left;
+	width: 45%;
+	text-align: center;
+}
+
+#giveUpButton {
+	margin-right: 5%;
+}
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*----------------------------------*/
+/* Clearfix for floats              */
+/*----------------------------------*/
+.cf:before,
+.cf:after {
+   content:"";
+   display:table;
+}
+.cf:after {
+   clear:both;
+}
+.cf {
+   zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
