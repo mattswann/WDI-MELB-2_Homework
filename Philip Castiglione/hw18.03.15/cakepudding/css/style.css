@@ -1,0 +1,199 @@
+/** {
+  box-sizing: border-box;
+}*/
+
+body {
+  background-image: url("../images/space.jpg");
+  color: white;
+  max-width: 80%;
+  margin: 0 auto;
+  font-family: 'Indie Flower', cursive;
+}
+
+#sound {
+  border: none;
+  background: none;
+  position: absolute;
+  width: 5%;
+  margin: 0;
+  margin-left: -10%;
+}
+
+#soundimg {
+  width: 100%;
+}
+
+header {
+  background-color: rgba(100,100,100,.4);
+  max-width: 80%;
+  margin: 0 auto 1em auto;
+  text-align: center;
+  font-family: 'Play', monospace;
+  padding: 0.2em 1em;
+  /*border-radius: */
+}
+
+section.game_console {
+  max-width: 100%;
+}
+
+.start_game {
+  line-height: 3em;
+  text-align: right;
+  /*border-radius: */
+}
+
+.in_game {
+  /*border-radius: */
+}
+
+button {
+  width: 13%;
+  margin: .5%;
+  font-size: 1em;
+  font-family: 'Play', monospace;
+  background-color: rgba(195,115,214,.7);
+  color: white;
+}
+
+button#play {
+  width: 30%;
+  font-size: 1.8em;
+}
+
+.inactive {
+  background-color: rgba(195,195,195,.7);
+}
+
+.max_chances {
+  font-size: 1.2em;
+}
+
+input {
+  width: 5%;
+  font-family: 'Play', monospace;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  text-align: center;
+  padding: 0;
+}
+
+.high_score {
+  display: inline-block;
+  width: 48%;
+  margin-right: 4%;
+  font-size: 1.2em;
+}
+
+.char_pretty {
+  display: inline-block;
+  text-align: center;
+  width: 8%;
+  font-size: 4em;
+  padding: 0;
+  line-height: 1em;
+}
+
+.highlight {
+  color: rgba(80,140,255,1);
+}
+
+.secret_word {
+  display: inline-block;
+  text-align: center;
+  width: 60%;
+  font-size: 2em;
+}
+
+.hide {
+  display: none;
+}
+
+.guessed {
+  color: rgba(150,150,150,1);
+}
+
+
+section.game_animation {
+  height: 200px;
+  background-color: rgba(100,100,100,.3);
+  border: .5em solid rgba(150,150,150,.5);
+  /*border-radius: */
+}
+
+.game_wrapper {
+  position: relative;
+}
+
+.overlay {
+  display: none;
+  font-family: 'Play', monospace;
+  line-height: 192px;
+  text-align: center;
+  font-size: 5em;
+  width: 100%;
+  height: 200px;
+  color: red;
+  z-index: 1;
+}
+
+#space_gif {
+  position: absolute;
+  opacity: .7;
+  width: 100%;
+  height: 200px;
+  z-index: -1;
+}
+
+.alphabet {
+  text-align: center;
+  max-width: 100%;
+  font-size: 1.5em;
+}
+
+.current_score {
+  position:absolute;
+  right: 13%;
+}
+
+.blork_div {
+  display: inline-block;
+  width: 12%;
+  margin-left: 2%;
+  margin-right: 60%;
+}
+
+.blork {
+  width: 55%;
+}
+
+#blork1, #blork3 {
+  float: left;
+}
+
+#blork2 {
+  float: right;
+}
+
+#spaceman1 {
+  width: 5%;
+  -moz-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#spaceman2 {
+  width: 5%;
+  display: none;
+}
+
+footer {
+  clear: both;
+  font-size: 1em;
+  max-width: 100%;
+}
+
+/*add document icon*/
+/*add border radius*/
+/*make it responsive!*/
