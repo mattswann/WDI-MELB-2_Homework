@@ -1,0 +1,41 @@
+body {
+  font-family: 'Indie Flower', cursive;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+img {
+  float: left;
+  max-width: 900px;
+}
+
+.span-1, .span-2, .span-3 {
+  min-height: 100px;
+  float: left;
+  margin-right: 1.1111111%;
+  width: 98.888888%;
+}
+
+.span-1 {
+  background-color: deepskyblue;
+}
+
+.span-2 {
+  background-color: plum;
+}
+
+.span-3 {
+  background-color: lime;
+}
+
+@media all and (min-width: 35em) {
+  .span-1 {
+    width: 32.2222222%;
+  }
+  .span-2 {
+    width: 65.555555%;
+  }
+  .span-3 {
+    width: 98.888888%;
+  }
+}

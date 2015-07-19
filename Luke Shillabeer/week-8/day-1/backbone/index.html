@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classmates</title>
+  <link rel="stylesheet" href="classmates.css">
+</head>
+<body>
+
+  <div id="container"></div>
+  
+  <script id="profile-id-template" type="template">
+    <div class="content">
+      <div class="profile-item">
+        <img src="<%= img_url %>">
+        <h2><%= username %></h2>
+        <p><%= blurb %></p>
+        <ul><%= projects %></ul>
+      </div>
+    </div>
+  </script>
+
+  <script src="jquery.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script src="test.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+$primary-color: plum;
+$second-color: blue;
+$third-color: pink;
+
+body {
+  background-color: $primary-color;
+}
+
+.todo-item {
+  h2 {
+    background-color: $second-color;
+  }
+
+  p {
+    background-color: $third-color;
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vigenere Crytothingy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="vigenere.js"></script>
+</head>
+<body>
+  <header>
+    <img class="circle-img" src="http://screenshots.en.sftcdn.net/en/scrn/64000/64081/matrix-code-emulator-3.jpg">
+    <p>Vigenere Cypher</p>
+  </header>
+  <nav>
+
+  </nav>
+  <div class="content">
+    <label>Cypher Key</label>
+    <input class="large-textbox" type="text" id="key">
+    <label>Input plaintext</label>
+    <input class="large-textbox" type="text" id="plaintext">
+    <button style="height: 50px; width: 200px;" id="enc_button">ENCRYPT</button>
+
+    <p id="output"></p>
+
+  </div>
+
+  <script>
+    $("#enc_button").click(function() {
+      var key   = $("#key").val();
+      var plain = $("#plaintext").val();
+      
+      $("#output").text((encrypt(plain,key)));
+      console.log((encrypt(plain,key)));
+    });
+  </script>
+</body>
+</html>

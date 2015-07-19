@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+  <body>
+    <header>
+      <h1 class="span-3">StockTikr</h1><!--
+   --><div class="span-2" id="input-container">
+        <form action="/">
+          <input type="text" name="stock_symbol" value=<%= params["stock_symbol"] %>>
+          <button>SUBMIT THIS SHIT</button>
+        </form>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/">Index/Search</a></li>
+        <li><a href="/history">Search History</a></li>
+      </ul>
+    </nav>
+    <%= yield %>
+
+    <img src="img/dancing-guy.gif" alt="Dancing guy"><img src="img/nailed-it.gif" alt="">
+  </body>
+</html>

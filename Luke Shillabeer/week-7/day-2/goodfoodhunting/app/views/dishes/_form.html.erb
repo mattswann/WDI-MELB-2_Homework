@@ -1,0 +1,10 @@
+<%= form_for @dish do |f| %>
+  <br><%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <br><%= f.label :remote_photo_url %>
+  <%= f.text_field :remote_photo_url %><%= f.file_field :photo %>
+
+  <br><%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br>
+  <%= f.submit %>
+<% end %>

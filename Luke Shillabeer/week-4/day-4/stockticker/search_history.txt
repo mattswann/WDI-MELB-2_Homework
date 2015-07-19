@@ -1,0 +1,15 @@
+aapl
+aapl,goog
+aapl,goog,yhoo
+aapl,goog,yhoo
+aapl,goog,yhoo
+goog
+aapl,goog
+aapl,goog,yhoo
+aapl,goog,yhoo
+aapl,goog,yhoo
+aapl,goog
+yhoo
+yhoo
+aapl,goog,yhoo
+aapl,goog,yhoo

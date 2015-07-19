@@ -1,0 +1,12 @@
+<% if @movies != nil %>
+<% @movies.each do |movie| %>
+<ul>
+  <li>Title - <a href="/movie/<%= movie['imdbID'] %>"><%= movie['Title'] %></a></li>
+  <li>Year - <%= movie['Year'] %></li>
+  <li>imdbID - <%= movie['imdbID'] %></li>
+  <li>Type - <%= movie['Type'] %></li>
+</ul>
+<% end %>
+<% else %>
+<p>Sorry, no movies with that title returned.</p>
+<% end %>

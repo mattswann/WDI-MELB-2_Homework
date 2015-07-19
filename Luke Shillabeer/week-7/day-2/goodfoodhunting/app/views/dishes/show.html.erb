@@ -1,0 +1,5 @@
+<h2><%= @dish.title %></h2>
+<img src="<%= @dish.photo_url %>" alt="<%= @dish.title %>">
+<ul>
+<%= @dish.tags.pluck(:name).join().upcase.split('') %>
+</ul>

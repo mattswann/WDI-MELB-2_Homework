@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MovieSearchDB</title>
+  <link rel="stylesheet" href="http://localhost:4567/css/reset.css">
+  <link rel="stylesheet" href="http://localhost:4567/css/style.css">
+  <link rel="stylesheet" href="http://localhost:4567/css/searchbox.css">
+</head>
+<body>
+  <header>
+    <div class="span-4"><h1>MovieSearchDB</h1></div><!--
+ --><div class="span-4">
+      <form id="searchbox" action="/search" method="post">
+        <input id="search" type="text" placeholder="Type here" name="title">
+        <input id="submit" type="submit" value="Search">  
+      </form>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Search</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/history">History</a></li>
+      </ul>
+    </nav>
+  </header>
+  <%= yield %>
+</body>
+</html>

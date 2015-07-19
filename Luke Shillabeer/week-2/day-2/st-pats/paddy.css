@@ -1,0 +1,66 @@
+/*
+  Based on this colour-scheme...
+  http://app.coolors.co/4c9f70-99ddc8-95bf74-283f3b-3a2e39
+*/
+
+body {
+  border: 0;
+  margin: 0;
+  background-color: #4C9F70;
+}
+
+h1 {
+  border: 0;
+  margin: 0;
+}
+
+header {
+  background-color: #95BF74;
+  font-family: 'Droid Serif', serif;
+  font-size: 200%;
+  padding: 0 0 10px 0;
+  text-align: center;
+  border-bottom: 3px dashed #3A2E39;
+}
+
+#input {
+  width: 250px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 30px 20px 0;
+}
+
+#answer {
+  background-image: url("img/text-bubble.png");
+  background-size: 300px, 300px;
+  height: 100px;
+  width: 300px;
+  padding: 40px 0 0 0;
+  font-size: 110%;
+}
+
+#images {
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+
+#textbox {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Droid Serif', serif;
+  font-size: 110%;
+  margin: 20px 15px 0 15px;
+}
+
+.test {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: text-top;
+}
+
+.inline {
+  display: inline;
+;
+}

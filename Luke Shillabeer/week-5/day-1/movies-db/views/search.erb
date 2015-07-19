@@ -1,0 +1,5 @@
+<ul id="poster-list">
+  <% @recent_five.each do |movie| %>
+  <li><a href="/movie/<%= movie['imdbid'] %>"><div class=" poster-box" style="background-image: url('<%= movie["poster"] %>');"></div></a></li>
+  <% end %>
+</ul>

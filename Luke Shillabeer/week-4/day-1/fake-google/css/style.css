@@ -1,0 +1,15 @@
+header {
+  text-align: right;
+}
+
+li {
+  display: inline;
+}
+
+#container {
+  margin: 0 auto;
+}
+
+#main-search {
+  display: block;
+}

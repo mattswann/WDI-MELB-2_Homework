@@ -1,0 +1,110 @@
+/*\
+| | Color scheme: http://app.coolors.co/e4efda-d5ffd9-c8eba4-fff89c-fde9a7
+| |
+\*/
+
+/*\
+| | apply a natural box layout model to all elements,
+| | but allowing components to change
+\*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
+  background-color: #E4EFDA;
+  color: black;
+}
+
+.inline {
+  display: inline;
+}
+
+/*------------------------
+  DIV span sizings
+------------------------*/
+
+.span-1, .span-2, .span-3, .span-4, .span-5 {
+  display: inline-block;
+}
+
+.span-1 {
+  width: 20%;
+}
+
+.span-2 {
+  width: 40%;
+}
+
+.span-3 {
+  width: 60%;
+}
+
+.span-4 {
+  width: 80%;
+}
+
+.span-5 {
+  width: 100%;
+}
+
+/*------------------------
+  Individual Elements
+------------------------*/
+
+header {
+  padding-top: 8px;
+  background-color: #FDE9A7;
+  border-bottom: 2px dashed black;
+}
+
+nav {
+  margin: 18px auto 9px auto;
+  text-align: center;
+}
+
+nav > ul > li {
+  display: inline-block;
+  margin: 0 0.7em;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4em;
+  line-height: 0.9em;
+  text-align: center;
+  text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
+}
+
+#content-container {
+  width: 80%;
+  margin: 0 auto; 
+  position: relative;
+}
+
+.food-item {
+  width: 260px;
+  height: 200px;
+  float: left;
+  display: inline;
+  position: relative;
+  margin: 10px;
+  border-radius: 14px;
+  background-size: 80px 60px;
+}
+
+.food-item-links {
+  padding: 3px;
+  border: 2px dashed black;
+  background-color: rgba(255,255,255, 0.7);;
+  border-radius: 14px;
+  position: relative;
+  top: 85%;
+  left: 63%;
+  display: inline;
+}

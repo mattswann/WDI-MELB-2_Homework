@@ -1,0 +1,20 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/lukeshillabeer/Code/wdi/WDI-MELB-2_Homework/Luke Shillabeer/week-7/day-2/goodfoodhunting/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lukeshillabeer/Code/wdi/WDI-MELB-2_Homework/Luke Shillabeer/week-7/day-2/goodfoodhunting/app/models/fruit.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1429853988
+  }
+}

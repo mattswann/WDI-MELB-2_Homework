@@ -1,0 +1,136 @@
+/* 
+http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
+*/
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    margin: 0;
+    font-size: 16px;
+}
+h1,
+h2,
+h3,
+h4,
+p{
+  line-height: 1.5em;
+  font-family: Arial;
+},
+blockquote,
+figure,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: block;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Bree Serif', serif;
+    font-size: inherit;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    transition: .3s;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+/* Individual Elements */
+
+header {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  background-color: #ededed;
+}
+
+code {
+  background-color: #ECECEC;
+  font-family: monospace;
+}
+
+header > img{
+  max-width: 12vh;
+  max-height: 12vh;
+  border-radius: 10vh;
+}
+
+header > p{
+  font-family: 'Bree Serif', serif;
+  font-size: 2em;
+  margin-left: 2vw;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 600px;
+  margin: 0.5em auto;
+  text-align: center;
+  font-size: 1.6em;
+}
+
+h1.content {
+  text-align: center;
+  font-size: 2em;
+  margin: 0.5em auto 1em;
+}
+
+h2.content {
+  font-size: 1.5em;
+}
+
+.large-textbox {
+  height: 60px;
+  line-height: 60px;
+  font-family: Arial;
+  font-size: 2em;
+}
+
+.elem {
+  position: relative;
+  width: 94vw;
+  border: 3px solid #6AC5AC;
+  margin: 10px auto;
+}
+
+.elem::before {
+  position: absolute;
+  width: 55px;
+  height: 16px;
+  content: "<div>";
+  background-color: #6AC5AC;
+  text-align: center;
+}
+
+.elem::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 55px;
+  height: 16px;
+  content: "</div>";
+  background-color: #6AC5AC;
+  text-align: center;
+}
+
+.elem p {
+  padding: 25px 25px;
+}
